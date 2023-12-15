@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SklepInternetowy.Android", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SklepInternetowy.iOS", "SklepInternetowy\SklepInternetowy.iOS\SklepInternetowy.iOS.csproj", "{1F024097-2BDE-42F0-9B19-85D9412E3BA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SklepInternetowy", "SklepInternetowy\SklepInternetowy\SklepInternetowy.csproj", "{2235A325-BC0B-49D1-820C-FF505E72AA07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SklepInternetowy", "SklepInternetowy\SklepInternetowy\SklepInternetowy.csproj", "{2235A325-BC0B-49D1-820C-FF505E72AA07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApiZamowienia", "RestApiZamowienia\RestApiZamowienia.csproj", "{47A4DCBB-2E41-423A-AA61-444C5A3E721A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestApiZamowienia", "RestApiZamowienia\RestApiZamowienia.csproj", "{47A4DCBB-2E41-423A-AA61-444C5A3E721A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
