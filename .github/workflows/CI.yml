@@ -18,6 +18,8 @@ jobs:
         uses: actions/setup-dotnet@v4.0.0
         with: 
           dotnet-version: 7.0.x
+      - name: Setup Xamarin
+        uses: maxim-lobanov/setup-xamarin@v1
       - name: Restore dependencies
         run: dotnet restore
       - name: Build
