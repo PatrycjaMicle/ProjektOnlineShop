@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "DTLUCqvtjClWeWUYCiljbRiopir1Vn/N16W7sIXxwkDr/x4LyVcliwE7MpIFFu/dfaJzbkzeT4pVfzjz2IGxwA==",
+  "dgSpecHash": "I3NTpnXBvUbytshil5m8lnWPRniYPlJVWecvTJYk1gOagQw+jf8/oFG8oag1VWrVFICQONB+C4O3bw70VNYZcQ==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+  "projectFilePath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\micle\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\micle\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
-    "C:\\Users\\micle\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
+    "C:\\Users\\smile\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\smile\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
+    "C:\\Users\\smile\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
   "logs": []
 }

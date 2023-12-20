@@ -14,6 +14,7 @@ namespace RestApiZamowienia.Controllers
     [ApiController]
     public class AdresController : ControllerBase
     {
+
         private readonly SklepInternetowyContext _context;
 
         public AdresController(SklepInternetowyContext context)
