@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "I3NTpnXBvUbytshil5m8lnWPRniYPlJVWecvTJYk1gOagQw+jf8/oFG8oag1VWrVFICQONB+C4O3bw70VNYZcQ==",
+  "dgSpecHash": "n7WO3RyDGDxsbMXLukRqH6Ac6586JiEpm5sLBU1iWnTKC5F/vvzDOiMu0gPL4F9kIhHcsallfRC2ih4UQqsIhA==",
   "success": true,
   "projectFilePath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\smile\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\smile\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\smile\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\smile\\.nuget\\packages\\system.runtime.serialization.primitives\\4.3.0\\system.runtime.serialization.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\smile\\.nuget\\packages\\xamarin.essentials\\1.7.0\\xamarin.essentials.1.7.0.nupkg.sha512",
     "C:\\Users\\smile\\.nuget\\packages\\xamarin.forms\\5.0.0.2196\\xamarin.forms.5.0.0.2196.nupkg.sha512"
   ],
