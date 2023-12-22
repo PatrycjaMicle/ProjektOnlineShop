@@ -1,10 +1,12 @@
 ﻿using SklepInternetowy.Models;
 using SklepInternetowy.Views;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using Item = SklepInternetowy.Models.Item;
 
 namespace SklepInternetowy.ViewModels
 {
@@ -35,11 +37,25 @@ namespace SklepInternetowy.ViewModels
             try
             {
                 Items.Clear();
-                //var items = await DataStore.GetItemsAsync(true);
-                //foreach (var item in items)
-                //{
-                //    Items.Add(item);
-                //}
+                var items = new List<Item>
+                {
+                    new Item
+                    {
+                        Id = "1",
+                        Text = "Text 1",
+                        Description = "Opis 1",
+                    },
+                    new Item
+                    {
+                        Id = "2",
+                        Text = "Text 2",
+                        Description = "Opis 2",
+                    }
+                }; 
+                foreach (var item in items)
+                {
+                    Items.Add(item);
+                }
             }
             catch (Exception ex)
             {
