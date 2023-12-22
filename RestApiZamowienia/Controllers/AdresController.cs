@@ -30,7 +30,7 @@ namespace RestApiZamowienia.Controllers
           {
               return NotFound();
           }
-            return await _context.Adres.ToListAsync();
+          return await _context.Adres.ToListAsync();
         }
 
         // GET: api/Adres/5

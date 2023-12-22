@@ -14,6 +14,7 @@ namespace SklepInternetowy
             InitializeComponent();
 
             //DependencyService.Register<MockDataStore>();
+            DependencyService.Register<UzytkownikDataStore>();
             MainPage = new AppShell();
         }
 

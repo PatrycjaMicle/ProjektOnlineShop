@@ -33,3 +33,11 @@ D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\net
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.dll
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\refint\SklepInternetowy.dll
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.pdb
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\bin\Debug\netstandard2.0\SklepInternetowy.deps.json
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\bin\Debug\netstandard2.0\SklepInternetowy.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\bin\Debug\netstandard2.0\ref\SklepInternetowy.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\bin\Debug\netstandard2.0\SklepInternetowy.pdb
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\KontoPage.xaml.g.cs
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\XamlC.stamp
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\DaneOsobowePage.xaml.g.cs
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\AdresyPage.xaml.g.cs
