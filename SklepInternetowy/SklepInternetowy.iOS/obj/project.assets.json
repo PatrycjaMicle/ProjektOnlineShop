@@ -1607,24 +1607,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\smile\\.nuget\\packages\\": {},
+    "C:\\Users\\micle\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+      "projectUniqueName": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
       "projectName": "SklepInternetowy.iOS",
-      "projectPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
-      "packagesPath": "C:\\Users\\smile\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
+      "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+      "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
+      "outputPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\smile\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\micle\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1638,8 +1638,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
-              "projectPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
+            "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+              "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
             }
           }
         }

@@ -1281,3 +1281,7 @@ D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\D
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\Newtonsoft.Json.dll
+C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.Annotations.dll
+C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.DataAnnotations.dll
+C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.DataAnnotations.pdb

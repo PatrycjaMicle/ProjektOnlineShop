@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VisualStudio\\SklepInternetowy\\RestApiZamowienia\\RestApiZamowienia.csproj": {}
+    "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\RestApiZamowienia.csproj": {}
   },
   "projects": {
-    "D:\\VisualStudio\\SklepInternetowy\\RestApiZamowienia\\RestApiZamowienia.csproj": {
+    "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\RestApiZamowienia.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VisualStudio\\SklepInternetowy\\RestApiZamowienia\\RestApiZamowienia.csproj",
+        "projectUniqueName": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\RestApiZamowienia.csproj",
         "projectName": "RestApiZamowienia",
-        "projectPath": "D:\\VisualStudio\\SklepInternetowy\\RestApiZamowienia\\RestApiZamowienia.csproj",
-        "packagesPath": "C:\\Users\\smile\\.nuget\\packages\\",
-        "outputPath": "D:\\VisualStudio\\SklepInternetowy\\RestApiZamowienia\\obj\\",
+        "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\RestApiZamowienia.csproj",
+        "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
+        "outputPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\smile\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\micle\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

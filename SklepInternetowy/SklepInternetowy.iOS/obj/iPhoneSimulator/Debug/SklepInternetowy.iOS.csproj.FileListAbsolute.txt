@@ -125,3 +125,4 @@ D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.iOS\obj\iPhon
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.iOS\obj\iPhoneSimulator\Debug\SklepInternetowy.iOS.csproj.CopyComplete
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.iOS\obj\iPhoneSimulator\Debug\SklepInternetowy.iOS.exe
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.iOS\obj\iPhoneSimulator\Debug\SklepInternetowy.iOS.pdb
+C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.iOS\bin\iPhoneSimulator\Debug\Newtonsoft.Json.dll
