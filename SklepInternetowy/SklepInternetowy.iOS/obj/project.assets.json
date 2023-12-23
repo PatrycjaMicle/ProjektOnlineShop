@@ -1613,11 +1613,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+      "projectUniqueName": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
       "projectName": "SklepInternetowy.iOS",
-      "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+      "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
       "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
+      "outputPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -1638,8 +1638,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
-              "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
+            "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+              "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
             }
           }
         }

@@ -1,1 +1,1 @@
-C:\Projekty\PROJEKT\AplikacjeMobilne\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86
+C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86

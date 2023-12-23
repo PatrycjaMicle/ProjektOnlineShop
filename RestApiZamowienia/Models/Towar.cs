@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace RestApiZamowienia.Models;
@@ -51,20 +52,25 @@ public partial class Towar
 
     [ForeignKey("IdKategorii")]
     [InverseProperty("Towars")]
+    [JsonIgnore]
     public virtual Kategorium? IdKategoriiNavigation { get; set; }
 
     [ForeignKey("KtoDodal")]
     [InverseProperty("TowarKtoDodalNavigations")]
+    [JsonIgnore]
     public virtual Uzytkownik? KtoDodalNavigation { get; set; }
 
     [ForeignKey("KtoUsunal")]
     [InverseProperty("TowarKtoUsunalNavigations")]
+    [JsonIgnore]
     public virtual Uzytkownik? KtoUsunalNavigation { get; set; }
 
     [ForeignKey("KtoZmodyfikowal")]
     [InverseProperty("TowarKtoZmodyfikowalNavigations")]
+    [JsonIgnore]
     public virtual Uzytkownik? KtoZmodyfikowalNavigation { get; set; }
 
     [InverseProperty("IdTowaruNavigation")]
+    [JsonIgnore]
     public virtual ICollection<TowarZamowienium> TowarZamowienia { get; set; } = new List<TowarZamowienium>();
 }

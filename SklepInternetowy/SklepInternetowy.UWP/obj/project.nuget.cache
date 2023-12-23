@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Wphid2QIpInXy10Pn+UpZeS1I/lWdATj4QfAR2ubJf0UxDVGGOIAfKU3BeDa8IJlTJQKkLTHeV15ZlNrR7KKwg==",
+  "dgSpecHash": "2aMe41PMjkTRRP0tO8XChFVO6SW52NcR6XYAga4jXTc1KHr+rrfia5FBrIHD8FSXvpMzV22ESc47d8uIclZB6w==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
+  "projectFilePath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.net.native.compiler\\2.2.10-rel-29722-00\\microsoft.net.native.compiler.2.2.10-rel-29722-00.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.net.uwpcoreruntimesdk\\2.2.12\\microsoft.net.uwpcoreruntimesdk.2.2.12.nupkg.sha512",

@@ -13,7 +13,7 @@ namespace SklepInternetowy.Services
         protected readonly SklepInternetowyService sklepInternetowyService;
         public ADataStore()
         {
-            sklepInternetowyService = new SklepInternetowyService("https://localhost:7228/", new System.Net.Http.HttpClient());
+            sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", new System.Net.Http.HttpClient());
         }
         public async Task<bool> AddItemAsync(T item)
         {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "kirmL5IJgSMp6/g+gtE/zxl1AGQ6BWJj55FCOIIwCfbwonHBtQoTzLvfbRSWl5RC2lDxSwNNdsCIBnIfFW5vbw==",
+  "dgSpecHash": "zyqP6lvbSY5rN7t90zYVweXtiWxZK+yGkakzYq9oVw3GXlvjmfIbmjf6ee8m5cNAi26fSoz5M17Fk58z29prZg==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
+  "projectFilePath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.extensions.apidescription.client\\7.0.2\\microsoft.extensions.apidescription.client.7.0.2.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

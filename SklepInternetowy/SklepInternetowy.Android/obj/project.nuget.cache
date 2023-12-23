@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ahXLse4e2vFquA3nETvhfgdPNOwr/cpDByqS92gRVduhThamlotAxMOvloFlQRTqgD4w5ISAahjDokYNUuqH1Q==",
+  "dgSpecHash": "cjsdApVb7xB6lA7vph0ldyBYrNkBb9Tyd/5yJ6oXHD1vjNCUVf8+ug5GraWtMZ7cRPVVM4JeTB1XPP1dsQ92RA==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
+  "projectFilePath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micle\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",

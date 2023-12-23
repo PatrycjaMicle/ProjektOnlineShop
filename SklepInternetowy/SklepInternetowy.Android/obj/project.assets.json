@@ -3638,11 +3638,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
+      "projectUniqueName": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
       "projectName": "SklepInternetowy.Android",
-      "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
+      "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.Android\\SklepInternetowy.Android.csproj",
       "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
-      "outputPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy.Android\\obj\\",
+      "outputPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -3663,8 +3663,8 @@
       "frameworks": {
         "monoandroid13.0": {
           "projectReferences": {
-            "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
-              "projectPath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
+            "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+              "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
             }
           }
         }

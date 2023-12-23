@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zqFdcjIqc4r+E5DH4Y9kclsaduyd+HUsITIm30B+/WcCB73PCXdH8nhxg/n6QDhSntMWdB+tLtdUE+pdz0yunA==",
+  "dgSpecHash": "gkXQNwnTnU0QENVlvIw/ptAce6iWzdD+GKZZdnf0NTGXATM0HmJMLJDwzo6dyvI4z9xTUjmOQxgGp5K2tby0EQ==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\PROJEKT\\AplikacjeMobilne\\RestApiZamowienia\\RestApiZamowienia.csproj",
+  "projectFilePath": "C:\\Projekty\\ProjektOnlineShop\\RestApiZamowienia\\RestApiZamowienia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micle\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

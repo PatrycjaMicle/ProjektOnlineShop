@@ -10,6 +10,8 @@ namespace SklepInternetowy.Services
     {
         public TowaryDataStore() 
         {
+           // sklepInternetowyService.ReadResponseAsString = true;
+
            items = sklepInternetowyService.TowarAllAsync().GetAwaiter().GetResult().ToList();
         }
         public override Towar Find(Towar item)
