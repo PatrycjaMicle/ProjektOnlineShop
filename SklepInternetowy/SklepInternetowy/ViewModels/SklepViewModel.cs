@@ -1,4 +1,5 @@
-﻿using SklepInternetowy.Views;
+﻿using SklepInternetowy.Services;
+using SklepInternetowy.Views;
 using SklepInternetowyServiceReference;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace SklepInternetowy.ViewModels
     public class SklepViewModel : BaseViewModel
     {
         #region Declarations
+
+        public TowaryDataStore dataStore = new TowaryDataStore();
         private Towar _selectedItem;
 
         public ObservableCollection<Towar> Items { get; }
@@ -38,34 +41,10 @@ namespace SklepInternetowy.ViewModels
         async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
-
             try
             {
                 Items.Clear();
-                var items = new List<Towar>
-                {
-                    new Towar
-                    {
-                        IdTowaru = 1,
-                        Nazwa = "Opony",
-                        Cena = 800,
-                        Opis = "Wytrzymale opony na zime"
-                    },
-                    new Towar
-                    {
-                        IdTowaru = 2,
-                        Nazwa = "Hamulce",
-                        Cena = 570,
-                        Opis = "Mocne Hamulce"
-                    },
-                    new Towar
-                    {
-                        IdTowaru = 3,
-                        Nazwa = "Sprzeglo",
-                        Cena = 1270,
-                        Opis = "Sprzeglo dla Audi A6"
-                    }
-                };
+                var items = await dataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
                     Items.Add(item);
@@ -92,12 +71,12 @@ namespace SklepInternetowy.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
+        //TODO
+        //Wyswietlanie szczegolow towaru - czy potrzebne? mozna zastapic od razu komenda dodawania do koszyka onClick
         async void OnItemSelected(Towar item)
         {
             if (item == null)
                 return;
-
-            // This will push the ItemDetailPage onto the navigation stack
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.IdTowaru}");
         }
 
