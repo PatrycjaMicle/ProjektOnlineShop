@@ -3854,9 +3854,6 @@ namespace SklepInternetowyServiceReference
                 return new ObjectResponseResult<T>(default(T), string.Empty);
             }
 
-            System.Console.WriteLine("-------------------------", ReadResponseAsString);
-            System.Console.WriteLine("-------------------------", response.Content.ToString());
-
             if (ReadResponseAsString)
             {
                 var responseText = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
