@@ -10,10 +10,10 @@ namespace SklepInternetowy.Services
     public abstract class ADataStore<T> : IDataStore<T> where T : class
     {
         public List<T> items;
-        protected readonly SklepInternetowyService _sklepInternetowyService;
-        protected ADataStore()
+        protected readonly SklepInternetowyService sklepInternetowyService;
+        public ADataStore()
         {
-            _sklepInternetowyService = new SklepInternetowyService("https://localhost:7228/s", new System.Net.Http.HttpClient());
+            sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", new System.Net.Http.HttpClient());
         }
         public async Task<bool> AddItemAsync(T item)
         {

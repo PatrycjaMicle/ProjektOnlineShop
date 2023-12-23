@@ -15107,18 +15107,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\smile\\.nuget\\packages\\": {},
+    "C:\\Users\\micle\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
+      "projectUniqueName": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
       "projectName": "SklepInternetowy.UWP",
-      "projectPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
-      "packagesPath": "C:\\Users\\smile\\.nuget\\packages\\",
-      "outputPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.UWP\\obj\\",
+      "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.UWP\\SklepInternetowy.UWP.csproj",
+      "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
+      "outputPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.UWP\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -15126,7 +15126,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\smile\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\micle\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -15140,8 +15140,8 @@
       "frameworks": {
         "uap10.0.16299": {
           "projectReferences": {
-            "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
-              "projectPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
+            "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+              "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
             }
           }
         }

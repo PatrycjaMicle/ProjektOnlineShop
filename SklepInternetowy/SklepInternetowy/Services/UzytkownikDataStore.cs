@@ -10,7 +10,7 @@ namespace SklepInternetowy.Services
     {
         public UzytkownikDataStore() 
         {
-           items = _sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
+           items = sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
         }
         public override Uzytkownik Find(Uzytkownik item)
         {
@@ -24,12 +24,12 @@ namespace SklepInternetowy.Services
 
         public override async Task Refresh()
         {
-            items = (await _sklepInternetowyService.UzytkownikAllAsync()).ToList();
+            items = (await sklepInternetowyService.UzytkownikAllAsync()).ToList();
         }
 
         public override async Task<bool> DeleteItemFromService(Uzytkownik item)
         {
-            return await _sklepInternetowyService.UzytkownikDELETEAsync(item.IdUzytkownika).HandleRequest();
+            return await sklepInternetowyService.UzytkownikDELETEAsync(item.IdUzytkownika).HandleRequest();
         }
 
         public override async Task<bool> UpdateItemInService(Uzytkownik item)
@@ -39,7 +39,7 @@ namespace SklepInternetowy.Services
 
         public override async Task<Uzytkownik> AddItemToService(Uzytkownik item)
         {
-            return await _sklepInternetowyService.UzytkownikPOSTAsync(item).HandleRequest();
+            return await sklepInternetowyService.UzytkownikPOSTAsync(item).HandleRequest();
         }
     }
 }

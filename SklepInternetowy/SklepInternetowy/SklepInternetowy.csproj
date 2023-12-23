@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
-      <SourceUri>https://localhost:7228/swagger/v1/swagger.json</SourceUri>
+    <OpenApiReference Include="OpenAPIs\swagger3.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
+      <SourceUri>http://localhost:5219/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
 
@@ -29,6 +29,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Views\SklepPage.xaml.cs">
+      <DependentUpon>SklepPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <EmbeddedResource Update="Views\AdresyPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -38,5 +44,10 @@
     <EmbeddedResource Update="Views\KontoPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService" />
+    <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService" />
   </ItemGroup>
 </Project>
