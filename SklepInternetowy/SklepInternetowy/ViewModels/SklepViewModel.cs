@@ -1,12 +1,6 @@
-﻿using SklepInternetowy.Services;
-using SklepInternetowy.ViewModels.Abstract;
+﻿using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowy.Views;
 using SklepInternetowyServiceReference;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
@@ -24,5 +18,12 @@ namespace SklepInternetowy.ViewModels
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
+        public override async void OnItemSelected(Towar item)
+        {
+            if (item == null)
+                return;
+
+            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.IdTowaru}");
+        }
     }
 }
