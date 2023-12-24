@@ -1,14 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:SklepInternetowy.ViewModels" 
+             x:DataType="viewmodels:ItemDetailViewModel"
              x:Class="SklepInternetowy.Views.ItemDetailPage"
-             Title="{Binding Title}">
+             Title="Szczegoly produktu">
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small"/>
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small"/>
+    <StackLayout Spacing="25" Padding="15" BackgroundColor="White">
+
+
+        <Image Source="{Binding Url}" 
+           Aspect="AspectFit" 
+           HeightRequest="400"/>
+            
+        <Label Text="{Binding Nazwa}" FontSize="24" TextColor="#2c3e50" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+
+        <Label Text="Opis towaru:" FontSize="16" TextColor="#34495e"/>
+        <Label Text="{Binding Opis}" FontSize="14" TextColor="#34495e" FontAttributes="Bold"/>
+
+        <Label Text="Kod towaru:" FontSize="16" TextColor="#34495e"/>
+        <Label Text="{Binding Kod}" FontSize="14" TextColor="#34495e" FontAttributes="Bold"/>
+
+        <Label Text="Cena:" FontSize="16" TextColor="#34495e" />
+        <Label Text="{Binding Cena}" FontSize="18" TextColor="#34495e" FontAttributes="Bold"/>
+
     </StackLayout>
-    
+
 </ContentPage>
