@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 
 namespace RestApiZamowienia.Models;
@@ -53,9 +54,11 @@ public partial class Klient
     [InverseProperty("KlientKtoZmodyfikowalNavigations")]
     public virtual Uzytkownik? KtoZmodyfikowalNavigation { get; set; }
 
+    [JsonIgnore]
     [InverseProperty("IdKlientaNavigation")]
     public virtual ICollection<SesjaKoszyka> SesjaKoszykas { get; set; } = new List<SesjaKoszyka>();
 
+    [JsonIgnore]
     [InverseProperty("IdKlientaNavigation")]
     public virtual ICollection<Zamowienie> Zamowienies { get; set; } = new List<Zamowienie>();
 }

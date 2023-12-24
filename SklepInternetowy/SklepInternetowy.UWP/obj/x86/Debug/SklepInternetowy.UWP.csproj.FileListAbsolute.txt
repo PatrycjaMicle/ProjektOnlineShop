@@ -190,3 +190,13 @@ C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\obj\x86\Debu
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\obj\x86\Debug\ProjectArchitectures.txt
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636160715180000000.json
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_638194388980000000.json
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\Microsoft.IdentityModel.Abstractions.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\Microsoft.IdentityModel.Logging.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\Microsoft.IdentityModel.Tokens.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\System.IdentityModel.Tokens.Jwt.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\System.Text.Encodings.Web.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\bin\x86\Debug\System.Text.Json.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\obj\x86\Debug\FxResources.System.Text.Json.SR.resw

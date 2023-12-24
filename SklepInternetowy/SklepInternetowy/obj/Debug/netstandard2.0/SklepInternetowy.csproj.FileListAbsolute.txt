@@ -5,7 +5,6 @@ D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\net
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\AboutPage.xaml.g.cs
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\ItemDetailPage.xaml.g.cs
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\ItemsPage.xaml.g.cs
-D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\LoginPage.xaml.g.cs
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\NewItemPage.xaml.g.cs
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.AssemblyInfoInputs.cache
 D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.AssemblyInfo.cs
@@ -69,3 +68,6 @@ C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy\obj\Debug\netsta
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.dll
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\refint\SklepInternetowy.dll
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\SklepInternetowy.pdb
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\SklepPage.xaml.g.cs
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\LoginAndRegister\LoginPage.xaml.g.cs
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy\obj\Debug\netstandard2.0\Views\LoginAndRegister\RegisterPage.xaml.g.cs

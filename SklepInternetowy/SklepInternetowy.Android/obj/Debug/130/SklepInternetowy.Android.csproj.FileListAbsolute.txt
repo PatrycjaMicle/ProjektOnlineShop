@@ -1930,3 +1930,6 @@ C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.Android\obj\Debu
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_GenerateJavaStubs.stamp
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_GeneratePackageManagerJava.stamp
 C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\stamp\_ResolveLibraryProjectImports.stamp
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.Annotations.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.DataAnnotations.dll
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.Android\obj\Debug\130\android\assets\System.ComponentModel.DataAnnotations.pdb

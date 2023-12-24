@@ -1,1 +1,1 @@
-C:\Projekty\ProjektOnlineShop\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86
+D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86

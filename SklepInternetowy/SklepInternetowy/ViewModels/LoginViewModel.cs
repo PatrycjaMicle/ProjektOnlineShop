@@ -1,24 +1,66 @@
 ﻿using SklepInternetowy.Views;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using System.Threading.Tasks;
+using Newtonsoft.Json;
+using SklepInternetowy.Services;
+using SklepInternetowy.Views.LoginAndRegister;
+using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        public Command LoginCommand { get; }
+        readonly LoginAndRegisterService _loginAndRegisterService;
+
+        private string _email;
+        private string _password;
 
         public LoginViewModel()
         {
-            LoginCommand = new Command(OnLoginClicked);
+            LoginCommand = new Command(async () => await OnLoginClicked());
+            RegisterCommand = new Command( async () => await OnRegisterClicked());
+
+            _loginAndRegisterService = new LoginAndRegisterService();
         }
 
-        private async void OnLoginClicked(object obj)
+        public Command LoginCommand { get; }
+        public Command RegisterCommand { get; }
+
+        public string Email
+        {
+            get => _email;
+            set => SetProperty(ref _email, value);
+        }
+
+        public string Password
+        {
+            get => _password;
+            set => SetProperty(ref _password, value);
+        }
+
+
+        private async Task OnLoginClicked()
         {
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
-            await Shell.Current.GoToAsync($"//{nameof(AboutPage)}");
+            //await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
+
+            var loginDto = new LoginDto()
+            {
+                Email = _email,
+                Password = _password
+            };
+            var jwt = await _loginAndRegisterService.Login(loginDto);
+            App.Current.MainPage = new AppShell();
+        }
+
+        private async Task OnRegisterClicked()
+        { 
+            App.Current.MainPage = new RegisterPage();
         }
     }
 }

@@ -880,3 +880,4 @@ C:\Projekty\ProjektOnlineShop\RestApiZamowienia\obj\Debug\net6.0\refint\RestApiZ
 C:\Projekty\ProjektOnlineShop\RestApiZamowienia\obj\Debug\net6.0\RestApiZamowienia.pdb
 C:\Projekty\ProjektOnlineShop\RestApiZamowienia\obj\Debug\net6.0\RestApiZamowienia.genruntimeconfig.cache
 C:\Projekty\ProjektOnlineShop\RestApiZamowienia\obj\Debug\net6.0\ref\RestApiZamowienia.dll
+D:\VisualStudio\SklepInternetowy\RestApiZamowienia\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
