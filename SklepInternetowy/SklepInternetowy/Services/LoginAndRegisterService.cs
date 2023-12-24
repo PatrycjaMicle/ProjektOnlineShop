@@ -18,10 +18,10 @@ namespace SklepInternetowy.Services
         public async Task Register(RegisterUserDto dto)
         {
             await _sklepInternetowyService.RegisterAsync(dto);
-        }
+        } 
 
-        public async Task<string> Login(LoginDto dto)
-        {
+        public async Task<JwtStorage> Login(LoginDto dto)
+        { 
             return await _sklepInternetowyService.LoginAsync(dto);
         }
     }

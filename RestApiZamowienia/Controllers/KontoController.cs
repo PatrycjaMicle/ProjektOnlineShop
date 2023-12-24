@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.IdentityModel.JsonWebTokens;
 using RestApiZamowienia.Dto;
 using RestApiZamowienia.Services.Interfaces;
 
@@ -25,10 +26,14 @@ namespace RestApiZamowienia.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(LoginDto dto)
+        public async Task<ActionResult<JwtStorage>> Login(LoginDto dto)
         {
             var jwt = await _accountService.GenerateJwt(dto);
-            return Ok(jwt);
+            var jwtStorage = new JwtStorage()
+            {
+                Jwt = jwt
+            };
+            return Ok(jwtStorage);
         }
 
         [HttpDelete]

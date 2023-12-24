@@ -45,6 +45,7 @@ namespace RestApiZamowienia.Services
                 .Include(r => r.RolaUzytkownika)
                 .FirstOrDefaultAsync(a => a.Email == dto.Email);
 
+            //TODO error handling
             //if (user is null)
             //    throw new BadRequestException("Invalid username or password");
 

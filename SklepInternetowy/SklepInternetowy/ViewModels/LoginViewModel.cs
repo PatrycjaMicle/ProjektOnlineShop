@@ -54,8 +54,15 @@ namespace SklepInternetowy.ViewModels
                 Email = _email,
                 Password = _password
             };
-            var jwt = await _loginAndRegisterService.Login(loginDto);
-            App.Current.MainPage = new AppShell();
+
+            //TODO add jwt decoding to get user role value
+            var jwtStorage = await _loginAndRegisterService.Login(loginDto);
+
+            if (jwtStorage != null)
+            {
+                App.Current.MainPage = new AppShell();
+            }
+
         }
 
         private async Task OnRegisterClicked()
