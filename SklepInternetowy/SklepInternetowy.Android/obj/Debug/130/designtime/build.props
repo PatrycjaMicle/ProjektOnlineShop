@@ -25,11 +25,11 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-_nugetassetstimestamp=638388953174728894
+_nugetassetstimestamp=638391419355264196
 typemapkind=strings-asm
 androidsupportedabis=arm64-v8a
 armeabi-v7a
 x86
 x86_64
 androidmanifestplaceholders=
-projectfullpath=c:\projekty\projektonlineshop\sklepinternetowy\sklepinternetowy.android\sklepinternetowy.android.csproj
+projectfullpath=c:\projekt-wojtek-branch\test123\sklepinternetowy\sklepinternetowy.android\sklepinternetowy.android.csproj
