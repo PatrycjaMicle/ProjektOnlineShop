@@ -1,1 +1,0 @@
-D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x64
