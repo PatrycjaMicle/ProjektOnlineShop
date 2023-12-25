@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gkXQNwnTnU0QENVlvIw/ptAce6iWzdD+GKZZdnf0NTGXATM0HmJMLJDwzo6dyvI4z9xTUjmOQxgGp5K2tby0EQ==",
+  "dgSpecHash": "sWSjBVSuVq2IHQE/V4MQqDdw9n1Djw+62C+MJsN1TDYvWMmS++1LzbyXIJCnAZiArPLLKy/tUAcg7N7O7Rjjgg==",
   "success": true,
-  "projectFilePath": "C:\\Projekty\\ProjektOnlineShop\\RestApiZamowienia\\RestApiZamowienia.csproj",
+  "projectFilePath": "C:\\projekt-wojtek-branch\\Test123\\RestApiZamowienia\\RestApiZamowienia.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\micle\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",
@@ -59,6 +59,7 @@
     "C:\\Users\\micle\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",
+    "C:\\Users\\micle\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.25\\microsoft.aspnetcore.authentication.jwtbearer.6.0.25.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.0\\microsoft.aspnetcore.razor.language.6.0.0.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\5.0.0\\microsoft.bcl.asyncinterfaces.5.0.0.nupkg.sha512",
     "C:\\Users\\micle\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",

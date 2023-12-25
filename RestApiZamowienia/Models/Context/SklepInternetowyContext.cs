@@ -33,12 +33,16 @@ public partial class SklepInternetowyContext : DbContext
     public virtual DbSet<TowarZamowienium> TowarZamowienia { get; set; }
 
     public virtual DbSet<Uzytkownik> Uzytkowniks { get; set; }
+    public virtual DbSet<RolaUzytkownika> RolaUzytkownika { get; set; }
 
     public virtual DbSet<Zamowienie> Zamowienies { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-P72H1AR\\SQLEXPRESS;TrustServerCertificate=True;Integrated Security=True;Database=ProjektAplikacjeMobilneSklep");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-78T85JN\\SQLEXPRESS;TrustServerCertificate=True;Integrated Security=True;Database=ProjektAplikacjeMobilneSklep");
+                                                            //DESKTOP-78T85JN\SQLEXPRESS nie usuwac haha!
+                                                            //dobry pomysl DESKTOP-P72H1AR\\SQLEXPRESS  Pati
+                                                            
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

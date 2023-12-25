@@ -50,7 +50,19 @@ namespace SklepInternetowy.ViewModels
                         Id = "2",
                         Text = "Text 2",
                         Description = "Opis 2",
-                    }
+                    },
+                    new Item
+                    {
+                        Id = "3",
+                        Text = "Text 3",
+                        Description = "Opis 3",
+                    },
+                    new Item
+                    {
+                        Id = "4",
+                        Text = "Text 4",
+                        Description = "Opis 4",
+                    },
                 }; 
                 foreach (var item in items)
                 {

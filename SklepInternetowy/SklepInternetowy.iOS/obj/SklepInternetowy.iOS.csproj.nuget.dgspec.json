@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj": {}
+    "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj": {
+    "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+        "projectUniqueName": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
         "projectName": "SklepInternetowy.iOS",
-        "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
+        "projectPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy.iOS\\SklepInternetowy.iOS.csproj",
         "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
+        "outputPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
-                "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
+              "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+                "projectPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj"
               }
             }
           }
@@ -68,14 +68,14 @@
         }
       }
     },
-    "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+    "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
+        "projectUniqueName": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
         "projectName": "SklepInternetowy",
-        "projectPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
+        "projectPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
         "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
-        "outputPath": "C:\\Projekty\\ProjektOnlineShop\\SklepInternetowy\\SklepInternetowy\\obj\\",
+        "outputPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -134,6 +134,10 @@
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             },
             "System.Runtime.Serialization.Primitives": {
               "target": "Package",

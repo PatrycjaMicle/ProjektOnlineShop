@@ -2,6 +2,7 @@
 using SklepInternetowy.Views;
 using System;
 using System.Collections.Generic;
+using SklepInternetowy.Views.LoginAndRegister;
 using Xamarin.Forms;
 
 namespace SklepInternetowy

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:loginAndRegister="clr-namespace:SklepInternetowy.ViewModels.LoginAndRegister;assembly=SklepInternetowy"
+             x:Class="SklepInternetowy.Views.LoginAndRegister.RegisterPage">
+
+    <ContentPage.BindingContext>
+        <loginAndRegister:RegisterViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="CenterAndExpand" Margin="20" >
+            <Label Text="Imie" />
+            <Entry Placeholder="Imie" Text="{Binding Imie}" />
+            <Label Text="Nazwisko"  />
+            <Entry Placeholder="Nazwisko" Text="{Binding Nazwisko}" />
+            <Label Text="Email" />
+            <Entry Placeholder="Email" Text="{Binding Email}" />
+            <Label Text="Password" />
+                <Entry Placeholder="Password" IsPassword="true" Text="{Binding Password}" />
+            <Label Text="Confirm Password" />
+            <Entry Placeholder="Confirm Password" IsPassword="true" Text="{Binding ConfirmPassword}" />
+            <Button Text="Sign Up" Command="{Binding RegisterCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

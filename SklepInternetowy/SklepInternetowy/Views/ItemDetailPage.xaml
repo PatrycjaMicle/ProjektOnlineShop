@@ -6,7 +6,7 @@
              x:Class="SklepInternetowy.Views.ItemDetailPage"
              Title="Szczegoly produktu">
 
-    <StackLayout Spacing="25" Padding="15" BackgroundColor="White">
+    <StackLayout Spacing="20" Padding="15" BackgroundColor="White">
 
 
         <Image Source="{Binding Url}" 
