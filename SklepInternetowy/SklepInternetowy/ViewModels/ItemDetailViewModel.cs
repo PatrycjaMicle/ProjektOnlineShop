@@ -1,4 +1,5 @@
 ﻿using SklepInternetowy.Models;
+using SklepInternetowy.Services;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -9,24 +10,56 @@ namespace SklepInternetowy.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
-        private string itemId;
-        private string text;
-        private string description;
-        public string Id { get; set; }
+        public TowaryDataStore dataStore = new TowaryDataStore();
 
-        public string Text
+        private int itemId;
+        private string opis;
+        private double? cena;
+        private string kod;
+        private string nazwa;
+        private string url;
+        public int Id { get; set; }
+
+        public string Opis
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => opis;
+            set => SetProperty(ref opis, value);
         }
 
-        public string Description
+
+        public string Url
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => url;
+            set => SetProperty(ref url, value);
         }
 
-        public string ItemId
+        public double? Cena
+        {
+            get => cena;
+            set
+            {
+                if (cena != value)
+                {
+                    cena = value;
+                    OnPropertyChanged(nameof(Cena));
+                }
+            }
+        }
+
+
+        public string Kod
+        {
+            get => kod;
+            set => SetProperty(ref kod, value);
+        }   
+        
+        public string Nazwa
+        {
+            get => nazwa;
+            set => SetProperty(ref nazwa, value);
+        }
+
+        public int ItemId
         {
             get
             {
@@ -39,14 +72,21 @@ namespace SklepInternetowy.ViewModels
             }
         }
 
-        public async void LoadItemId(string itemId)
+        public async void LoadItemId(int itemId)
         {
             try
             {
-                //var item = await DataStore.GetItemAsync(itemId);
-                //Id = item.Id;
-                //Text = item.Text;
-                //Description = item.Description;
+                var item = await dataStore.GetItemAsync(itemId);
+                Id = item.IdTowaru;
+                Cena = item.Cena;
+                Opis = item.Opis;
+                Kod = item.Kod;
+                Nazwa = item.Nazwa;
+                Url = item.ZdjecieUrl;
+
+                Debug.WriteLine($"URL: {Url}");
+
+
             }
             catch (Exception)
             {

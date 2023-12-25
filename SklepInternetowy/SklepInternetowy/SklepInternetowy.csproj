@@ -57,4 +57,8 @@
     <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService" />
     <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\Assets\" />
+  </ItemGroup>
 </Project>

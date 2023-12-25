@@ -1,4 +1,5 @@
 ﻿using SklepInternetowy.Services;
+using SklepInternetowy.Views;
 using System; 
 using System.Collections.ObjectModel;
 using System.Diagnostics; 
@@ -67,11 +68,7 @@ namespace SklepInternetowy.ViewModels.Abstract
             GoToAddPage();
         }
 
-        async void OnItemSelected(T item)
-        {
-            if (item == null)
-                return;
-            //await Shell.Current.GoToAsync($"{nameof(ClientDetailPage)}?{nameof(ClientDetailViewModel.ItemId)}={item.IdClient}");
-        }
+        public abstract void OnItemSelected(T item);
+       
     }
 }
