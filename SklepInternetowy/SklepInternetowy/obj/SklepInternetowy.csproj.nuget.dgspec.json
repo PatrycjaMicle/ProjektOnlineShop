@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {}
+    "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {}
   },
   "projects": {
-    "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
+    "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
+        "projectUniqueName": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
         "projectName": "SklepInternetowy",
-        "projectPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
-        "packagesPath": "C:\\Users\\smile\\.nuget\\packages\\",
-        "outputPath": "D:\\VisualStudio\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy\\obj\\",
+        "projectPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\SklepInternetowy.csproj",
+        "packagesPath": "C:\\Users\\micle\\.nuget\\packages\\",
+        "outputPath": "C:\\projekt-wojtek-branch\\Test123\\SklepInternetowy\\SklepInternetowy\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\smile\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\micle\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

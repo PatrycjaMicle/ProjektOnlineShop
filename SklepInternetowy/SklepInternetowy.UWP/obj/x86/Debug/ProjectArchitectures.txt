@@ -1,1 +1,1 @@
-D:\VisualStudio\SklepInternetowy\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86
+C:\projekt-wojtek-branch\Test123\SklepInternetowy\SklepInternetowy.UWP\SklepInternetowy.UWP.csproj;x86
