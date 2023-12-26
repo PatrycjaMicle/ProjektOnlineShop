@@ -1,8 +1,8 @@
-﻿using SklepInternetowy.Services;
+﻿using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.Views;
-using System; 
+using System;
 using System.Collections.ObjectModel;
-using System.Diagnostics; 
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 

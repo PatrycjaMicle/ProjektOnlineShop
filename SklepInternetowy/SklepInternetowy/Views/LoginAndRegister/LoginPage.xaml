@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SklepInternetowy.Views.LoginAndRegister.LoginPage"
+             Shell.NavBarIsVisible="False"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Margin="0,20,0,20" HeightRequest="180" WidthRequest="80"></Grid>
+            <Frame Grid.Row="1" Margin="20,30" BorderColor="#1C375C" HasShadow="True"  CornerRadius="50" >
+                <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" RowSpacing="20" Padding="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Label Grid.Row="0"  Text="Welcome Back!" FontSize="24" FontAttributes="Bold" TextColor="#1C375C" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="1" Margin="0,-15,0,0" Text="Login in to account" TextColor="#1C375C"  HorizontalOptions="CenterAndExpand"></Label>
+                    <Entry Grid.Row="2" Placeholder="Email" Text="{Binding Email}" Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Entry Grid.Row="3" Placeholder="Password" IsPassword="True" Text="{Binding Password}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"></Entry>
+                    <Button Grid.Row="4" Text="Login" BackgroundColor="#1C375C" CornerRadius="20" Command="{Binding LoginCommand}"></Button>
+                    <Button Grid.Row="5" Text="Register" BackgroundColor="#1C375C" CornerRadius="20" Command="{Binding RegisterCommand}"></Button>
+                    <Label Grid.Row="7" Text="Forget Password" FontAttributes="Bold" HorizontalOptions="CenterAndExpand"></Label>
+                    <Label Grid.Row="8"  Text="Don't have an account? Sign up here" HorizontalOptions="CenterAndExpand"></Label>
+
+                </Grid>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

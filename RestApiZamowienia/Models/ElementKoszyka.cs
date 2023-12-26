@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace RestApiZamowienia.Models;
 
@@ -24,9 +22,11 @@ public partial class ElementKoszyka
 
     [ForeignKey("IdSesjiKoszyka")]
     [InverseProperty("ElementKoszykas")]
+    [JsonIgnore]
     public virtual SesjaKoszyka? IdSesjiKoszykaNavigation { get; set; }
 
     [ForeignKey("IdTowaru")]
     [InverseProperty("ElementKoszykas")]
+    [JsonIgnore]
     public virtual Towar? IdTowaruNavigation { get; set; }
 }

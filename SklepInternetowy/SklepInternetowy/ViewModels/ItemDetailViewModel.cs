@@ -1,5 +1,5 @@
 ﻿using SklepInternetowy.Models;
-using SklepInternetowy.Services;
+using SklepInternetowy.Services.DataStore;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
