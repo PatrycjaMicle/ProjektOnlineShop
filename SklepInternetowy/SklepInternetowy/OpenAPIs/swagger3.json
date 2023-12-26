@@ -2080,12 +2080,6 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
-          },
-          "idSesjiKoszykaNavigation": {
-            "$ref": "#/components/schemas/SesjaKoszyka"
-          },
-          "idTowaruNavigation": {
-            "$ref": "#/components/schemas/Towar"
           }
         },
         "additionalProperties": false
@@ -2323,7 +2317,7 @@
             "type": "integer",
             "format": "int32"
           },
-          "idKlienta": {
+          "idUzytkownika": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -2337,16 +2331,6 @@
             "type": "string",
             "format": "date-time",
             "nullable": true
-          },
-          "elementKoszykas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ElementKoszyka"
-            },
-            "nullable": true
-          },
-          "idKlientaNavigation": {
-            "$ref": "#/components/schemas/Klient"
           }
         },
         "additionalProperties": false
@@ -2593,6 +2577,13 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/Towar"
+            },
+            "nullable": true
+          },
+          "sesjaKoszykas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SesjaKoszyka"
             },
             "nullable": true
           }
