@@ -11,7 +11,7 @@ using RestApiZamowienia.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SklepInternetowyContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SklepInternetowyEntities") ?? throw new InvalidOperationException("Connection string 'SklepInternetowyEntities' not found.")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("SklepInternetowyEntities")));
 
 // Add services to the container.
 
@@ -45,6 +45,19 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
+
+using var scope = app.Services.CreateScope();
+var dbContext = scope.ServiceProvider.GetService<SklepInternetowyContext>();
+var pendingMigrations = dbContext.Database.GetPendingMigrations();
+if (pendingMigrations.Any())
+{
+    dbContext.Database.Migrate();
+}
+
+if (!dbContext.Uzytkowniks.Any())
+{
+    dbContext.Seed();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
