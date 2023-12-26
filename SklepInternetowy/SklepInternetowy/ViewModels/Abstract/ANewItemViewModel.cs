@@ -1,4 +1,4 @@
-﻿using SklepInternetowy.Services; 
+﻿using SklepInternetowy.Services.DataStore;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels.Abstract

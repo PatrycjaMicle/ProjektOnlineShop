@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using RestApiZamowienia.Models;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace RestApiZamowienia.Models.Context;
 
@@ -39,7 +36,7 @@ public partial class SklepInternetowyContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=DESKTOP-78T85JN\\SQLEXPRESS;TrustServerCertificate=True;Integrated Security=True;Database=ProjektAplikacjeMobilneSklep");
+        => optionsBuilder.UseSqlServer("Server=DESKTOP-P72H1AR\\SQLEXPRESS;TrustServerCertificate=True;Integrated Security=True;Database=ProjektAplikacjeMobilneSklep");
                                                             //DESKTOP-78T85JN\SQLEXPRESS nie usuwac haha!
                                                             //dobry pomysl DESKTOP-P72H1AR\\SQLEXPRESS  Pati
                                                             
@@ -84,7 +81,7 @@ public partial class SklepInternetowyContext : DbContext
 
         modelBuilder.Entity<SesjaKoszyka>(entity =>
         {
-            entity.HasOne(d => d.IdKlientaNavigation).WithMany(p => p.SesjaKoszykas).HasConstraintName("FK_SesjaKoszyka_Klient");
+            entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.SesjaKoszykas).HasConstraintName("FK_SesjaKoszyka_Uzytkownik");
         });
 
         modelBuilder.Entity<Towar>(entity =>

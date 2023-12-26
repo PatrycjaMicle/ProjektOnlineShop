@@ -6,10 +6,10 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using SklepInternetowy.Services;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;
+using SklepInternetowy.Services.DataStore;
 
 namespace SklepInternetowy.ViewModels
 {

@@ -4,13 +4,13 @@ using System.Threading.Tasks;
 using SklepInternetowy.Helpers;
 using SklepInternetowyServiceReference;
 
-namespace SklepInternetowy.Services
+namespace SklepInternetowy.Services.DataStore
 {
     public class UzytkownikDataStore : ADataStore<Uzytkownik>
     {
-        public UzytkownikDataStore() 
+        public UzytkownikDataStore()
         {
-           items = sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
+            items = sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
         }
         public override Uzytkownik Find(Uzytkownik item)
         {

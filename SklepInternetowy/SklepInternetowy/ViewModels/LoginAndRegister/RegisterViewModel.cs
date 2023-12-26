@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using SklepInternetowy.Services;
+using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;

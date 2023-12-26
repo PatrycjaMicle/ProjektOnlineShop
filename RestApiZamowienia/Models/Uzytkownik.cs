@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace RestApiZamowienia.Models;
@@ -76,4 +73,9 @@ public partial class Uzytkownik
     [JsonIgnore]
     [InverseProperty("KtoZmodyfikowalNavigation")]
     public virtual ICollection<Towar> TowarKtoZmodyfikowalNavigations { get; set; } = new List<Towar>();
+
+    [JsonIgnore]
+    [InverseProperty("IdUzytkownikaNavigation")]
+    public ICollection<SesjaKoszyka> SesjaKoszykas { get; set; } = new List<SesjaKoszyka>();
+
 }
