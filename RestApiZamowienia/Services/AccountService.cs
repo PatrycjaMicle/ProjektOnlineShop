@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using RestApiZamowienia.Dto;
+using RestApiZamowienia.Exceptions;
 using RestApiZamowienia.Helpers;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
@@ -44,13 +45,12 @@ namespace RestApiZamowienia.Services
                 .Include(r => r.RolaUzytkownika)
                 .FirstOrDefaultAsync(a => a.Email == dto.Email);
 
-            //TODO error handling
-            //if (user is null)
-            //    throw new BadRequestException("Invalid username or password");
+            if (uzytkownik is null)
+                throw new BadRequestException("Invalid username or password");
 
             var result = _passwordHasher.VerifyHashedPassword(uzytkownik, uzytkownik.ZahaszowaneHaslo, dto.Password);
-            //if (result == PasswordVerificationResult.Failed)
-            //    throw new BadRequestException("Invalid username or password");
+            if (result == PasswordVerificationResult.Failed)
+                throw new BadRequestException("Invalid username or password");
 
             var claims = new List<Claim>()
             {

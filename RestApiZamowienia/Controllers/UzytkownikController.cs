@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
@@ -93,6 +94,7 @@ namespace RestApiZamowienia.Controllers
 
         // DELETE: api/Uzytkownik/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteUzytkownik(int id)
         {
             if (_context.Uzytkowniks == null)
