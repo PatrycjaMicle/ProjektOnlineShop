@@ -97,18 +97,18 @@ public static class DataGenerator
 
         var kategorie = new List<Kategorium>()
         {
-            // new Kategorium()
-            // {
-            //     Nazwa = ,
-            //     KtoDodal = 2,
-            //     KiedyDodano = DateTime.Now,
-            // },
-            // new Kategorium()
-            // {
-            //     Nazwa = ,
-            //     KtoDodal = 2,
-            //     KiedyDodano = DateTime.Now,
-            // }
+            new()
+            {
+                Nazwa = "Kartony",
+                KtoDodal = 2,
+                KiedyDodano = DateTime.Now,
+            },
+            new()
+            {
+                Nazwa = "Czesci",
+                KtoDodal = 2,
+                KiedyDodano = DateTime.Now,
+            }
         };
 
        
@@ -116,26 +116,26 @@ public static class DataGenerator
         var towary = new List<Towar>()
         {
             // TODO Pati dodaj towary i kategorie prosze
-             // new()
-             // {
-             //     Nazwa = ,
-             //     Kod = ,
-             //     Cena = ,
-             //     ZdjecieUrl = ,
-             //     Opis = ,
-             //     KiedyDodano = DateTime.Now,
-             //     NaStanie = true,
-             // },
-             // new()
-             // {
-             //     Nazwa = ,
-             //     Kod = ,
-             //     Cena = ,
-             //     ZdjecieUrl = ,
-             //     Opis = ,
-             //     KiedyDodano = DateTime.Now,
-             //     NaStanie = true,
-             // }
+             new()
+             {
+                 Nazwa = "Opna",
+                 Kod = "111",
+                 Cena = 111,
+                 // ZdjecieUrl = ,
+                 Opis = "opis",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },
+             new()
+             {
+                 Nazwa = "Kierownica",
+                 Kod = "111",
+                 Cena = 111,
+                 // ZdjecieUrl = ,
+                 Opis = "opis",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             }
         };
 
         var towaryZamowienia = new List<TowarZamowienium>()
@@ -190,20 +190,30 @@ public static class DataGenerator
             new()
             {
                 IdSesjiKoszyka = 3,
-                IdTowaru = 3,
+                IdTowaru = 2,
                 DataUtworzenia = DateTime.Now,
             }
         };
         
-        context.AddRange(role);
-        context.AddRange(metodyPlatnosci);
-        context.AddRange(adresy);
-        context.AddRange(zamowienia);
-        context.AddRange(kategorie);
         context.AddRange(towary);
-        context.AddRange(towaryZamowienia);
+        context.SaveChanges();
+        context.AddRange(role);
+        context.SaveChanges();
+        context.AddRange(metodyPlatnosci);
+        context.SaveChanges();
+        context.AddRange(uzytkownicy);
+        context.SaveChanges();
         context.AddRange(sesjaKoszyka);
+        context.SaveChanges();
+        context.AddRange(adresy);
+        context.SaveChanges();
+        context.AddRange(zamowienia);
+        context.SaveChanges();
+        context.AddRange(kategorie);
+        context.SaveChanges();
+        context.AddRange(towaryZamowienia);
+        context.SaveChanges();
         context.AddRange(elementyKoszyka);
-        context.SaveChangesAsync();
+        context.SaveChanges();
     }
 }
