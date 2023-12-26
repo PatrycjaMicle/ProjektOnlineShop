@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
-using SklepInternetowy.Services;
+using SklepInternetowy.Services.DataStore;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels

@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace RestApiZamowienia.Models;
 
@@ -12,7 +10,7 @@ public partial class SesjaKoszyka
     [Key]
     public int IdSesjiKoszyka { get; set; }
 
-    public int? IdKlienta { get; set; }
+    public int? IdUzytkownika { get; set; }
 
     [Column(TypeName = "decimal(18, 0)")]
     public decimal? Suma { get; set; }
@@ -21,9 +19,11 @@ public partial class SesjaKoszyka
     public DateTime? DataUtworzenia { get; set; }
 
     [InverseProperty("IdSesjiKoszykaNavigation")]
+    [JsonIgnore]
     public virtual ICollection<ElementKoszyka> ElementKoszykas { get; set; } = new List<ElementKoszyka>();
 
-    [ForeignKey("IdKlienta")]
+    [ForeignKey("IdUzytkownika")]
     [InverseProperty("SesjaKoszykas")]
-    public virtual Klient? IdKlientaNavigation { get; set; }
+    [JsonIgnore]
+    public virtual Uzytkownik? IdUzytkownikaNavigation { get; set; }
 }

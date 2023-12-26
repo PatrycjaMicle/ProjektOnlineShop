@@ -1,5 +1,4 @@
 ﻿using RestApiZamowienia.Dto;
-using RestApiZamowienia.Models;
 
 namespace RestApiZamowienia.Services.Interfaces
 {

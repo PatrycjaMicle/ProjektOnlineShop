@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using SklepInternetowy.Services;
 
-namespace SklepInternetowy.Services
+namespace SklepInternetowy.Services.DataStore
 {
     public abstract class ADataStore<T> : IDataStore<T> where T : class
     {

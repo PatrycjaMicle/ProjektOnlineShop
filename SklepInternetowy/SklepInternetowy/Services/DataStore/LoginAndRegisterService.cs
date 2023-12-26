@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SklepInternetowyServiceReference;
 
-namespace SklepInternetowy.Services
+namespace SklepInternetowy.Services.DataStore
 {
     public class LoginAndRegisterService
     {
@@ -18,10 +18,10 @@ namespace SklepInternetowy.Services
         public async Task Register(RegisterUserDto dto)
         {
             await _sklepInternetowyService.RegisterAsync(dto);
-        } 
+        }
 
         public async Task<JwtStorage> Login(LoginDto dto)
-        { 
+        {
             return await _sklepInternetowyService.LoginAsync(dto);
         }
     }

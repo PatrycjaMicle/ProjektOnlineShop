@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace SklepInternetowy.Services
+namespace SklepInternetowy.Services.DataStore
 {
     public interface IDataStore<T>
     {

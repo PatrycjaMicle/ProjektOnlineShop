@@ -4,15 +4,13 @@ using System.Threading.Tasks;
 using SklepInternetowy.Helpers;
 using SklepInternetowyServiceReference;
 
-namespace SklepInternetowy.Services
+namespace SklepInternetowy.Services.DataStore
 {
     public class TowaryDataStore : ADataStore<Towar>
     {
-        public TowaryDataStore() 
+        public TowaryDataStore()
         {
-           // sklepInternetowyService.ReadResponseAsString = true;
-
-           items = sklepInternetowyService.TowarAllAsync().GetAwaiter().GetResult().ToList();
+            items = sklepInternetowyService.TowarAllAsync().GetAwaiter().GetResult().ToList();
         }
         public override Towar Find(Towar item)
         {
@@ -21,7 +19,7 @@ namespace SklepInternetowy.Services
 
         public override Towar Find(int id)
         {
-            return items.FirstOrDefault(user => user.IdTowaru == id);
+            return items.FirstOrDefault(towar => towar.IdTowaru == id);
         }
 
         public override async Task Refresh()

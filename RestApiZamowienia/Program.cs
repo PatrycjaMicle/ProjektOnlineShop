@@ -5,7 +5,6 @@ using RestApiZamowienia.Helpers;
 using RestApiZamowienia.Models.Context;
 using RestApiZamowienia.Services;
 using RestApiZamowienia.Services.Interfaces;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using RestApiZamowienia.Models;
