@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using RestApiZamowienia.Models;
@@ -22,9 +23,9 @@ namespace RestApiZamowienia.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Towar>>> GetTowars()
         {
-            var tokenHeaderExists = Request.Headers.TryGetValue("token", out StringValues headerValue);
-            //check actual header value (should output token)
-            Console.WriteLine("debug me ------ " + headerValue);
+            //check header on response
+            var s = HttpContext.Response.Headers["X-Custom-Header"];
+            Console.WriteLine("got the header:" + s);
 
             if (_context.Towars == null)
           {
