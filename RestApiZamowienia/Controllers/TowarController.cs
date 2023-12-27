@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using System.IO;
 
 namespace RestApiZamowienia.Controllers
 {
@@ -20,7 +22,11 @@ namespace RestApiZamowienia.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Towar>>> GetTowars()
         {
-          if (_context.Towars == null)
+            var tokenHeaderExists = Request.Headers.TryGetValue("token", out StringValues headerValue);
+            //check actual header value (should output token)
+            Console.WriteLine("debug me ------ " + headerValue);
+
+            if (_context.Towars == null)
           {
               return NotFound();
           }

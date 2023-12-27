@@ -10,6 +10,7 @@ using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 using SklepInternetowy.Services.DataStore;
+using SklepInternetowy.Services;
 using Xamarin.Essentials;
 
 namespace SklepInternetowy.ViewModels
@@ -62,6 +63,7 @@ namespace SklepInternetowy.ViewModels
             {
                 //For authorization
                 // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
+                UserService.token = jwtStorage.Jwt;
                 App.Current.MainPage = new AppShell();
             }
 

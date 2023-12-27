@@ -12,7 +12,10 @@ namespace SklepInternetowy.Services.DataStore
         protected readonly SklepInternetowyService sklepInternetowyService;
         public ADataStore()
         {
-            sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", new System.Net.Http.HttpClient());
+            var httpClient = new System.Net.Http.HttpClient();
+            httpClient.DefaultRequestHeaders.Add("token", UserService.token);
+
+            sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", httpClient);
         }
         public async Task<bool> AddItemAsync(T item)
         {
@@ -47,6 +50,7 @@ namespace SklepInternetowy.Services.DataStore
 
         public async Task<T> GetItemAsync(int id)
         {
+            
             return await Task.FromResult(Find(id));
         }
 
