@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Primitives;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using System.Drawing.Text;
 using System.IO;
 
 namespace RestApiZamowienia.Controllers
@@ -23,9 +24,18 @@ namespace RestApiZamowienia.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Towar>>> GetTowars()
         {
-            //check header on response
-            var s = HttpContext.Response.Headers["X-Custom-Header"];
-            Console.WriteLine("got the header:" + s);
+
+        //EXAMPLE of retrieving UserId from http.context
+            if (HttpContext.Items.TryGetValue("user_id", out object userIDObj) && userIDObj is string)
+            {
+                string userID = (string)userIDObj;
+
+                Console.WriteLine("Got my user:" + userID);
+            }
+            else
+            {
+                Console.WriteLine("unable to get userID from context");
+            }
 
             if (_context.Towars == null)
           {
