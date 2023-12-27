@@ -7,6 +7,7 @@ using RestApiZamowienia.Services;
 using RestApiZamowienia.Services.Interfaces;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
+using RestApiZamowienia.Exceptions;
 using RestApiZamowienia.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -65,6 +66,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<AppExceptionHandler>();
 
 app.UseHttpsRedirection();
 

@@ -10,6 +10,7 @@ using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 using SklepInternetowy.Services.DataStore;
+using Xamarin.Essentials;
 
 namespace SklepInternetowy.ViewModels
 {
@@ -57,9 +58,10 @@ namespace SklepInternetowy.ViewModels
 
             //TODO add jwt decoding to get user role value
             var jwtStorage = await _loginAndRegisterService.Login(loginDto);
-
             if (jwtStorage != null)
             {
+                //For authorization
+                // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
                 App.Current.MainPage = new AppShell();
             }
 
