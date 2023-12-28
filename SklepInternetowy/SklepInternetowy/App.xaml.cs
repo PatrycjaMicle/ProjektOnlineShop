@@ -20,7 +20,7 @@ namespace SklepInternetowy
             DependencyService.Register<ElementKoszykaDataStore>();
             DependencyService.Register<LoginAndRegisterService>();
 
-            DependencyService.RegisterSingleton(new UserToken());
+            DependencyService.RegisterSingleton(new UserService());
 
             if (!IsUserLoggedIn)
             {

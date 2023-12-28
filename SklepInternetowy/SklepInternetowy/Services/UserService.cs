@@ -5,8 +5,8 @@ using Xamarin.Essentials;
 
 namespace SklepInternetowy.Services
 {
-    public class UserToken
+    public class UserService
     {
-        public static string Token { get; set; }
+        public string Token { get; set; }
     }
 }

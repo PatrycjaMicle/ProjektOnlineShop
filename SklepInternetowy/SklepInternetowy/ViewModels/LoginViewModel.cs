@@ -18,6 +18,7 @@ namespace SklepInternetowy.ViewModels
     public class LoginViewModel : BaseViewModel
     {
         private readonly LoginAndRegisterService _loginAndRegisterService;
+        private readonly UserService _userToken;
 
         private string _email;
         private string _password;
@@ -28,6 +29,7 @@ namespace SklepInternetowy.ViewModels
             RegisterCommand = new Command( async () => await OnRegisterClicked());
 
             _loginAndRegisterService = new LoginAndRegisterService();
+            _userToken = DependencyService.Get<UserService>();
         }
 
         public Command LoginCommand { get; }
@@ -63,7 +65,7 @@ namespace SklepInternetowy.ViewModels
             {
                 //For authorization
                 // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
-                UserToken.Token = jwtStorage.Jwt;
+                _userToken.Token = jwtStorage.Jwt;
                 App.Current.MainPage = new AppShell();
             }
 
