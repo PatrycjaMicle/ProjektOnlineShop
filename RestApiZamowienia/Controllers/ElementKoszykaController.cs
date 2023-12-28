@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using RestApiZamowienia.Services.Interfaces;
 
 namespace RestApiZamowienia.Controllers
 {
@@ -10,10 +12,12 @@ namespace RestApiZamowienia.Controllers
     public class ElementKoszykaController : ControllerBase
     {
         private readonly SklepInternetowyContext _context;
+        private readonly IUserContextService _userContextService;
 
-        public ElementKoszykaController(SklepInternetowyContext context)
+        public ElementKoszykaController(SklepInternetowyContext context, IUserContextService userContextService)
         {
             _context = context;
+            _userContextService = userContextService;
         }
 
         // GET: api/ElementKoszyka
@@ -63,14 +67,14 @@ namespace RestApiZamowienia.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ElementKoszykaExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                 if (!ElementKoszykaExists(id))
+                 {
+                     return NotFound();
+                 }
+                 else
+                 {
+                     throw;
+                 }
             }
 
             return NoContent();
@@ -79,16 +83,57 @@ namespace RestApiZamowienia.Controllers
         // POST: api/ElementKoszyka
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [AllowAnonymous]
         public async Task<ActionResult<ElementKoszyka>> PostElementKoszyka(ElementKoszyka elementKoszyka)
         {
+          // if (_context.ElementKoszykas == null)
+          // {
+          //     return Problem("Entity set 'SklepInternetowyContext.ElementKoszykas'  is null.");
+          // }
+          //   _context.ElementKoszykas.Add(elementKoszyka);
+          //   await _context.SaveChangesAsync();
+          //
+          //   return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
+          
           if (_context.ElementKoszykas == null)
           {
-              return Problem("Entity set 'SklepInternetowyContext.ElementKoszykas'  is null.");
+              return NotFound();
           }
-            _context.ElementKoszykas.Add(elementKoszyka);
-            await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
+          int? userId = _userContextService.GetUserId;
+
+          if (!userId.HasValue)
+          {
+              return BadRequest("Invalid user ID format.");
+          }
+          
+          var existingElementKoszyka = await _context.ElementKoszykas
+              .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdSesjiKoszykaNavigation.IdUzytkownika == userId);
+
+          if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
+          {
+              Console.WriteLine("Exists already...");
+
+              existingElementKoszyka.Ilosc += 1;
+              _context.Entry(existingElementKoszyka).State = EntityState.Modified;
+              await _context.SaveChangesAsync();
+
+              Console.WriteLine($"Produkt był już w koszyku, zaktualizowano ilość: {existingElementKoszyka.Ilosc}");
+          }
+          else
+          {
+              Console.WriteLine("Not exists...");
+
+              //TODO odkomentowac po zmianie encji!!!!!!!
+              // elementKoszyka.IdUzytkownika = userId;
+              elementKoszyka.Ilosc = 1;
+              _context.ElementKoszykas.Add(elementKoszyka);
+              await _context.SaveChangesAsync();
+
+              Console.WriteLine($"Dodano element koszyka: {existingElementKoszyka.IdTowaruNavigation.Nazwa}");
+          }
+
+          return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
         }
 
         // DELETE: api/ElementKoszyka/5
