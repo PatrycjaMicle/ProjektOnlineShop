@@ -34,7 +34,6 @@ namespace SklepInternetowy.Services.DataStore
 
         public override async Task<bool> UpdateItemInService(ElementKoszyka item)
         {
-            Console.WriteLine("Updating CartItem...**********");
             try
             {
                 var existingItem = items.FirstOrDefault(e => e.IdElementuKoszyka == item.IdElementuKoszyka);
@@ -60,13 +59,6 @@ namespace SklepInternetowy.Services.DataStore
         public override async Task<ElementKoszyka> AddItemToService(ElementKoszyka item)
         {
             return await sklepInternetowyService.ElementKoszykaPOSTAsync(item).HandleRequest();
-        }
-
-        public override async Task<ElementKoszyka> CheckIfExistsInService(ElementKoszyka item)
-        {
-            Console.WriteLine("Checking if cartItem already exists...");
-            return await sklepInternetowyService.CheckIfExistsAsync(item).HandleRequest();
-
         }
     }
 }

@@ -41,10 +41,5 @@ namespace SklepInternetowy.Services.DataStore
         {
             return await sklepInternetowyService.UzytkownikPOSTAsync(item).HandleRequest();
         }
-
-        public override Task<Uzytkownik> CheckIfExistsInService(Uzytkownik item)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

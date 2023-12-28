@@ -46,25 +46,11 @@ namespace SklepInternetowy.ViewModels
                     Ilosc = 1
                 };
 
-                var existingCartItem = await elementKoszykaDataStore.CheckIfExistsInService(elementKoszyka);
+                ElementKoszyka addedItem = await elementKoszykaDataStore.AddItemToService(elementKoszyka);
 
-                if (existingCartItem != null)
+                if (addedItem == null)
                 {
-                    bool updateSuccess = await elementKoszykaDataStore.UpdateItemInService(existingCartItem);
-
-                    if (!updateSuccess)
-                    {
-                        Console.WriteLine("Failed to update ElementKoszyka.");
-                    }
-                }
-                else
-                {
-                    ElementKoszyka addedItem = await elementKoszykaDataStore.AddItemToService(elementKoszyka);
-
-                    if (addedItem == null)
-                    {
-                        Console.WriteLine("Failed to add new ElementKoszyka.");
-                    }
+                    Console.WriteLine("Failed to add new ElementKoszyka.");
                 }
             }
             catch (Exception ex)
