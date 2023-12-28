@@ -375,6 +375,54 @@
         }
       }
     },
+    "/api/ElementKoszyka/CheckIfExists": {
+      "get": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Kategorium": {
       "get": {
         "tags": [

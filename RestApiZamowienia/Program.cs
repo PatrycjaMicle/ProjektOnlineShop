@@ -77,6 +77,10 @@ app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/Towar"), ap
 {
     appBuilder.UseMiddleware<AuthMiddleware>();
 });
+app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/ElementKoszyka"), appBuilder =>
+{
+    appBuilder.UseMiddleware<AuthMiddleware>();
+});
 
 //this would apply Auth to all andpoints (even to api/Konto)
 // app.UseMiddleware<AuthMiddleware>();

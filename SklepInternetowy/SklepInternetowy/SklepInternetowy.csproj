@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger3.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
+    <OpenApiReference Include="OpenAPIs\swagger4.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
       <SourceUri>http://localhost:5219/swagger/v1/swagger.json</SourceUri>
     </OpenApiReference>
   </ItemGroup>
@@ -56,6 +56,7 @@
   <ItemGroup>
     <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService" />
     <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService" />
+    <None Update="OpenAPIs\swagger3.json" ClassName="SklepInternetowyService" />
   </ItemGroup>
 
   <ItemGroup>

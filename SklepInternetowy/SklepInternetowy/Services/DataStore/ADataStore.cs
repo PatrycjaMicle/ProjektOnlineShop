@@ -29,6 +29,7 @@ namespace SklepInternetowy.Services.DataStore
         public abstract Task<bool> DeleteItemFromService(T item);
         public abstract Task<bool> UpdateItemInService(T item);
         public abstract Task<T> AddItemToService(T item);
+        public abstract Task<T> CheckIfExistsInService(T item);
 
         public async Task<bool> UpdateItemAsync(T item)
         {

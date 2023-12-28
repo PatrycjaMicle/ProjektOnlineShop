@@ -41,5 +41,10 @@ namespace SklepInternetowy.Services.DataStore
         {
             return await sklepInternetowyService.TowarPOSTAsync(item).HandleRequest();
         }
+
+        public override Task<Towar> CheckIfExistsInService(Towar item)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

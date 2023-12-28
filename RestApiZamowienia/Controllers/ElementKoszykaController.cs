@@ -81,14 +81,46 @@ namespace RestApiZamowienia.Controllers
         [HttpPost]
         public async Task<ActionResult<ElementKoszyka>> PostElementKoszyka(ElementKoszyka elementKoszyka)
         {
-          if (_context.ElementKoszykas == null)
-          {
-              return Problem("Entity set 'SklepInternetowyContext.ElementKoszykas'  is null.");
-          }
+
+            if (HttpContext.Items.TryGetValue("user_id", out object userIDObj) && userIDObj is string)
+            {
+                string userID = (string)userIDObj;
+            }
+            else
+            {
+                Console.WriteLine("unable to get userID from context");
+            }
+
+
+            if (_context.ElementKoszykas == null)
+            {
+                return Problem("Entity set 'SklepInternetowyContext.ElementKoszykas' is null.");
+            }
+
+            if (userIDObj is string userIDString)
+            {
+                if (int.TryParse(userIDString, out int userID))
+                {
+                    elementKoszyka.IdUzytkownika = userID;
+                }
+                else
+                {
+                    return BadRequest("Invalid user ID format.");
+                }
+            }
+            else
+            {
+                return BadRequest("User ID is not a valid string.");
+            }
+
             _context.ElementKoszykas.Add(elementKoszyka);
+
+            Console.WriteLine("********Dodano element koszyka: *************", elementKoszyka);
+
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
+
         }
 
         // DELETE: api/ElementKoszyka/5
@@ -109,6 +141,44 @@ namespace RestApiZamowienia.Controllers
             await _context.SaveChangesAsync();
 
             return NoContent();
+        }
+
+
+        [HttpGet("CheckIfExists")]
+        public async Task<ActionResult<ElementKoszyka>> CheckIfElementKoszykaExists(ElementKoszyka elementKoszyka)
+        {
+            Console.WriteLine("Checking if CartItem exists...*******");
+
+            if (_context.ElementKoszykas == null)
+            {
+                return NotFound();
+            }
+
+            if (HttpContext.Items.TryGetValue("user_id", out object userIDObj) && userIDObj is string userID)
+            {
+                if (!int.TryParse(userID, out _))
+                {
+                    return BadRequest("Invalid user ID format.");
+                }
+
+                var existingElementKoszyka = await _context.ElementKoszykas
+                    .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika.ToString() == userID);
+
+                if (existingElementKoszyka != null)
+                {
+                    Console.WriteLine("Exists already...*******");
+                    return existingElementKoszyka;
+                }
+                else
+                {
+                    Console.WriteLine("Not exists...*******");
+                    return NotFound();
+                }
+            }
+            else
+            {
+                return BadRequest("Unable to retrieve or parse user ID from context.");
+            }
         }
 
         private bool ElementKoszykaExists(int id)

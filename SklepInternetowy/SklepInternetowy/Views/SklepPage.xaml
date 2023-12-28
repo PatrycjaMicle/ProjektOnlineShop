@@ -36,6 +36,8 @@
                          Style="{DynamicResource ListItemDetailTextStyle}"
                          FontSize="13" HorizontalTextAlignment="Center" TextColor="#34495e"/>
                         <Button Text="Dodaj do koszyka"
+                                Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference BrowseSklepPage}}"
+                                CommandParameter="{Binding .}"  
                                 BackgroundColor="#34495e"
                                 CornerRadius="7"
                                 Margin="10,0,10,10"
