@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using SklepInternetowy.Services.DataStore;
+using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
@@ -11,13 +13,16 @@ namespace SklepInternetowy.ViewModels
     {
         private string text;
         private string description;
-
+        private readonly TowaryDataStore _towaryDataStore;
+        
         public NewItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
             this.PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
+            
+            _towaryDataStore = new TowaryDataStore();
         }
 
         private bool ValidateSave()
@@ -49,14 +54,13 @@ namespace SklepInternetowy.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            var newItem = new Towar()
             {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Nazwa = Text,
+                Opis = description,
             };
 
-            //await DataStore.AddItemAsync(newItem);
+            await _towaryDataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

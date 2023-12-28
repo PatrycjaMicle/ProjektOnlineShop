@@ -6,6 +6,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using SklepInternetowy.Services;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;
@@ -16,7 +17,7 @@ namespace SklepInternetowy.ViewModels
 {
     public class LoginViewModel : BaseViewModel
     {
-        readonly LoginAndRegisterService _loginAndRegisterService;
+        private readonly LoginAndRegisterService _loginAndRegisterService;
 
         private string _email;
         private string _password;
@@ -62,6 +63,7 @@ namespace SklepInternetowy.ViewModels
             {
                 //For authorization
                 // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
+                UserToken.Token = jwtStorage.Jwt;
                 App.Current.MainPage = new AppShell();
             }
 

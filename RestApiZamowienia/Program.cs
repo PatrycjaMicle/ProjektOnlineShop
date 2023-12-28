@@ -36,6 +36,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
+builder.Services.AddScoped<AppExceptionHandler>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IPasswordHasher<Uzytkownik>, PasswordHasher<Uzytkownik>>();
 builder.Services.AddControllers()
@@ -70,6 +71,8 @@ if (app.Environment.IsDevelopment())
 app.UseMiddleware<AppExceptionHandler>();
 
 app.UseHttpsRedirection();
+
+app.UseAuthentication();
 
 app.UseAuthorization();
 

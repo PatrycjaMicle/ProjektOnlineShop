@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
@@ -24,7 +25,7 @@ namespace RestApiZamowienia.Controllers
           {
               return NotFound();
           }
-            return await _context.Towars.ToListAsync();
+          return await _context.Towars.ToListAsync();
         }
 
         // GET: api/Towar/5
@@ -35,7 +36,7 @@ namespace RestApiZamowienia.Controllers
           {
               return NotFound();
           }
-            var towar = await _context.Towars.FindAsync(id);
+          var towar = await _context.Towars.FindAsync(id);
 
             if (towar == null)
             {
@@ -79,6 +80,7 @@ namespace RestApiZamowienia.Controllers
         // POST: api/Towar
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Towar>> PostTowar(Towar towar)
         {
           if (_context.Towars == null)
@@ -92,6 +94,7 @@ namespace RestApiZamowienia.Controllers
         }
 
         // DELETE: api/Towar/5
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteTowar(int id)
         {

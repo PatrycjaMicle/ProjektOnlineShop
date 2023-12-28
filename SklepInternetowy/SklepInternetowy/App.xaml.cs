@@ -4,6 +4,7 @@ using SklepInternetowy.Views.LoginAndRegister;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SklepInternetowy.Services.DataStore;
+using SklepInternetowy.Services;
 
 namespace SklepInternetowy
 {
@@ -13,13 +14,13 @@ namespace SklepInternetowy
         public App()
         {
             InitializeComponent();
-
-            //DependencyService.Register<MockDataStore>();
-            //MainPage = new AppShell();
+            
             DependencyService.Register<UzytkownikDataStore>();
             DependencyService.Register<TowaryDataStore>();
             DependencyService.Register<ElementKoszykaDataStore>();
             DependencyService.Register<LoginAndRegisterService>();
+
+            DependencyService.RegisterSingleton(new UserToken());
 
             if (!IsUserLoggedIn)
             {
