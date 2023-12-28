@@ -1,6 +1,9 @@
-﻿using SklepInternetowy.ViewModels.Abstract;
+﻿using SklepInternetowy.Services.DataStore;
+using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowy.Views;
 using SklepInternetowyServiceReference;
+using System;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
@@ -25,5 +28,36 @@ namespace SklepInternetowy.ViewModels
 
             await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.IdTowaru}");
         }
+
+        #region Adding to cart
+
+        ADataStore<ElementKoszyka> elementKoszykaDataStore = new ElementKoszykaDataStore();
+
+        public ICommand AddToCartCommand => new Command<Towar>(OnAddToCart);
+
+        private async void OnAddToCart(Towar item)
+        {
+            try
+            {
+                ElementKoszyka elementKoszyka = new ElementKoszyka
+                {
+                    IdTowaru = item.IdTowaru,
+                    DataUtworzenia = DateTime.Now,
+                    Ilosc = 1
+                };
+
+                ElementKoszyka addedItem = await elementKoszykaDataStore.AddItemToService(elementKoszyka);
+
+                if (addedItem == null)
+                {
+                    Console.WriteLine("Failed to add new ElementKoszyka.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+        #endregion
     }
 }

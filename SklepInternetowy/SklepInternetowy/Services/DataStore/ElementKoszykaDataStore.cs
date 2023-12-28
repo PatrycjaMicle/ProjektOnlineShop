@@ -29,13 +29,32 @@ namespace SklepInternetowy.Services.DataStore
 
         public override async Task<bool> DeleteItemFromService(ElementKoszyka item)
         {
-            return await sklepInternetowyService.UzytkownikDELETEAsync(item.IdElementuKoszyka).HandleRequest();
+            return await sklepInternetowyService.ElementKoszykaDELETEAsync(item.IdElementuKoszyka).HandleRequest();
         }
 
         public override async Task<bool> UpdateItemInService(ElementKoszyka item)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var existingItem = items.FirstOrDefault(e => e.IdElementuKoszyka == item.IdElementuKoszyka);
+
+                if (existingItem != null)
+                {
+                    existingItem.Ilosc++;
+
+                    return await sklepInternetowyService.ElementKoszykaPUTAsync(existingItem.IdElementuKoszyka, existingItem)
+                        .HandleRequest();
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred during item update: {ex.Message}");
+                return false;
+            }
         }
+
 
         public override async Task<ElementKoszyka> AddItemToService(ElementKoszyka item)
         {

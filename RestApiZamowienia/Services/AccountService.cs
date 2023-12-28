@@ -68,8 +68,6 @@ namespace RestApiZamowienia.Services
                 expires: expires,
                 signingCredentials: cred);
 
-            await CreateShoppingCartSession(uzytkownik.IdUzytkownika);
-
             var tokenHandler = new JwtSecurityTokenHandler();
             return tokenHandler.WriteToken(token);
         }
@@ -77,20 +75,6 @@ namespace RestApiZamowienia.Services
         public Task DeleteUser(string email)
         {
             throw new NotImplementedException();
-        }
-
-        public async Task<int> CreateShoppingCartSession(int userId)
-        {
-            var session = new SesjaKoszyka
-            {
-                IdUzytkownika = userId,
-                DataUtworzenia = DateTime.Now,
-            };
-
-            await _context.SesjaKoszykas.AddAsync(session);
-            await _context.SaveChangesAsync();
-
-            return session.IdSesjiKoszyka;
         }
     }
 }

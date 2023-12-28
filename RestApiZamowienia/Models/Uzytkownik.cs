@@ -76,6 +76,6 @@ public partial class Uzytkownik
 
     [JsonIgnore]
     [InverseProperty("IdUzytkownikaNavigation")]
-    public ICollection<SesjaKoszyka> SesjaKoszykas { get; set; } = new List<SesjaKoszyka>();
+    public ICollection<ElementKoszyka> ElementKoszykas { get; set; } = new List<ElementKoszyka>();
 
 }

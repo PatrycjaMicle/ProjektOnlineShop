@@ -153,47 +153,6 @@ public static class DataGenerator
                 Ilosc = 3
             },
         };
-
-        var sesjaKoszyka = new List<SesjaKoszyka>()
-        {
-            new()
-            {
-                IdUzytkownika = 1,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdUzytkownika = 2,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdUzytkownika = 3,
-                DataUtworzenia = DateTime.Now,
-            }
-        };
-
-        var elementyKoszyka = new List<ElementKoszyka>()
-        {
-            new()
-            {
-                IdSesjiKoszyka = 1,
-                IdTowaru = 1,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdSesjiKoszyka = 2,
-                IdTowaru = 2,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdSesjiKoszyka = 3,
-                IdTowaru = 2,
-                DataUtworzenia = DateTime.Now,
-            }
-        };
         
         context.AddRange(towary);
         context.SaveChanges();
@@ -203,7 +162,6 @@ public static class DataGenerator
         context.SaveChanges();
         context.AddRange(uzytkownicy);
         context.SaveChanges();
-        context.AddRange(sesjaKoszyka);
         context.SaveChanges();
         context.AddRange(adresy);
         context.SaveChanges();
@@ -213,7 +171,6 @@ public static class DataGenerator
         context.SaveChanges();
         context.AddRange(towaryZamowienia);
         context.SaveChanges();
-        context.AddRange(elementyKoszyka);
         context.SaveChanges();
     }
 }

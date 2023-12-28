@@ -9,6 +9,7 @@ using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Identity;
 using RestApiZamowienia.Exceptions;
 using RestApiZamowienia.Models;
+using RestApiZamowienia.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SklepInternetowyContext>(options =>
@@ -67,7 +68,22 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseMiddleware<AppExceptionHandler>();
+// Temporary disable the AppExceptionHandler via middleware (causing Errors)
+// app.UseMiddleware<AppExceptionHandler>();
+
+
+// Apply the Auth Middleware to specific endpoint path
+app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/Towar"), appBuilder =>
+{
+    appBuilder.UseMiddleware<AuthMiddleware>();
+});
+app.UseWhen(context => context.Request.Path.StartsWithSegments("/api/ElementKoszyka"), appBuilder =>
+{
+    appBuilder.UseMiddleware<AuthMiddleware>();
+});
+
+//this would apply Auth to all andpoints (even to api/Konto)
+// app.UseMiddleware<AuthMiddleware>();
 
 app.UseHttpsRedirection();
 

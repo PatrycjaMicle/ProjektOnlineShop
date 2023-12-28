@@ -23,8 +23,6 @@ public partial class SklepInternetowyContext : DbContext
 
     public virtual DbSet<MetodaPlatnosci> MetodaPlatnoscis { get; set; }
 
-    public virtual DbSet<SesjaKoszyka> SesjaKoszykas { get; set; }
-
     public virtual DbSet<Towar> Towars { get; set; }
 
     public virtual DbSet<TowarZamowienium> TowarZamowienia { get; set; }
@@ -47,7 +45,7 @@ public partial class SklepInternetowyContext : DbContext
 
         modelBuilder.Entity<ElementKoszyka>(entity =>
         {
-            entity.HasOne(d => d.IdSesjiKoszykaNavigation).WithMany(p => p.ElementKoszykas).HasConstraintName("FK_ElementKoszyka_SesjaKoszyka");
+            entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.ElementKoszykas).HasConstraintName("FK_ElementKoszyka_Uzytkownik");
 
             entity.HasOne(d => d.IdTowaruNavigation).WithMany(p => p.ElementKoszykas).HasConstraintName("FK_ElementKoszyka_Towar");
         });
@@ -72,10 +70,6 @@ public partial class SklepInternetowyContext : DbContext
             entity.HasOne(d => d.KtoZmodyfikowalNavigation).WithMany(p => p.KlientKtoZmodyfikowalNavigations).HasConstraintName("FK_Klient_Uzytkownik1");
         });
 
-        modelBuilder.Entity<SesjaKoszyka>(entity =>
-        {
-            entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.SesjaKoszykas).HasConstraintName("FK_SesjaKoszyka_Uzytkownik");
-        });
 
         modelBuilder.Entity<Towar>(entity =>
         {

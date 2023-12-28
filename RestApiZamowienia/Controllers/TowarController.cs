@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Primitives;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using System.Drawing.Text;
+using System.IO;
 
 namespace RestApiZamowienia.Controllers
 {
@@ -20,7 +24,20 @@ namespace RestApiZamowienia.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Towar>>> GetTowars()
         {
-          if (_context.Towars == null)
+
+        //EXAMPLE of retrieving UserId from http.context
+            if (HttpContext.Items.TryGetValue("user_id", out object userIDObj) && userIDObj is string)
+            {
+                string userID = (string)userIDObj;
+
+                Console.WriteLine("Got my user:" + userID);
+            }
+            else
+            {
+                Console.WriteLine("unable to get userID from context");
+            }
+
+            if (_context.Towars == null)
           {
               return NotFound();
           }
