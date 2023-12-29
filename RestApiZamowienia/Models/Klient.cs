@@ -5,33 +5,27 @@ using System.Text.Json.Serialization;
 namespace RestApiZamowienia.Models;
 
 [Table("Klient")]
-public partial class Klient
+public class Klient
 {
-    [Key]
-    public int IdKlienta { get; set; }
+    [Key] public int IdKlienta { get; set; }
 
-    [StringLength(50)]
-    public string? Imie { get; set; }
+    [StringLength(50)] public string? Imie { get; set; }
 
-    [StringLength(50)]
-    public string? Nazwisko { get; set; }
+    [StringLength(50)] public string? Nazwisko { get; set; }
 
     public int? IdAdresu { get; set; }
 
     public int? KtoDodal { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyDodano { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyDodano { get; set; }
 
     public int? KtoZmodyfikowal { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyZmodyfikowano { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyZmodyfikowano { get; set; }
 
     public int? KtoUsunal { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyUsunieto { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyUsunieto { get; set; }
 
     public bool? Aktywny { get; set; }
 

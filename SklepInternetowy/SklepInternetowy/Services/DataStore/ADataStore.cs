@@ -1,38 +1,35 @@
-﻿using SklepInternetowyServiceReference;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.Services.DataStore
 {
     public abstract class ADataStore<T> : IDataStore<T> where T : class
     {
-        public List<T> items;
+        private readonly UserService _userToken;
         protected readonly SklepInternetowyService sklepInternetowyService;
+        public List<T> items;
 
-        private readonly UserService _userToken; 
         public ADataStore()
         {
-            var httpClient = new System.Net.Http.HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = 
-                new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _userToken.Token);
+            _userToken = DependencyService.Get<UserService>();
             
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization =
+                new AuthenticationHeaderValue("Bearer", _userToken.Token);
+
             sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", httpClient);
         }
+
         public async Task<bool> AddItemAsync(T item)
         {
             await AddItemToService(item);
             await Refresh();
             return await Task.FromResult(true);
         }
-        public abstract T Find(T item);
-        public abstract T Find(int id);
-        public abstract Task Refresh();
-        public abstract Task<bool> DeleteItemFromService(T item);
-        public abstract Task<bool> UpdateItemInService(T item);
-        public abstract Task<T> AddItemToService(T item);
 
         public async Task<bool> UpdateItemAsync(T item)
         {
@@ -62,5 +59,12 @@ namespace SklepInternetowy.Services.DataStore
             await Refresh();
             return await Task.FromResult(items);
         }
+
+        public abstract T Find(T item);
+        public abstract T Find(int id);
+        public abstract Task Refresh();
+        public abstract Task<bool> DeleteItemFromService(T item);
+        public abstract Task<bool> UpdateItemInService(T item);
+        public abstract Task<T> AddItemToService(T item);
     }
 }

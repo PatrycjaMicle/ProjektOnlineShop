@@ -5,160 +5,112 @@ using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
 using RestApiZamowienia.Services.Interfaces;
 
-namespace RestApiZamowienia.Controllers
+namespace RestApiZamowienia.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class ElementKoszykaController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class ElementKoszykaController : ControllerBase
+    private readonly SklepInternetowyContext _context;
+    private readonly IUserContextService _userContextService;
+
+    public ElementKoszykaController(SklepInternetowyContext context, IUserContextService userContextService)
     {
-        private readonly SklepInternetowyContext _context;
-        private readonly IUserContextService _userContextService;
+        _context = context;
+        _userContextService = userContextService;
+    }
 
-        public ElementKoszykaController(SklepInternetowyContext context, IUserContextService userContextService)
+    // GET: api/ElementKoszyka
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<ElementKoszyka>>> GetElementKoszykas()
+    {
+        if (_context.ElementKoszykas == null) return NotFound();
+        return await _context.ElementKoszykas.ToListAsync();
+    }
+
+    // GET: api/ElementKoszyka/5
+    [HttpGet("{id}")]
+    public async Task<ActionResult<ElementKoszyka>> GetElementKoszyka(int id)
+    {
+        if (_context.ElementKoszykas == null) return NotFound();
+        var elementKoszyka = await _context.ElementKoszykas.FindAsync(id);
+
+        if (elementKoszyka == null) return NotFound();
+
+        return elementKoszyka;
+    }
+
+    // PUT: api/ElementKoszyka/5
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPut("{id}")]
+    public async Task<IActionResult> PutElementKoszyka(int id, ElementKoszyka elementKoszyka)
+    {
+        if (id != elementKoszyka.IdElementuKoszyka) return BadRequest();
+
+        _context.Entry(elementKoszyka).State = EntityState.Modified;
+
+        try
         {
-            _context = context;
-            _userContextService = userContextService;
-        }
-
-        // GET: api/ElementKoszyka
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<ElementKoszyka>>> GetElementKoszykas()
-        {
-          if (_context.ElementKoszykas == null)
-          {
-              return NotFound();
-          }
-            return await _context.ElementKoszykas.ToListAsync();
-        }
-
-        // GET: api/ElementKoszyka/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<ElementKoszyka>> GetElementKoszyka(int id)
-        {
-          if (_context.ElementKoszykas == null)
-          {
-              return NotFound();
-          }
-            var elementKoszyka = await _context.ElementKoszykas.FindAsync(id);
-
-            if (elementKoszyka == null)
-            {
-                return NotFound();
-            }
-
-            return elementKoszyka;
-        }
-
-        // PUT: api/ElementKoszyka/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutElementKoszyka(int id, ElementKoszyka elementKoszyka)
-        {
-            if (id != elementKoszyka.IdElementuKoszyka)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(elementKoszyka).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                 if (!ElementKoszykaExists(id))
-                 {
-                     return NotFound();
-                 }
-                 else
-                 {
-                     throw;
-                 }
-            }
-
-            return NoContent();
-        }
-
-        // POST: api/ElementKoszyka
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        [AllowAnonymous]
-        public async Task<ActionResult<ElementKoszyka>> PostElementKoszyka(ElementKoszyka elementKoszyka)
-        {
-          // if (_context.ElementKoszykas == null)
-          // {
-          //     return Problem("Entity set 'SklepInternetowyContext.ElementKoszykas'  is null.");
-          // }
-          //   _context.ElementKoszykas.Add(elementKoszyka);
-          //   await _context.SaveChangesAsync();
-          //
-          //   return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
-          
-          if (_context.ElementKoszykas == null)
-          {
-              return NotFound();
-          }
-
-          int? userId = _userContextService.GetUserId;
-
-          if (!userId.HasValue)
-          {
-              return BadRequest("Invalid user ID format.");
-          }
-          
-          var existingElementKoszyka = await _context.ElementKoszykas
-              .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika == userId);
-
-          if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
-          {
-              Console.WriteLine("Exists already...");
-
-              existingElementKoszyka.Ilosc += 1;
-              _context.Entry(existingElementKoszyka).State = EntityState.Modified;
-              await _context.SaveChangesAsync();
-
-              Console.WriteLine($"Produkt był już w koszyku, zaktualizowano ilość: {existingElementKoszyka.Ilosc}");
-          }
-          else
-          {
-              Console.WriteLine("Not exists...");
-
-              //TODO odkomentowac po zmianie encji!!!!!!!
-              // elementKoszyka.IdUzytkownika = userId;
-              elementKoszyka.Ilosc = 1;
-              _context.ElementKoszykas.Add(elementKoszyka);
-              await _context.SaveChangesAsync();
-
-              Console.WriteLine($"Dodano element koszyka: {existingElementKoszyka.IdTowaruNavigation.Nazwa}");
-          }
-
-          return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
-        }
-
-        // DELETE: api/ElementKoszyka/5
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteElementKoszyka(int id)
-        {
-            if (_context.ElementKoszykas == null)
-            {
-                return NotFound();
-            }
-            var elementKoszyka = await _context.ElementKoszykas.FindAsync(id);
-            if (elementKoszyka == null)
-            {
-                return NotFound();
-            }
-
-            _context.ElementKoszykas.Remove(elementKoszyka);
             await _context.SaveChangesAsync();
-
-            return NoContent();
         }
-
-        private bool ElementKoszykaExists(int id)
+        catch (DbUpdateConcurrencyException)
         {
-            return (_context.ElementKoszykas?.Any(e => e.IdElementuKoszyka == id)).GetValueOrDefault();
+            if (!ElementKoszykaExists(id))
+                return NotFound();
+            throw;
         }
+
+        return NoContent();
+    }
+
+    // POST: api/ElementKoszyka
+    // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+    [HttpPost]
+    [Authorize]
+    public async Task<ActionResult<ElementKoszyka>> PostElementKoszyka(ElementKoszyka elementKoszyka)
+    {
+        if (_context.ElementKoszykas == null) return NotFound();
+
+        var userId = _userContextService.GetUserId;
+
+        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
+        var existingElementKoszyka = await _context.ElementKoszykas
+            .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika == userId);
+
+        if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
+        {
+            existingElementKoszyka.Ilosc += 1;
+            _context.Entry(existingElementKoszyka).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
+        }
+        else
+        {
+            elementKoszyka.IdUzytkownika = userId;
+            elementKoszyka.Ilosc = 1;
+            _context.ElementKoszykas.Add(elementKoszyka);
+            await _context.SaveChangesAsync();
+        }
+
+        return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
+    }
+
+    // DELETE: api/ElementKoszyka/5
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteElementKoszyka(int id)
+    {
+        if (_context.ElementKoszykas == null) return NotFound();
+        var elementKoszyka = await _context.ElementKoszykas.FindAsync(id);
+        if (elementKoszyka == null) return NotFound();
+
+        _context.ElementKoszykas.Remove(elementKoszyka);
+        await _context.SaveChangesAsync();
+
+        return NoContent();
+    }
+
+    private bool ElementKoszykaExists(int id)
+    {
+        return (_context.ElementKoszykas?.Any(e => e.IdElementuKoszyka == id)).GetValueOrDefault();
     }
 }

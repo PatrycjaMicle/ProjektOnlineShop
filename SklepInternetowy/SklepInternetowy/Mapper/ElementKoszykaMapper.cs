@@ -1,7 +1,7 @@
-﻿using SklepInternetowy.Models;
+﻿using System;
+using SklepInternetowy.Models;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowyServiceReference;
-using System;
 
 public class ElementKoszykaMapper
 {
@@ -14,10 +14,7 @@ public class ElementKoszykaMapper
 
     public ElementKoszykaForView MapToElementKoszykaForView(ElementKoszyka elementKoszyka)
     {
-        if (elementKoszyka == null)
-        {
-            return null;
-        }
+        if (elementKoszyka == null) return null;
 
         return new ElementKoszykaForView
         {
@@ -26,7 +23,7 @@ public class ElementKoszykaMapper
             IdTowaru = elementKoszyka.IdTowaru,
             TowarNazwa = GetTowarNazwa(elementKoszyka.IdTowaru),
             TowarCena = GetTowarCena(elementKoszyka.IdTowaru),
-            Ilosc = elementKoszyka.Ilosc,
+            Ilosc = elementKoszyka.Ilosc
         };
     }
 

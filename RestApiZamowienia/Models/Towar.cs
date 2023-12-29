@@ -5,21 +5,17 @@ using System.Text.Json.Serialization;
 namespace RestApiZamowienia.Models;
 
 [Table("Towar")]
-public partial class Towar
+public class Towar
 {
-    [Key]
-    public int IdTowaru { get; set; }
+    [Key] public int IdTowaru { get; set; }
 
-    [StringLength(50)]
-    public string? Nazwa { get; set; }
+    [StringLength(50)] public string? Nazwa { get; set; }
 
-    [StringLength(50)]
-    public string? Kod { get; set; }
+    [StringLength(50)] public string? Kod { get; set; }
 
     public int? IdKategorii { get; set; }
 
-    [Column(TypeName = "decimal(18, 0)")]
-    public decimal? Cena { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? Cena { get; set; }
 
     public bool? NaStanie { get; set; }
 
@@ -27,18 +23,15 @@ public partial class Towar
 
     public string? Opis { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyDodano { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyDodano { get; set; }
 
     public int? KtoDodal { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyZmodyfikowano { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyZmodyfikowano { get; set; }
 
     public int? KtoZmodyfikowal { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? KiedyUsunieto { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? KiedyUsunieto { get; set; }
 
     public int? KtoUsunal { get; set; }
 

@@ -1,21 +1,25 @@
-﻿using SklepInternetowy.Models;
+﻿using System.Windows.Input;
+using SklepInternetowy.Models;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowy.Views;
 using SklepInternetowyServiceReference;
-using System;
-using System.Diagnostics;
-using System.Threading.Tasks;
-using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
 {
     public class KoszykViewModel : AListViewModel<ElementKoszykaForView>
     {
+        #region Override
+
+        private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
+
+        #endregion
+
         #region base
+
         public KoszykViewModel()
-           : base("Koszyk")
+            : base("Koszyk")
         {
         }
 
@@ -31,13 +35,6 @@ namespace SklepInternetowy.ViewModels
 
         #endregion
 
-        #region Override
-
-        ADataStore<Towar> towaryDataStore = new TowaryDataStore();
-
-       
-        #endregion
-
         #region Place order
 
         //ADataStore<ElementKoszyka> elementKoszykaDataStore = new ElementKoszykaDataStore();
@@ -46,7 +43,6 @@ namespace SklepInternetowy.ViewModels
 
         private async void OnPlaceOrder(ElementKoszyka item)
         {
-
         }
 
         #endregion

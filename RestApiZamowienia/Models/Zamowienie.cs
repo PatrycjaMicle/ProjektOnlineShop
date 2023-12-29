@@ -4,21 +4,17 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace RestApiZamowienia.Models;
 
 [Table("Zamowienie")]
-public partial class Zamowienie
+public class Zamowienie
 {
-    [Key]
-    public int IdZamowienia { get; set; }
+    [Key] public int IdZamowienia { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? DataZamowienia { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? DataZamowienia { get; set; }
 
     public int? IdKlienta { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? TerminDostawy { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? TerminDostawy { get; set; }
 
-    [Column(TypeName = "decimal(18, 0)")]
-    public decimal? Suma { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? Suma { get; set; }
 
     public int? IdMetodyPlatnosci { get; set; }
 

@@ -1,5 +1,4 @@
 ﻿using SklepInternetowy.ViewModels;
-using System.ComponentModel;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.Views

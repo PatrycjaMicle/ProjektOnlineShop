@@ -1,25 +1,25 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using SklepInternetowy.Helpers;
 using SklepInternetowy.Models;
 using SklepInternetowyServiceReference;
+using Xamarin.Forms;
 
 namespace SklepInternetowy.Services.DataStore
 {
     public class ElementKoszykaForViewDataStore : ADataStore<ElementKoszykaForView>
     {
         private readonly ElementKoszykaMapper mapper;
+        private readonly UserService _userService;
 
         public ElementKoszykaForViewDataStore()
         {
-            var towaryDataStore = new TowaryDataStore(); 
+            _userService = DependencyService.Get<UserService>();
+            
+            var towaryDataStore = new TowaryDataStore();
             mapper = new ElementKoszykaMapper(towaryDataStore);
 
-            items = sklepInternetowyService.ElementKoszykaAllAsync()
-                .GetAwaiter().GetResult()
-                .Select(elementKoszyka => mapper.MapToElementKoszykaForView(elementKoszyka))
-                .ToList();
+            GetItems();
         }
 
         public override ElementKoszykaForView Find(ElementKoszykaForView item)
@@ -36,10 +36,7 @@ namespace SklepInternetowy.Services.DataStore
         {
             var towaryDataStore = new TowaryDataStore();
 
-            items = sklepInternetowyService.ElementKoszykaAllAsync()
-                .GetAwaiter().GetResult()
-                .Select(elementKoszyka => mapper.MapToElementKoszykaForView(elementKoszyka))
-                .ToList();
+            GetItems();
         }
 
         public override async Task<bool> DeleteItemFromService(ElementKoszykaForView item)
@@ -51,18 +48,27 @@ namespace SklepInternetowy.Services.DataStore
         {
             return true;
         }
-
-
+        
         public override async Task<ElementKoszykaForView> AddItemToService(ElementKoszykaForView item)
         {
-            ElementKoszyka elementKoszyka = new ElementKoszyka();
-            elementKoszyka.IdUzytkownika = item.IdUzytkownika;
-            elementKoszyka.IdTowaru = item.IdTowaru;
-            elementKoszyka.DataUtworzenia = item.DataUtworzenia;
-            elementKoszyka.Ilosc=item.Ilosc;
-            sklepInternetowyService.ElementKoszykaPOSTAsync(elementKoszyka).HandleRequest();
+            var elementKoszyka = new ElementKoszyka
+            {
+                IdUzytkownika = item.IdUzytkownika,
+                IdTowaru = item.IdTowaru,
+                DataUtworzenia = item.DataUtworzenia,
+                Ilosc = item.Ilosc
+            };
+            await sklepInternetowyService.ElementKoszykaPOSTAsync(elementKoszyka).HandleRequest();
             return item;
+        }
 
+        private void GetItems()
+        {
+            items = sklepInternetowyService.ElementKoszykaAllAsync()
+                .GetAwaiter().GetResult()
+                .Where(a=> a.IdUzytkownika == _userService.UserId)
+                .Select(elementKoszyka => mapper.MapToElementKoszykaForView(elementKoszyka))
+                .ToList();
         }
     }
 }

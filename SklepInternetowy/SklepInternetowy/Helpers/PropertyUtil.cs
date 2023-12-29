@@ -1,16 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace SklepInternetowy.Helpers
 {
     public static class PropertyUtil
     {
         /// <summary>
-        /// Extension method for copying property values from one object to another. 
-        /// Property must have the same type and name in order to be copied.
+        ///     Extension method for copying property values from one object to another.
+        ///     Property must have the same type and name in order to be copied.
         /// </summary>
         /// <typeparam name="TargetType">Target type to which values will be copied.</typeparam>
         /// <typeparam name="SourceType">Source type to which values will be copied.</typeparam>
@@ -23,15 +21,15 @@ namespace SklepInternetowy.Helpers
             {
                 Func<PropertyInfo, bool> CheckIfPropertyExistInSource =
                     prop => string.Equals(property.Name, prop.Name, StringComparison.InvariantCultureIgnoreCase)
-                    && prop.PropertyType.Equals(property.PropertyType);
+                            && prop.PropertyType.Equals(property.PropertyType);
 
                 if (sourceObject.GetType().GetProperties().Any(CheckIfPropertyExistInSource))
-                {
                     property.SetValue(targetObject, sourceObject.GetPropertyValue(property.Name), null);
-                }
             }
+
             return targetObject;
         }
+
         private static object GetPropertyValue<T>(this T source, string propertyName)
         {
             return source.GetType().GetProperty(propertyName).GetValue(source, null);

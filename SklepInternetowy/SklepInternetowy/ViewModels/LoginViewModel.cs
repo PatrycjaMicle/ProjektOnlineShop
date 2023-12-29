@@ -1,17 +1,9 @@
-﻿using SklepInternetowy.Views;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using System.Threading.Tasks;
 using SklepInternetowy.Services;
+using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;
-using SklepInternetowy.Services.DataStore;
-using Xamarin.Essentials;
 
 namespace SklepInternetowy.ViewModels
 {
@@ -26,7 +18,7 @@ namespace SklepInternetowy.ViewModels
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await OnLoginClicked());
-            RegisterCommand = new Command( async () => await OnRegisterClicked());
+            RegisterCommand = new Command(async () => await OnRegisterClicked());
 
             _loginAndRegisterService = new LoginAndRegisterService();
             _userToken = DependencyService.Get<UserService>();
@@ -53,7 +45,7 @@ namespace SklepInternetowy.ViewModels
             // Prefixing with `//` switches to a different navigation stack instead of pushing to the active one
             //await Shell.Current.GoToAsync($"//{nameof(AppShell)}");
 
-            var loginDto = new LoginDto()
+            var loginDto = new LoginDto
             {
                 Email = _email,
                 Password = _password
@@ -66,14 +58,14 @@ namespace SklepInternetowy.ViewModels
                 //For authorization
                 // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
                 _userToken.Token = jwtStorage.Jwt;
-                App.Current.MainPage = new AppShell();
+                _userToken.DecodeJwt();
+                Application.Current.MainPage = new AppShell();
             }
-
         }
 
         private async Task OnRegisterClicked()
-        { 
-            App.Current.MainPage = new RegisterPage();
+        {
+            Application.Current.MainPage = new RegisterPage();
         }
     }
 }

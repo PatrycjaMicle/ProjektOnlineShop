@@ -1,14 +1,14 @@
 using System.Text;
+using System.Text.Json.Serialization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using RestApiZamowienia.Exceptions;
 using RestApiZamowienia.Helpers;
+using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
 using RestApiZamowienia.Services;
 using RestApiZamowienia.Services.Interfaces;
-using System.Text.Json.Serialization;
-using Microsoft.AspNetCore.Identity;
-using RestApiZamowienia.Exceptions;
-using RestApiZamowienia.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<SklepInternetowyContext>(options =>
@@ -28,7 +28,7 @@ builder.Services.AddAuthentication(options =>
 {
     configuration.RequireHttpsMetadata = false;
     configuration.SaveToken = true;
-    configuration.TokenValidationParameters = new TokenValidationParameters()
+    configuration.TokenValidationParameters = new TokenValidationParameters
     {
         ValidIssuer = authenticationSettings.JwtIssuer,
         ValidAudience = authenticationSettings.JwtIssuer,
@@ -51,15 +51,9 @@ var app = builder.Build();
 using var scope = app.Services.CreateScope();
 var dbContext = scope.ServiceProvider.GetService<SklepInternetowyContext>();
 var pendingMigrations = dbContext.Database.GetPendingMigrations();
-if (pendingMigrations.Any())
-{
-    dbContext.Database.Migrate();
-}
+if (pendingMigrations.Any()) dbContext.Database.Migrate();
 
-if (!dbContext.Uzytkowniks.Any())
-{
-    dbContext.Seed();
-}
+if (!dbContext.Uzytkowniks.Any()) dbContext.Seed();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

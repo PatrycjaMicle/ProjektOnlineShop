@@ -1,13 +1,9 @@
-﻿using SklepInternetowy.ViewModels;
-using SklepInternetowy.Views;
-using System;
-using System.Collections.Generic;
-using SklepInternetowy.Views.LoginAndRegister;
+﻿using SklepInternetowy.Views;
 using Xamarin.Forms;
 
 namespace SklepInternetowy
 {
-    public partial class AppShell : Xamarin.Forms.Shell
+    public partial class AppShell : Shell
     {
         public AppShell()
         {

@@ -3,17 +3,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RestApiZamowienia.Models;
 
-public partial class TowarZamowienium
+public class TowarZamowienium
 {
-    [Key]
-    public int IdTowaruZamowienia { get; set; }
+    [Key] public int IdTowaruZamowienia { get; set; }
 
     public int? IdTowaru { get; set; }
 
     public int? IdZamowienia { get; set; }
 
-    [Column(TypeName = "decimal(18, 0)")]
-    public decimal? Ilosc { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? Ilosc { get; set; }
 
     public bool? Aktywny { get; set; }
 

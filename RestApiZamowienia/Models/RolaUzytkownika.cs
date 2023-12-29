@@ -1,8 +1,7 @@
-﻿namespace RestApiZamowienia.Models
+﻿namespace RestApiZamowienia.Models;
+
+public class RolaUzytkownika
 {
-    public class RolaUzytkownika
-    {
-        public int Id { get; set; }
-        public string Name { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
 }
