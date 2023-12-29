@@ -34,6 +34,12 @@ namespace SklepInternetowy.Services.DataStore
 
         public override async Task Refresh()
         {
+            var towaryDataStore = new TowaryDataStore();
+
+            items = sklepInternetowyService.ElementKoszykaAllAsync()
+                .GetAwaiter().GetResult()
+                .Select(elementKoszyka => mapper.MapToElementKoszykaForView(elementKoszyka))
+                .ToList();
         }
 
         public override async Task<bool> DeleteItemFromService(ElementKoszykaForView item)
