@@ -1,8 +1,4 @@
-﻿using SklepInternetowy.Models;
-using SklepInternetowy.Views;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using SklepInternetowy.Views;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
@@ -18,12 +14,12 @@ namespace SklepInternetowy.ViewModels
         public Command GoToDaneOsoboweCommand { get; }
         public Command GoToAdresyCommand { get; }
 
-        async void GoToDaneOsobowe()
+        private async void GoToDaneOsobowe()
         {
             await Shell.Current.GoToAsync(nameof(DaneOsobowePage));
         }
 
-        async void GoToAdresy()
+        private async void GoToAdresy()
         {
             await Shell.Current.GoToAsync(nameof(AdresyPage));
         }

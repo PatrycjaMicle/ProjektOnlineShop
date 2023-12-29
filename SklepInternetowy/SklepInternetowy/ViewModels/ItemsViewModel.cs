@@ -1,10 +1,9 @@
-﻿using SklepInternetowy.Models;
-using SklepInternetowy.Views;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using SklepInternetowy.Views;
 using Xamarin.Forms;
 using Item = SklepInternetowy.Models.Item;
 
@@ -13,11 +12,6 @@ namespace SklepInternetowy.ViewModels
     public class ItemsViewModel : BaseViewModel
     {
         private Item _selectedItem;
-
-        public ObservableCollection<Item> Items { get; }
-        public Command LoadItemsCommand { get; }
-        public Command AddItemCommand { get; }
-        public Command<Item> ItemTapped { get; }
 
         public ItemsViewModel()
         {
@@ -30,7 +24,22 @@ namespace SklepInternetowy.ViewModels
             AddItemCommand = new Command(OnAddItem);
         }
 
-        async Task ExecuteLoadItemsCommand()
+        public ObservableCollection<Item> Items { get; }
+        public Command LoadItemsCommand { get; }
+        public Command AddItemCommand { get; }
+        public Command<Item> ItemTapped { get; }
+
+        public Item SelectedItem
+        {
+            get => _selectedItem;
+            set
+            {
+                SetProperty(ref _selectedItem, value);
+                OnItemSelected(value);
+            }
+        }
+
+        private async Task ExecuteLoadItemsCommand()
         {
             IsBusy = true;
 
@@ -43,31 +52,28 @@ namespace SklepInternetowy.ViewModels
                     {
                         Id = "1",
                         Text = "Text 1",
-                        Description = "Opis 1",
+                        Description = "Opis 1"
                     },
                     new Item
                     {
                         Id = "2",
                         Text = "Text 2",
-                        Description = "Opis 2",
+                        Description = "Opis 2"
                     },
                     new Item
                     {
                         Id = "3",
                         Text = "Text 3",
-                        Description = "Opis 3",
+                        Description = "Opis 3"
                     },
                     new Item
                     {
                         Id = "4",
                         Text = "Text 4",
-                        Description = "Opis 4",
-                    },
-                }; 
-                foreach (var item in items)
-                {
-                    Items.Add(item);
-                }
+                        Description = "Opis 4"
+                    }
+                };
+                foreach (var item in items) Items.Add(item);
             }
             catch (Exception ex)
             {
@@ -85,22 +91,12 @@ namespace SklepInternetowy.ViewModels
             SelectedItem = null;
         }
 
-        public Item SelectedItem
-        {
-            get => _selectedItem;
-            set
-            {
-                SetProperty(ref _selectedItem, value);
-                OnItemSelected(value);
-            }
-        }
-
         private async void OnAddItem(object obj)
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
-        async void OnItemSelected(Item item)
+        private async void OnItemSelected(Item item)
         {
             if (item == null)
                 return;

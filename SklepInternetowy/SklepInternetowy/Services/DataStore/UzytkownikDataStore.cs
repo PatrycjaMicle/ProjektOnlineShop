@@ -12,6 +12,7 @@ namespace SklepInternetowy.Services.DataStore
         {
             items = sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
         }
+
         public override Uzytkownik Find(Uzytkownik item)
         {
             return items.FirstOrDefault(a => a.IdUzytkownika == item.IdUzytkownika);

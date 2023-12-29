@@ -1,29 +1,23 @@
-﻿using SklepInternetowy.Models;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows.Input;
+﻿using SklepInternetowy.Services.DataStore;
+using SklepInternetowyServiceReference;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
 {
     public class NewItemViewModel : BaseViewModel
     {
-        private string text;
+        private readonly TowaryDataStore _towaryDataStore;
         private string description;
+        private string text;
 
         public NewItemViewModel()
         {
             SaveCommand = new Command(OnSave, ValidateSave);
             CancelCommand = new Command(OnCancel);
-            this.PropertyChanged +=
+            PropertyChanged +=
                 (_, __) => SaveCommand.ChangeCanExecute();
-        }
 
-        private bool ValidateSave()
-        {
-            return !String.IsNullOrWhiteSpace(text)
-                && !String.IsNullOrWhiteSpace(description);
+            _towaryDataStore = new TowaryDataStore();
         }
 
         public string Text
@@ -41,6 +35,12 @@ namespace SklepInternetowy.ViewModels
         public Command SaveCommand { get; }
         public Command CancelCommand { get; }
 
+        private bool ValidateSave()
+        {
+            return !string.IsNullOrWhiteSpace(text)
+                   && !string.IsNullOrWhiteSpace(description);
+        }
+
         private async void OnCancel()
         {
             // This will pop the current page off the navigation stack
@@ -49,14 +49,13 @@ namespace SklepInternetowy.ViewModels
 
         private async void OnSave()
         {
-            Item newItem = new Item()
+            var newItem = new Towar
             {
-                Id = Guid.NewGuid().ToString(),
-                Text = Text,
-                Description = Description
+                Nazwa = Text,
+                Opis = description
             };
 
-            //await DataStore.AddItemAsync(newItem);
+            await _towaryDataStore.AddItemAsync(newItem);
 
             // This will pop the current page off the navigation stack
             await Shell.Current.GoToAsync("..");

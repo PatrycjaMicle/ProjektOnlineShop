@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Text;
 using SklepInternetowy.Services.DataStore;
-using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
 {
     public class DaneOsoboweViewModel : BaseViewModel
     {
         private readonly UzytkownikDataStore _uzytkownikDataStore = new UzytkownikDataStore();
-        private string text;
         private string description;
+        private string text;
 
         public DaneOsoboweViewModel()
         {
             LoadItemId(1);
         }
+
         public int Id { get; set; }
 
         public string Text

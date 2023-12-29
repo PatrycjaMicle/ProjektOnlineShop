@@ -1,18 +1,16 @@
-﻿using SklepInternetowy.Services.DataStore;
+﻿using System;
 using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowyServiceReference;
-using System;
-
 
 namespace WingtipToys.Logic
 {
     public class ShoppingCartService : AListViewModel<ElementKoszyka>
     {
-        public int IdSesjiKoszyka { get; set; }
-
         public ShoppingCartService() : base("Koszyk")
         {
         }
+
+        public int IdSesjiKoszyka { get; set; }
 
         //TO DO
         public void AddToCart(int idTowaru)
@@ -21,10 +19,10 @@ namespace WingtipToys.Logic
         }
 
         //TO DO
-        public int getCartId() 
+        public int getCartId()
         {
             return 1;
-        }           
+        }
 
         public override void GoToAddPage()
         {

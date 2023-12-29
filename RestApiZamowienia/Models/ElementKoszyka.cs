@@ -5,20 +5,17 @@ using System.Text.Json.Serialization;
 namespace RestApiZamowienia.Models;
 
 [Table("ElementKoszyka")]
-public partial class ElementKoszyka
+public class ElementKoszyka
 {
-    [Key]
-    public int IdElementuKoszyka { get; set; }
+    [Key] public int IdElementuKoszyka { get; set; }
 
     public int? IdUzytkownika { get; set; }
 
     public int? IdTowaru { get; set; }
 
-    [Column(TypeName = "decimal(18, 0)")]
-    public decimal? Ilosc { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? Ilosc { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? DataUtworzenia { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? DataUtworzenia { get; set; }
 
     [ForeignKey("IdUzytkownika")]
     [InverseProperty("ElementKoszykas")]

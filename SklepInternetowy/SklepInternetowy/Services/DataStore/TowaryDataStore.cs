@@ -12,6 +12,7 @@ namespace SklepInternetowy.Services.DataStore
         {
             items = sklepInternetowyService.TowarAllAsync().GetAwaiter().GetResult().ToList();
         }
+
         public override Towar Find(Towar item)
         {
             return items.FirstOrDefault(a => a.IdTowaru == item.IdTowaru);
