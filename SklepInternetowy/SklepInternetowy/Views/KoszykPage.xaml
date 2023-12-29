@@ -75,6 +75,14 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Label Text="Suma ( € ) : "
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
+            <Label Text="{Binding Suma}"
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
             <Button Text="Zloz zamowienie"
                     Command="{Binding BindingContext.PlaceOrderCommand, Source={x:Reference BrowseKoszykPage}}"
                     CommandParameter="{Binding .}"

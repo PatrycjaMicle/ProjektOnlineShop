@@ -1,5 +1,7 @@
 using System;
+using System.Linq;
 using System.Windows.Input;
+using SklepInternetowy.Services;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowy.Views;
@@ -46,6 +48,7 @@ namespace SklepInternetowy.ViewModels
 
                 //TODO To zawsze zwraca nulla, wyglada na to ze jest jakis blad w zwracaniu elementu koszyka z kontrolera
                 var addedItem = await _elementKoszykaDataStore.AddItemToService(elementKoszyka);
+                CartService.suma += Items.FirstOrDefault(x => x.IdTowaru == elementKoszyka.IdTowaru)?.Cena ?? 0;
                 if (addedItem == null) Console.WriteLine("Failed to add new ElementKoszyka.");
             }
             catch (Exception ex)
