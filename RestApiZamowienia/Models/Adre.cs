@@ -43,9 +43,6 @@ public partial class Adre
 
     public bool? Aktywny { get; set; }
 
-    [InverseProperty("IdAdresuNavigation")]
-    public virtual ICollection<Klient> Klients { get; set; } = new List<Klient>();
-
     [ForeignKey("KtoDodal")]
     [InverseProperty("AdreKtoDodalNavigations")]
     public virtual Uzytkownik? KtoDodalNavigation { get; set; }

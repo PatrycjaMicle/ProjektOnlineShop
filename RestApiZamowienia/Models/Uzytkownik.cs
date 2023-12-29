@@ -52,18 +52,6 @@ public partial class Uzytkownik
 
     [JsonIgnore]
     [InverseProperty("KtoDodalNavigation")]
-    public virtual ICollection<Klient> KlientKtoDodalNavigations { get; set; } = new List<Klient>();
-
-    [JsonIgnore]
-    [InverseProperty("KtoUsunalNavigation")]
-    public virtual ICollection<Klient> KlientKtoUsunalNavigations { get; set; } = new List<Klient>();
-
-    [JsonIgnore]
-    [InverseProperty("KtoZmodyfikowalNavigation")]
-    public virtual ICollection<Klient> KlientKtoZmodyfikowalNavigations { get; set; } = new List<Klient>();
-
-    [JsonIgnore]
-    [InverseProperty("KtoDodalNavigation")]
     public virtual ICollection<Towar> TowarKtoDodalNavigations { get; set; } = new List<Towar>();
 
     [JsonIgnore]
@@ -77,5 +65,9 @@ public partial class Uzytkownik
     [JsonIgnore]
     [InverseProperty("IdUzytkownikaNavigation")]
     public ICollection<ElementKoszyka> ElementKoszykas { get; set; } = new List<ElementKoszyka>();
+
+    [JsonIgnore]
+    [InverseProperty("IdUzytkownikaNavigation")]
+    public virtual ICollection<Zamowienie> Zamowienies { get; set; } = new List<Zamowienie>();
 
 }

@@ -19,8 +19,6 @@ public partial class SklepInternetowyContext : DbContext
 
     public virtual DbSet<Kategorium> Kategoria { get; set; }
 
-    public virtual DbSet<Klient> Klients { get; set; }
-
     public virtual DbSet<MetodaPlatnosci> MetodaPlatnoscis { get; set; }
 
     public virtual DbSet<Towar> Towars { get; set; }
@@ -59,18 +57,6 @@ public partial class SklepInternetowyContext : DbContext
             entity.HasOne(d => d.KtoUsunalNavigation).WithMany(p => p.KategoriumKtoUsunalNavigations).HasConstraintName("FK_Kategoria_Uzytkownik2");
         });
 
-        modelBuilder.Entity<Klient>(entity =>
-        {
-            entity.HasOne(d => d.IdAdresuNavigation).WithMany(p => p.Klients).HasConstraintName("FK_Klient_Adres");
-
-            entity.HasOne(d => d.KtoDodalNavigation).WithMany(p => p.KlientKtoDodalNavigations).HasConstraintName("FK_Klient_Uzytkownik");
-
-            entity.HasOne(d => d.KtoUsunalNavigation).WithMany(p => p.KlientKtoUsunalNavigations).HasConstraintName("FK_Klient_Uzytkownik2");
-
-            entity.HasOne(d => d.KtoZmodyfikowalNavigation).WithMany(p => p.KlientKtoZmodyfikowalNavigations).HasConstraintName("FK_Klient_Uzytkownik1");
-        });
-
-
         modelBuilder.Entity<Towar>(entity =>
         {
             entity.HasOne(d => d.IdKategoriiNavigation).WithMany(p => p.Towars).HasConstraintName("FK_Towar_Kategoria");
@@ -91,7 +77,7 @@ public partial class SklepInternetowyContext : DbContext
 
         modelBuilder.Entity<Zamowienie>(entity =>
         {
-            entity.HasOne(d => d.IdKlientaNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_Klient");
+            entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_Uzytkownik");
 
             entity.HasOne(d => d.IdMetodyPlatnosciNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_MetodaPlatnosci");
         });
