@@ -92,6 +92,7 @@ public class ElementKoszykaController : ControllerBase
             await _context.SaveChangesAsync();
         }
 
+        //TODO trzeba na to zerknac jeszcze okiem bo w lini ponizej na obiekcie elementKoszyka IdUzytkownika == null mimo ze ja ustawiamy w 128 lini
         return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
     }
 
