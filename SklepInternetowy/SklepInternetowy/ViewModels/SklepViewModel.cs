@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Input;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.ViewModels.Abstract;

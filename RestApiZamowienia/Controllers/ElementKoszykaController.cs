@@ -108,7 +108,7 @@ namespace RestApiZamowienia.Controllers
           }
           
           var existingElementKoszyka = await _context.ElementKoszykas
-              .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdSesjiKoszykaNavigation.IdUzytkownika == userId);
+              .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika == userId);
 
           if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
           {

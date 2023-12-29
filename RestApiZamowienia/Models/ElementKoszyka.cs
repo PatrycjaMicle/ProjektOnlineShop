@@ -10,7 +10,7 @@ public partial class ElementKoszyka
     [Key]
     public int IdElementuKoszyka { get; set; }
 
-    public int? IdSesjiKoszyka { get; set; }
+    public int? IdUzytkownika { get; set; }
 
     public int? IdTowaru { get; set; }
 
@@ -20,10 +20,10 @@ public partial class ElementKoszyka
     [Column(TypeName = "datetime")]
     public DateTime? DataUtworzenia { get; set; }
 
-    [ForeignKey("IdSesjiKoszyka")]
+    [ForeignKey("IdUzytkownika")]
     [InverseProperty("ElementKoszykas")]
     [JsonIgnore]
-    public virtual SesjaKoszyka? IdSesjiKoszykaNavigation { get; set; }
+    public virtual Uzytkownik? IdUzytkownikaNavigation { get; set; }
 
     [ForeignKey("IdTowaru")]
     [InverseProperty("ElementKoszykas")]

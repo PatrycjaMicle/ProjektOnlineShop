@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
@@ -25,7 +25,7 @@ namespace RestApiZamowienia.Controllers
           {
               return NotFound();
           }
-          return await _context.Towars.ToListAsync();
+            return await _context.Towars.ToListAsync();
         }
 
         // GET: api/Towar/5
@@ -36,7 +36,7 @@ namespace RestApiZamowienia.Controllers
           {
               return NotFound();
           }
-          var towar = await _context.Towars.FindAsync(id);
+            var towar = await _context.Towars.FindAsync(id);
 
             if (towar == null)
             {

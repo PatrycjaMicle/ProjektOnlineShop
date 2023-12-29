@@ -1,6 +1,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,xamarinstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,xamarinstudio
 
+.idea
+
 ### XamarinStudio ###
 bin/
 obj/

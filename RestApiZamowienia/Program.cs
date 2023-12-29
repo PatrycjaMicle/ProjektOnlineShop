@@ -68,6 +68,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// Temporary disable the AppExceptionHandler via middleware (causing Errors)
 app.UseMiddleware<AppExceptionHandler>();
 
 app.UseHttpsRedirection();

@@ -15,8 +15,6 @@ namespace SklepInternetowy.Services.DataStore
         private readonly UserService _userToken; 
         public ADataStore()
         {
-            _userToken = DependencyService.Get<UserService>(); 
-
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = 
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _userToken.Token);

@@ -99,13 +99,13 @@ public static class DataGenerator
         {
             new()
             {
-                Nazwa = "Kartony",
+                Nazwa = "Hamulce",
                 KtoDodal = 2,
                 KiedyDodano = DateTime.Now,
             },
             new()
             {
-                Nazwa = "Czesci",
+                Nazwa = "Opony",
                 KtoDodal = 2,
                 KiedyDodano = DateTime.Now,
             }
@@ -115,24 +115,79 @@ public static class DataGenerator
 
         var towary = new List<Towar>()
         {
-            // TODO Pati dodaj towary i kategorie prosze
              new()
              {
-                 Nazwa = "Opna",
-                 Kod = "111",
-                 Cena = 111,
-                 // ZdjecieUrl = ,
-                 Opis = "opis",
+                 Nazwa = "Opona radialna",
+                 Kod = "O67",
+                 Cena = 385,
+                 ZdjecieUrl = "https://lewmik.pl/zdjecia/2016/01/27/901/17/Opona_Radialna_Kleber_380_85_24_14.9_R24_Radial.jpg",
+                 Opis = "Jest to ogumienie, które ma kordy osnowy ułożone promieniowo, czyli równolegle, jedna na drugiej. Nie tworzą sieci, a zwartą warstwę. Zwykle jako kord stosuje się stalowe druciki. Budowa radialna pozwala na zróżnicowanie cech poszczególnych części opony. ",
                  KiedyDodano = DateTime.Now,
                  NaStanie = true,
              },
              new()
              {
-                 Nazwa = "Kierownica",
-                 Kod = "111",
-                 Cena = 111,
-                 // ZdjecieUrl = ,
-                 Opis = "opis",
+                 Nazwa = "Hydrauliczny hamulec",
+                 Kod = "H78",
+                 Cena = 990,
+                 ZdjecieUrl = "https://www.knott.pl/wp-content/uploads/200x30-Hydraulik-Simplex-1024x983.jpg",
+                 Opis = "Zaletą tych hamulców, w przeciwieństwie do hamulców o pływających, czy ruchomych połączeniach tarcz, jest brak ruchomych elementów, co sprawia, iż sprawdzają się one w układach pojazdów poruszających po drogach nieutwardzonych, w terenie lub w otoczeniu o silnym zanieczyszczeniu.",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },
+              new()
+             {
+                 Nazwa = "Sprzeglo rozrusznika",
+                 Kod = "H78",
+                 Cena = 870,
+                 ZdjecieUrl = "https://quadowanie.pl/shop/29266-thickbox_default/sprzeglo-rozrusznika-bendiks-cf-moto-450-500-520-550-625-800.jpg",
+                 Opis = "Wysokiej jakości zamiennik. Producent: Power Force. Wymiary: średnica frezu: 16 mm. W skład zestawu wchodzi: zębatka; łożysko igłowe wewnętrzne ; łożysko jednokierunkowe.",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },  new()
+             {
+                 Nazwa = "Lusterko zewnetrzne",
+                 Kod = "L78",
+                 Cena = 420,
+                 ZdjecieUrl = "https://image.ceneostatic.pl/data/products/137152654/i-dlaauta-trafic-vivaro-primastar-wklad-szklo-lusterka-lewy.jpg",
+                 Opis = "Lusterko montowane zwykle po stronie kierowcy, które dzięki dwuczęściowej powierzchni (tzn. zewnętrzny jego kraniec został nieco zakrzywiony na zewnątrz) eliminuje niebezpieczne martwe pole i zdecydowanie zwiększa bezpieczeństwo, np. przy zmianie pasa ruchu, przy wyprzedzaniu. W asferyczne lusterka zewnętrzne po stronie kierowcy wyposażone są niemal wszystkie obecnie sprzedawane samochody osobowe.",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },   new()
+             {
+                 Nazwa = "Opona klasyczna",
+                 Kod = "O67",
+                 Cena = 385,
+                 ZdjecieUrl = "https://lewmik.pl/zdjecia/2016/01/27/901/17/Opona_Radialna_Kleber_380_85_24_14.9_R24_Radial.jpg",
+                 Opis = "Jest to ogumienie, które ma kordy osnowy ułożone promieniowo, czyli równolegle, jedna na drugiej. Nie tworzą sieci, a zwartą warstwę. Zwykle jako kord stosuje się stalowe druciki. Budowa radialna pozwala na zróżnicowanie cech poszczególnych części opony. ",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },
+             new()
+             {
+                 Nazwa = "Hamulec tytan",
+                 Kod = "H78",
+                 Cena = 1100,
+                 ZdjecieUrl = "https://www.knott.pl/wp-content/uploads/200x30-Hydraulik-Simplex-1024x983.jpg",
+                 Opis = "Zaletą tych hamulców, w przeciwieństwie do hamulców o pływających, czy ruchomych połączeniach tarcz, jest brak ruchomych elementów, co sprawia, iż sprawdzają się one w układach pojazdów poruszających po drogach nieutwardzonych, w terenie lub w otoczeniu o silnym zanieczyszczeniu.",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },new()
+             {
+                 Nazwa = "Sprzeglo stalowe",
+                 Kod = "H78",
+                 Cena = 1300,
+                 ZdjecieUrl = "https://quadowanie.pl/shop/29266-thickbox_default/sprzeglo-rozrusznika-bendiks-cf-moto-450-500-520-550-625-800.jpg",
+                 Opis = "Wysokiej jakości zamiennik. Producent: Power Force. Wymiary: średnica frezu: 16 mm. W skład zestawu wchodzi: zębatka; łożysko igłowe wewnętrzne ; łożysko jednokierunkowe.",
+                 KiedyDodano = DateTime.Now,
+                 NaStanie = true,
+             },  new()
+             {
+                 Nazwa = "Lusterka automatyczne zestaw",
+                 Kod = "L78",
+                 Cena = 545,
+                 ZdjecieUrl = "https://image.ceneostatic.pl/data/products/137152654/i-dlaauta-trafic-vivaro-primastar-wklad-szklo-lusterka-lewy.jpg",
+                 Opis = "Lusterko montowane zwykle po stronie kierowcy, które dzięki dwuczęściowej powierzchni (tzn. zewnętrzny jego kraniec został nieco zakrzywiony na zewnątrz) eliminuje niebezpieczne martwe pole i zdecydowanie zwiększa bezpieczeństwo, np. przy zmianie pasa ruchu, przy wyprzedzaniu. W asferyczne lusterka zewnętrzne po stronie kierowcy wyposażone są niemal wszystkie obecnie sprzedawane samochody osobowe.",
                  KiedyDodano = DateTime.Now,
                  NaStanie = true,
              }
@@ -153,47 +208,6 @@ public static class DataGenerator
                 Ilosc = 3
             },
         };
-
-        var sesjaKoszyka = new List<SesjaKoszyka>()
-        {
-            new()
-            {
-                IdUzytkownika = 1,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdUzytkownika = 2,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdUzytkownika = 3,
-                DataUtworzenia = DateTime.Now,
-            }
-        };
-
-        var elementyKoszyka = new List<ElementKoszyka>()
-        {
-            new()
-            {
-                IdSesjiKoszyka = 1,
-                IdTowaru = 1,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdSesjiKoszyka = 2,
-                IdTowaru = 2,
-                DataUtworzenia = DateTime.Now,
-            },
-            new()
-            {
-                IdSesjiKoszyka = 3,
-                IdTowaru = 2,
-                DataUtworzenia = DateTime.Now,
-            }
-        };
         
         context.AddRange(towary);
         context.SaveChanges();
@@ -203,7 +217,6 @@ public static class DataGenerator
         context.SaveChanges();
         context.AddRange(uzytkownicy);
         context.SaveChanges();
-        context.AddRange(sesjaKoszyka);
         context.SaveChanges();
         context.AddRange(adresy);
         context.SaveChanges();
@@ -213,7 +226,6 @@ public static class DataGenerator
         context.SaveChanges();
         context.AddRange(towaryZamowienia);
         context.SaveChanges();
-        context.AddRange(elementyKoszyka);
         context.SaveChanges();
     }
 }
