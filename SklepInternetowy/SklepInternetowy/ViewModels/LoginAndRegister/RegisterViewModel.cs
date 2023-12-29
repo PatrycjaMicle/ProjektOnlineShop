@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
@@ -11,30 +8,33 @@ namespace SklepInternetowy.ViewModels.LoginAndRegister
 {
     public class RegisterViewModel : BaseViewModel
     {
-        readonly LoginAndRegisterService _loginAndRegisterService;
+        private readonly LoginAndRegisterService _loginAndRegisterService;
+        private string _confirmPassword;
+        private string _email;
+        private string _imie;
+        private string _nazwisko;
+        private string _password;
 
-        string _userName;
-        string _password;
-        string _confirmPassword;
-        string _email;
-        string _imie;
-        string _nazwisko;
+        private string _userName;
 
         public RegisterViewModel()
         {
             _loginAndRegisterService = new LoginAndRegisterService();
-            RegisterCommand = new Command( async () => await SignUp());
+            RegisterCommand = new Command(async () => await SignUp());
         }
+
         public string Imie
         {
             get => _imie;
             set => SetProperty(ref _imie, value);
         }
+
         public string Nazwisko
         {
             get => _nazwisko;
             set => SetProperty(ref _nazwisko, value);
         }
+
         public string Email
         {
             get => _email;
@@ -55,9 +55,9 @@ namespace SklepInternetowy.ViewModels.LoginAndRegister
 
         public Command RegisterCommand { get; }
 
-        async Task SignUp()
+        private async Task SignUp()
         {
-            var registerDto = new RegisterUserDto()
+            var registerDto = new RegisterUserDto
             {
                 Imie = _imie,
                 Nazwisko = _nazwisko,
@@ -67,7 +67,7 @@ namespace SklepInternetowy.ViewModels.LoginAndRegister
             };
 
             await _loginAndRegisterService.Register(registerDto);
-            App.Current.MainPage = new LoginPage();
+            Application.Current.MainPage = new LoginPage();
         }
     }
 }

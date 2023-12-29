@@ -12,6 +12,7 @@ namespace SklepInternetowy.Services.DataStore
         {
             items = sklepInternetowyService.ElementKoszykaAllAsync().GetAwaiter().GetResult().ToList();
         }
+
         public override ElementKoszyka Find(ElementKoszyka item)
         {
             return items.FirstOrDefault(a => a.IdTowaru == item.IdTowaru);
@@ -42,7 +43,8 @@ namespace SklepInternetowy.Services.DataStore
                 {
                     existingItem.Ilosc++;
 
-                    return await sklepInternetowyService.ElementKoszykaPUTAsync(existingItem.IdElementuKoszyka, existingItem)
+                    return await sklepInternetowyService
+                        .ElementKoszykaPUTAsync(existingItem.IdElementuKoszyka, existingItem)
                         .HandleRequest();
                 }
 

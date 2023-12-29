@@ -5,22 +5,18 @@ using Newtonsoft.Json;
 namespace RestApiZamowienia.Models;
 
 [Table("Uzytkownik")]
-public partial class Uzytkownik
+public class Uzytkownik
 {
-    [Key]
-    public int IdUzytkownika { get; set; }
+    [Key] public int IdUzytkownika { get; set; }
 
-    [StringLength(50)]
-    public string? Imie { get; set; }
+    [StringLength(50)] public string? Imie { get; set; }
 
-    [StringLength(50)]
-    public string? Nazwisko { get; set; }
+    [StringLength(50)] public string? Nazwisko { get; set; }
 
-    [Column(TypeName = "datetime")]
-    public DateTime? DataDodania { get; set; }
+    [Column(TypeName = "datetime")] public DateTime? DataDodania { get; set; }
 
-    [StringLength(50)]
-    public string? Email { get; set; }
+    [StringLength(50)] public string? Email { get; set; }
+
     public string ZahaszowaneHaslo { get; set; }
 
     public RolaUzytkownika RolaUzytkownika { get; set; }

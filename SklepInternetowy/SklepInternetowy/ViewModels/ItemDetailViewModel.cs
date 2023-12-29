@@ -1,8 +1,6 @@
-﻿using SklepInternetowy.Models;
-using SklepInternetowy.Services.DataStore;
-using System;
+﻿using System;
 using System.Diagnostics;
-using System.Threading.Tasks;
+using SklepInternetowy.Services.DataStore;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
@@ -10,13 +8,13 @@ namespace SklepInternetowy.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class ItemDetailViewModel : BaseViewModel
     {
+        private double? cena;
         public TowaryDataStore dataStore = new TowaryDataStore();
 
         private int itemId;
-        private string opis;
-        private double? cena;
         private string kod;
         private string nazwa;
+        private string opis;
         private string url;
         public int Id { get; set; }
 
@@ -41,7 +39,7 @@ namespace SklepInternetowy.ViewModels
                 if (cena != value)
                 {
                     cena = value;
-                    OnPropertyChanged(nameof(Cena));
+                    OnPropertyChanged();
                 }
             }
         }
@@ -51,8 +49,8 @@ namespace SklepInternetowy.ViewModels
         {
             get => kod;
             set => SetProperty(ref kod, value);
-        }   
-        
+        }
+
         public string Nazwa
         {
             get => nazwa;
@@ -61,10 +59,7 @@ namespace SklepInternetowy.ViewModels
 
         public int ItemId
         {
-            get
-            {
-                return itemId;
-            }
+            get => itemId;
             set
             {
                 itemId = value;
@@ -85,8 +80,6 @@ namespace SklepInternetowy.ViewModels
                 Url = item.ZdjecieUrl;
 
                 Debug.WriteLine($"URL: {Url}");
-
-
             }
             catch (Exception)
             {

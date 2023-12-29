@@ -2,43 +2,42 @@
 using RestApiZamowienia.Dto;
 using RestApiZamowienia.Services.Interfaces;
 
-namespace RestApiZamowienia.Controllers
+namespace RestApiZamowienia.Controllers;
+
+[Route("api/[controller]")]
+[ApiController]
+public class KontoController : ControllerBase
 {
-    [Route("api/[controller]")]
-    [ApiController]
-    public class KontoController : ControllerBase
+    private readonly IAccountService _accountService;
+
+    public KontoController(IAccountService accountService)
     {
-        private readonly IAccountService _accountService;
+        _accountService = accountService;
+    }
 
-        public KontoController(IAccountService accountService)
+
+    [HttpPost("register")]
+    public async Task<ActionResult> RegisterUser(RegisterUserDto dto)
+    {
+        await _accountService.RegisterUser(dto);
+        return Ok();
+    }
+
+    [HttpPost("login")]
+    public async Task<ActionResult<JwtStorage>> Login(LoginDto dto)
+    {
+        var jwt = await _accountService.GenerateJwt(dto);
+        var jwtStorage = new JwtStorage
         {
-            _accountService = accountService;
-        }
+            Jwt = jwt
+        };
+        return Ok(jwtStorage);
+    }
 
-
-        [HttpPost("register")]
-        public async Task<ActionResult> RegisterUser(RegisterUserDto dto)
-        {
-            await _accountService.RegisterUser(dto);
-            return Ok();
-        }
-
-        [HttpPost("login")]
-        public async Task<ActionResult<JwtStorage>> Login(LoginDto dto)
-        {
-            var jwt = await _accountService.GenerateJwt(dto);
-            var jwtStorage = new JwtStorage()
-            {
-                Jwt = jwt
-            };
-            return Ok(jwtStorage);
-        }
-
-        [HttpDelete]
-        public async Task<ActionResult> Delete(string email)
-        {
-            await _accountService.DeleteUser(email);
-            return NoContent();
-        }
+    [HttpDelete]
+    public async Task<ActionResult> Delete(string email)
+    {
+        await _accountService.DeleteUser(email);
+        return NoContent();
     }
 }

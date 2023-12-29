@@ -1,68 +1,68 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
-    <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+        <ProduceReferenceAssemblyInOutDir>true</ProduceReferenceAssemblyInOutDir>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger4.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
-      <SourceUri>http://localhost:5219/swagger/v1/swagger.json</SourceUri>
-    </OpenApiReference>
-  </ItemGroup>
+    <ItemGroup>
+        <OpenApiReference Include="OpenAPIs\swagger4.json" CodeGenerator="NSwagCSharp" Namespace="SklepInternetowyServiceReference" ClassName="SklepInternetowyService">
+            <SourceUri>http://localhost:5219/swagger/v1/swagger.json</SourceUri>
+        </OpenApiReference>
+    </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.2">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
-    <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
-    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />  
-    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="7.0.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+        <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.2">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3"/>
+        <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0"/>
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196"/>
+        <PackageReference Include="Xamarin.Essentials" Version="1.7.0"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Views\KoszykPage.xaml.cs">
-      <DependentUpon>KoszykPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\SklepPage.xaml.cs">
-      <DependentUpon>SklepPage.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
+    <ItemGroup>
+        <Compile Update="Views\KoszykPage.xaml.cs">
+            <DependentUpon>KoszykPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\SklepPage.xaml.cs">
+            <DependentUpon>SklepPage.xaml</DependentUpon>
+        </Compile>
+    </ItemGroup>
 
-  <ItemGroup>
-    <EmbeddedResource Update="Views\AdresyPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\DaneOsobowePage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\KontoPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoginAndRegister\LoginPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\LoginAndRegister\RegisterPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-  </ItemGroup>
+    <ItemGroup>
+        <EmbeddedResource Update="Views\AdresyPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\DaneOsobowePage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\KontoPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\LoginAndRegister\LoginPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+        <EmbeddedResource Update="Views\LoginAndRegister\RegisterPage.xaml">
+            <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+        </EmbeddedResource>
+    </ItemGroup>
 
-  <ItemGroup>
-    <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService" />
-    <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService" />
-    <None Update="OpenAPIs\swagger3.json" ClassName="SklepInternetowyService" />
-  </ItemGroup>
+    <ItemGroup>
+        <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService"/>
+        <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService"/>
+        <None Update="OpenAPIs\swagger3.json" ClassName="SklepInternetowyService"/>
+    </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\Assets\" />
-  </ItemGroup>
+    <ItemGroup>
+        <Folder Include="Views\Assets\"/>
+    </ItemGroup>
 </Project>

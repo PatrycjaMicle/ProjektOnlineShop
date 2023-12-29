@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SklepInternetowy.Models
+﻿namespace SklepInternetowy.Models
 {
     public class Item
     {

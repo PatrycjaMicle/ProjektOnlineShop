@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Net.Http;
 using System.Threading.Tasks;
 using SklepInternetowyServiceReference;
 
@@ -12,7 +10,7 @@ namespace SklepInternetowy.Services.DataStore
 
         public LoginAndRegisterService()
         {
-            _sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", new System.Net.Http.HttpClient());
+            _sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", new HttpClient());
         }
 
         public async Task Register(RegisterUserDto dto)

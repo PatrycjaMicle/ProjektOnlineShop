@@ -18,6 +18,7 @@ namespace SklepInternetowy.Helpers
                 return false;
             }
         }
+
         public static async Task<T> HandleRequest<T>(this Task<T> serviceMethod) where T : class
         {
             try
