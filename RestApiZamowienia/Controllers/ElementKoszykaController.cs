@@ -95,32 +95,32 @@ namespace RestApiZamowienia.Controllers
                     return BadRequest("Invalid user ID format.");
                 }
 
-                Console.WriteLine("Checking if CartItem exists...*******");
+                Console.WriteLine("Checking if CartItem exists...");
 
                 existingElementKoszyka = await _context.ElementKoszykas
                     .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika.ToString() == userID);
 
                 if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
                 {
-                    Console.WriteLine("Exists already...*******");
+                    Console.WriteLine("Exists already...");
 
                     existingElementKoszyka.Ilosc = existingElementKoszyka.Ilosc + 1;
 
                     _context.Entry(existingElementKoszyka).State = EntityState.Modified;
                     await _context.SaveChangesAsync();
 
-                    Console.WriteLine("********Produkt byl juz w koszyku, zaktualizowano ilosc: *************", elementKoszyka);
+                    Console.WriteLine("Produkt byl juz w koszyku, zaktualizowano ilosc.");
                 }
                 else
                 {
-                    Console.WriteLine("Not exists...*******");
+                    Console.WriteLine("Not exists...");
 
                     elementKoszyka.IdUzytkownika = int.Parse(userID);
                     elementKoszyka.Ilosc = 1;
                     _context.ElementKoszykas.Add(elementKoszyka);
                     await _context.SaveChangesAsync();
 
-                    Console.WriteLine("********Dodano element koszyka: *************", elementKoszyka);
+                    Console.WriteLine("Dodano element koszyka!");
                 }
             }
             else
