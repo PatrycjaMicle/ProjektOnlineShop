@@ -108,6 +108,7 @@ namespace RestApiZamowienia.Controllers
           }
           
           var existingElementKoszyka = await _context.ElementKoszykas
+              .Include(a=> a.IdTowaruNavigation)
               .FirstOrDefaultAsync(e => e.IdTowaru == elementKoszyka.IdTowaru && e.IdUzytkownika == userId);
 
           if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
@@ -123,16 +124,17 @@ namespace RestApiZamowienia.Controllers
           else
           {
               Console.WriteLine("Not exists...");
-
-              //TODO odkomentowac po zmianie encji!!!!!!!
-              // elementKoszyka.IdUzytkownika = userId;
+              
+              elementKoszyka.IdUzytkownika = userId;
               elementKoszyka.Ilosc = 1;
               _context.ElementKoszykas.Add(elementKoszyka);
               await _context.SaveChangesAsync();
 
-              Console.WriteLine($"Dodano element koszyka: {existingElementKoszyka.IdTowaruNavigation.Nazwa}");
+              //TODO rzuca tu errorem, null reference nie wiem czemu, narazie to zakomentuje 
+              // Console.WriteLine($"Dodano element koszyka: {existingElementKoszyka.IdTowaruNavigation.Nazwa}");
           }
 
+          //TODO trzeba na to zerknac jeszcze okiem bo w lini ponizej na obiekcie elementKoszyka IdUzytkownika == null mimo ze ja ustawiamy w 128 lini
           return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
         }
 

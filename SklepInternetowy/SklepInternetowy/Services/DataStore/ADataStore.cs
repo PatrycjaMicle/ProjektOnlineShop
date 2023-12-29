@@ -11,10 +11,12 @@ namespace SklepInternetowy.Services.DataStore
     {
         public List<T> items;
         protected readonly SklepInternetowyService sklepInternetowyService;
-
+        
         private readonly UserService _userToken; 
         public ADataStore()
         {
+            _userToken = DependencyService.Get<UserService>();
+            
             var httpClient = new System.Net.Http.HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = 
                 new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", _userToken.Token);
