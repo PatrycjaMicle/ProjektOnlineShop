@@ -83,6 +83,8 @@ public class ElementKoszykaController : ControllerBase
             existingElementKoszyka.Ilosc += 1;
             _context.Entry(existingElementKoszyka).State = EntityState.Modified;
             await _context.SaveChangesAsync();
+
+            return Ok(existingElementKoszyka);
         }
         else
         {
@@ -90,10 +92,9 @@ public class ElementKoszykaController : ControllerBase
             elementKoszyka.Ilosc = 1;
             _context.ElementKoszykas.Add(elementKoszyka);
             await _context.SaveChangesAsync();
-        }
 
-        //TODO trzeba na to zerknac jeszcze okiem bo w lini ponizej na obiekcie elementKoszyka IdUzytkownika == null mimo ze ja ustawiamy w 128 lini
-        return CreatedAtAction("GetElementKoszyka", new { id = elementKoszyka.IdElementuKoszyka }, elementKoszyka);
+            return Ok(elementKoszyka);
+        }
     }
 
     // DELETE: api/ElementKoszyka/5

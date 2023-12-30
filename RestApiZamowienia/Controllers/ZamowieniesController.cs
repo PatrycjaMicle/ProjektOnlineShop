@@ -70,18 +70,24 @@ public class ZamowieniesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Zamowienie>> PostZamowienie(Zamowienie zamowienie)
     {
-        if (_context.ElementKoszykas == null) return NotFound();
+
+        if (_context.ElementKoszykas == null)
+            return NotFound();
 
         var userId = _userContextService.GetUserId;
-        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
+        if (!userId.HasValue)
+            return BadRequest("Invalid user ID format.");
 
         zamowienie.IdUzytkownika = userId;
 
-        if (_context.Zamowienies == null) return Problem("Entity set 'SklepInternetowyContext.Zamowienies'  is null.");
+        if (_context.Zamowienies == null)
+            return Problem("Entity set 'SklepInternetowyContext.Zamowienies' is null.");
+
         _context.Zamowienies.Add(zamowienie);
         await _context.SaveChangesAsync();
 
-        return CreatedAtAction("GetZamowienie", new { id = zamowienie.IdZamowienia }, zamowienie);
+        return Ok(zamowienie);
     }
 
     // DELETE: api/Zamowienies/5

@@ -18,6 +18,7 @@ namespace SklepInternetowy.ViewModels
 
         private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
         private ADataStore<Zamowienie> zamowienieDataStore = new ZamowienieDataStore();
+        private ADataStore<TowarZamowienium> towarZamowieniaDataStore = new TowarZamowieniaDataStore();
         private ADataStore<ElementKoszykaForView> elementKoszykaForViewDataStore = new ElementKoszykaForViewDataStore();
 
         private double? suma;
@@ -65,23 +66,46 @@ namespace SklepInternetowy.ViewModels
         {
             try
             {
-                Zamowienie zamowienie = new Zamowienie();
+                Zamowienie zamowienie = new Zamowienie
+                {
+                    DataZamowienia = DateTime.Now,
+                    Suma = Suma,
+                    IdMetodyPlatnosci = 1,
+                    TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7))
+                };
 
-                zamowienie.DataZamowienia = DateTime.Now;
-                zamowienie.Suma = Suma;
-                zamowienie.IdMetodyPlatnosci = 1;
-                zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
+                var addedOrder = await zamowienieDataStore.AddItemToService(zamowienie);
+                if (addedOrder == null)
+                {
+                    Console.WriteLine("Failed to add a new order.");
+                    return;
+                }
 
-                var addedItem = await zamowienieDataStore.AddItemToService(zamowienie);
-                if (addedItem == null) Console.WriteLine("Failed to add new ElementKoszyka.");
+                var items = await elementKoszykaForViewDataStore.GetItemsAsync(true);
+                foreach (var item in items)
+                {
+                    TowarZamowienium towarZamowienia = new TowarZamowienium
+                    {
+                        NazwaTowaru = item.TowarNazwa,
+                        IdZamowienia = addedOrder.IdZamowienia,
+                        Ilosc = item.Ilosc,
+                        Aktywny = true,
+                        Cena = item.TowarCena  
+                    };
+                    
+                  var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
+                }
+
+
+                // Delete items from the cart for a given IdUzytkownika
+               // await elementKoszykaForViewDataStore.DeleteItemsForUserIdAsync(yourUserId);
+
+                // TODO: Any additional logic or UI updates after placing the order
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
-
-            // TODO set ElementsKoszyka to TowaryZamowienia
-            // TODO delete ElementsKoszyka for a given IdUzytkownika
         }
 
         private async void InitializeSumaAsync()

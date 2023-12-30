@@ -10,7 +10,7 @@ namespace SklepInternetowy.Services.DataStore
     {
         public ZamowienieDataStore()
         {
-           // items = sklepInternetowyService.ZamowieniesAllAsync.GetAwaiter().GetResult().ToList();
+           items = sklepInternetowyService.ZamowieniesAllAsync().GetAwaiter().GetResult().ToList();
         }
 
         public override Zamowienie Find(Zamowienie item)

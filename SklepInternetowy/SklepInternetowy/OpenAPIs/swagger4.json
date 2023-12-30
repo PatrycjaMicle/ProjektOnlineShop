@@ -1934,13 +1934,6 @@
           "aktywny": {
             "type": "boolean",
             "nullable": true
-          },
-          "elementKoszykas": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ElementKoszyka"
-            },
-            "nullable": true
           }
         },
         "additionalProperties": false
@@ -1952,9 +1945,8 @@
             "type": "integer",
             "format": "int32"
           },
-          "idTowaru": {
-            "type": "integer",
-            "format": "int32",
+          "nazwaTowaru": {
+            "type": "string",
             "nullable": true
           },
           "idZamowienia": {
@@ -1971,11 +1963,10 @@
             "type": "boolean",
             "nullable": true
           },
-          "idTowaruNavigation": {
-            "$ref": "#/components/schemas/Towar"
-          },
-          "idZamowieniaNavigation": {
-            "$ref": "#/components/schemas/Zamowienie"
+          "cena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
           }
         },
         "additionalProperties": false

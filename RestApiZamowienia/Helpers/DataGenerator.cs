@@ -174,22 +174,6 @@ public static class DataGenerator
             }
         };
 
-        var towaryZamowienia = new List<TowarZamowienium>
-        {
-            new()
-            {
-                IdTowaru = 1,
-                IdZamowienia = 1,
-                Ilosc = 2
-            },
-            new()
-            {
-                IdTowaru = 2,
-                IdZamowienia = 2,
-                Ilosc = 3
-            }
-        };
-
         context.AddRange(towary);
         context.SaveChanges();
         context.AddRange(role);

@@ -43,12 +43,9 @@ namespace SklepInternetowy.ViewModels
                 {
                     IdTowaru = item.IdTowaru,
                     DataUtworzenia = DateTime.Now,
-                    Ilosc = 1
                 };
 
                 var addedItem = await _elementKoszykaDataStore.AddItemToService(elementKoszyka);
-
-                // Update CartService.Suma and trigger the OnSumaChanged event
                 CartService.Suma = CartService.Suma + (Items.FirstOrDefault(x => x.IdTowaru == elementKoszyka.IdTowaru)?.Cena ?? 0);
 
                 if (addedItem == null)
