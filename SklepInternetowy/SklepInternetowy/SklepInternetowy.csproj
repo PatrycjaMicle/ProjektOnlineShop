@@ -17,19 +17,25 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Newtonsoft.Json" Version="13.0.1"/>
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
         <PackageReference Include="NSwag.ApiDescription.Client" Version="13.18.2">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0"/>
-        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3"/>
-        <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0"/>
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196"/>
-        <PackageReference Include="Xamarin.Essentials" Version="1.7.0"/>
+        <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
+        <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="7.0.3" />
+        <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
+        <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Update="Views\SzczegolyZamowieniaPage.xaml.cs">
+          <DependentUpon>SzczegolyZamowieniaPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Update="Views\TowarDetailPage.xaml.cs">
+          <DependentUpon>TowarDetailPage.xaml</DependentUpon>
+        </Compile>
         <Compile Update="Views\KoszykPage.xaml.cs">
             <DependentUpon>KoszykPage.xaml</DependentUpon>
         </Compile>
@@ -57,12 +63,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService"/>
-        <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService"/>
-        <None Update="OpenAPIs\swagger3.json" ClassName="SklepInternetowyService"/>
+        <None Update="OpenAPIs\swagger.json" ClassName="SklepInternetowyService" />
+        <None Update="OpenAPIs\swagger2.json" ClassName="SklepInternetowyService" />
+        <None Update="OpenAPIs\swagger3.json" ClassName="SklepInternetowyService" />
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="Views\Assets\"/>
+        <Folder Include="Views\Assets\" />
     </ItemGroup>
 </Project>

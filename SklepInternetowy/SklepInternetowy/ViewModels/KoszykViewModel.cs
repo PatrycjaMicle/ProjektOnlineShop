@@ -92,12 +92,13 @@ namespace SklepInternetowy.ViewModels
                         Aktywny = true,
                         Cena = item.TowarCena  
                     };
-                    
-                  var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
-                  await elementKoszykaForViewDataStore.DeleteItemFromService(item);
-                  InitializeSumaAsync();
-                  base.Items.Clear();
+                    CartService.IdZamowienia = towarZamowienia.IdZamowienia;
+                    var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
+                    await elementKoszykaForViewDataStore.DeleteItemFromService(item);
+                    InitializeSumaAsync();
                 }
+                base.Items.Clear();
+                GoToSzczegolyZamowienia();
             }
             catch (Exception ex)
             {
@@ -117,6 +118,12 @@ namespace SklepInternetowy.ViewModels
                 Console.WriteLine($"An error occurred during sum calculation: {ex.Message}");
             }
         }
+
+        private async void GoToSzczegolyZamowienia()
+        {
+            await Shell.Current.GoToAsync(nameof(SzczegolyZamowieniaPage));
+        }
+
         #endregion
     }
 }

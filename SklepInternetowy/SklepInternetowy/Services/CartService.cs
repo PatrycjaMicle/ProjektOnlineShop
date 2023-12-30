@@ -19,5 +19,21 @@ namespace SklepInternetowy.Services
             }
         }
         public static event EventHandler OnSumaChanged;
+
+        private static int? _idZamowienia;
+
+        public static int? IdZamowienia
+        {
+            get { return _idZamowienia; }
+            set
+            {
+                if (_idZamowienia != value)
+                {
+                    _idZamowienia = value;
+                    OnIdZamowieniaChanged?.Invoke(null, EventArgs.Empty);
+                }
+            }
+        }
+        public static event EventHandler OnIdZamowieniaChanged;
     }
 }

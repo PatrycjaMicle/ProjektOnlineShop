@@ -2,7 +2,7 @@
 using Xamarin.Essentials;
 using Xamarin.Forms;
 
-namespace SklepInternetowy.ViewModels
+namespace SklepInternetowy.ViewModels.Deprecated
 {
     public class AboutViewModel : BaseViewModel
     {

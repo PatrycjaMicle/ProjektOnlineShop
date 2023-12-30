@@ -3,12 +3,12 @@ using Xamarin.Forms;
 
 namespace SklepInternetowy.Views
 {
-    public partial class ItemDetailPage : ContentPage
+    public partial class TowarDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public TowarDetailPage()
         {
             InitializeComponent();
-            BindingContext = new ItemDetailViewModel();
+            BindingContext = new TowarDetailViewModel();
         }
     }
 }

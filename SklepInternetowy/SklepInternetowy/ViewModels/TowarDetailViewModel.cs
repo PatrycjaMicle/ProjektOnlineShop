@@ -6,7 +6,7 @@ using Xamarin.Forms;
 namespace SklepInternetowy.ViewModels
 {
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
-    public class ItemDetailViewModel : BaseViewModel
+    public class TowarDetailViewModel : BaseViewModel
     {
         private double? cena;
         public TowaryDataStore dataStore = new TowaryDataStore();

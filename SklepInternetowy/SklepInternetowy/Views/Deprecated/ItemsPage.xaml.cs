@@ -1,4 +1,4 @@
-﻿using SklepInternetowy.ViewModels;
+﻿using SklepInternetowy.ViewModels.Deprecated;
 using Xamarin.Forms;
 
 namespace SklepInternetowy.Views
