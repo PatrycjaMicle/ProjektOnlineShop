@@ -81,18 +81,6 @@ public static class DataGenerator
 
         var zamowienia = new List<Zamowienie>
         {
-            new()
-            {
-                DataZamowienia = DateTime.Now,
-                TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7)),
-                IdMetodyPlatnosci = 1
-            },
-            new()
-            {
-                DataZamowienia = DateTime.Now,
-                TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7)),
-                IdMetodyPlatnosci = 2
-            }
         };
 
         var kategorie = new List<Kategorium>

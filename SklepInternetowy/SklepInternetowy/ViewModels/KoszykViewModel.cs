@@ -17,7 +17,9 @@ namespace SklepInternetowy.ViewModels
         #region decl
 
         private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
+        private ADataStore<Zamowienie> zamowienieDataStore = new ZamowienieDataStore();
         private ADataStore<ElementKoszykaForView> elementKoszykaForViewDataStore = new ElementKoszykaForViewDataStore();
+        private readonly UserService _userService;
 
         private double? suma;
 
@@ -34,6 +36,8 @@ namespace SklepInternetowy.ViewModels
             }
         }
 
+        public double? CartServiceSuma => CartService.Suma;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged(string propertyName)
@@ -48,13 +52,19 @@ namespace SklepInternetowy.ViewModels
             : base("Koszyk")
         {
             InitializeSumaAsync();
-            Suma = CartService.suma;
+            Suma = CartService.Suma;
+            _userService = DependencyService.Get<UserService>();
+
+            CartService.OnSumaChanged += (sender, args) =>
+            {
+                Suma = CartService.Suma;
+            };
         }
+
         public override async void GoToAddPage()
         {
             await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
-
 
         public override void OnItemSelected(ElementKoszykaForView item)
         {
@@ -64,18 +74,38 @@ namespace SklepInternetowy.ViewModels
 
         #region Place order
 
-        public ICommand PlaceOrderCommand => new Command<ElementKoszyka>(OnPlaceOrder);
+        public ICommand PlaceOrderCommand => new Command(OnPlaceOrder);
 
-        private async void OnPlaceOrder(ElementKoszyka item)
+        private async void OnPlaceOrder()
         {
+            try
+            {
+                Zamowienie zamowienie = new Zamowienie();
+
+                zamowienie.DataZamowienia = DateTime.Now;
+                zamowienie.Suma = CartService.Suma;
+                zamowienie.IdUzytkownika = _userService.UserId;
+                zamowienie.IdMetodyPlatnosci = 1;
+                zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
+
+                var addedItem = await zamowienieDataStore.AddItemToService(zamowienie);
+                if (addedItem == null) Console.WriteLine("Failed to add new ElementKoszyka.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+
+            // TODO set ElementsKoszyka to TowaryZamowienia
+            // TODO delete ElementsKoszyka for a given IdUzytkownika
         }
 
-        private async void InitializeSumaAsync()
+        public async void InitializeSumaAsync()
         {
             try
             {
                 var koszykItems = await elementKoszykaForViewDataStore.GetItemsAsync(true);
-                CartService.suma = koszykItems.Sum(x => x.TowarCena ?? 0);
+                CartService.Suma = koszykItems.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault());
             }
             catch (Exception ex)
             {

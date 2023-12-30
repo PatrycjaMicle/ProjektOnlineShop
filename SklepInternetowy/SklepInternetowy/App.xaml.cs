@@ -15,6 +15,7 @@ namespace SklepInternetowy
             DependencyService.Register<TowaryDataStore>();
             DependencyService.Register<ElementKoszykaDataStore>();
             DependencyService.Register<ElementKoszykaForViewDataStore>();
+            DependencyService.Register<ZamowienieDataStore>();
             DependencyService.Register<LoginAndRegisterService>();
 
             DependencyService.RegisterSingleton(new UserService());

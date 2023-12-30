@@ -375,54 +375,6 @@
         }
       }
     },
-    "/api/ElementKoszyka/CheckIfExists": {
-      "get": {
-        "tags": [
-          "ElementKoszyka"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ElementKoszyka"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ElementKoszyka"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ElementKoszyka"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/ElementKoszyka"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ElementKoszyka"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ElementKoszyka"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/api/Kategorium": {
       "get": {
         "tags": [
@@ -589,191 +541,6 @@
       "delete": {
         "tags": [
           "Kategorium"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      }
-    },
-    "/api/Klient": {
-      "get": {
-        "tags": [
-          "Klient"
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Klient"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Klient"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Klient"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Klient"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Klient/{id}": {
-      "get": {
-        "tags": [
-          "Klient"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Klient"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Klient"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/Klient"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Klient"
         ],
         "parameters": [
           {
@@ -1898,13 +1665,6 @@
             "type": "boolean",
             "nullable": true
           },
-          "klients": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Klient"
-            },
-            "nullable": true
-          },
           "ktoDodalNavigation": {
             "$ref": "#/components/schemas/Uzytkownik"
           },
@@ -2019,79 +1779,6 @@
               "$ref": "#/components/schemas/Towar"
             },
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Klient": {
-        "type": "object",
-        "properties": {
-          "idKlienta": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "imie": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "nazwisko": {
-            "maxLength": 50,
-            "minLength": 0,
-            "type": "string",
-            "nullable": true
-          },
-          "idAdresu": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "ktoDodal": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "kiedyDodano": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "ktoZmodyfikowal": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "kiedyZmodyfikowano": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "ktoUsunal": {
-            "type": "integer",
-            "format": "int32",
-            "nullable": true
-          },
-          "kiedyUsunieto": {
-            "type": "string",
-            "format": "date-time",
-            "nullable": true
-          },
-          "aktywny": {
-            "type": "boolean",
-            "nullable": true
-          },
-          "idAdresuNavigation": {
-            "$ref": "#/components/schemas/Adre"
-          },
-          "ktoDodalNavigation": {
-            "$ref": "#/components/schemas/Uzytkownik"
-          },
-          "ktoUsunalNavigation": {
-            "$ref": "#/components/schemas/Uzytkownik"
-          },
-          "ktoZmodyfikowalNavigation": {
-            "$ref": "#/components/schemas/Uzytkownik"
           }
         },
         "additionalProperties": false
@@ -2376,27 +2063,6 @@
             },
             "nullable": true
           },
-          "klientKtoDodalNavigations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Klient"
-            },
-            "nullable": true
-          },
-          "klientKtoUsunalNavigations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Klient"
-            },
-            "nullable": true
-          },
-          "klientKtoZmodyfikowalNavigations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Klient"
-            },
-            "nullable": true
-          },
           "towarKtoDodalNavigations": {
             "type": "array",
             "items": {
@@ -2424,6 +2090,13 @@
               "$ref": "#/components/schemas/ElementKoszyka"
             },
             "nullable": true
+          },
+          "zamowienies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Zamowienie"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2440,7 +2113,7 @@
             "format": "date-time",
             "nullable": true
           },
-          "idKlienta": {
+          "idUzytkownika": {
             "type": "integer",
             "format": "int32",
             "nullable": true
@@ -2458,19 +2131,6 @@
           "idMetodyPlatnosci": {
             "type": "integer",
             "format": "int32",
-            "nullable": true
-          },
-          "idKlientaNavigation": {
-            "$ref": "#/components/schemas/Klient"
-          },
-          "idMetodyPlatnosciNavigation": {
-            "$ref": "#/components/schemas/MetodaPlatnosci"
-          },
-          "towarZamowienia": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TowarZamowienium"
-            },
             "nullable": true
           }
         },

@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using SklepInternetowyServiceReference;
 
-namespace SklepInternetowy.Services.DataStore
+namespace SklepInternetowy.Services
 {
     public class LoginAndRegisterService
     {

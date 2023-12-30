@@ -78,11 +78,11 @@
             <Label Text="Suma ( € ) : "
                    LineBreakMode="NoWrap"
                    Style="{DynamicResource ListItemDetailTextStyle}"
-                   FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
-            <Label Text="{Binding Suma}"
+                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,0" />
+            <Label Text="{Binding CartServiceSuma, Mode=TwoWay}"
                    LineBreakMode="NoWrap"
                    Style="{DynamicResource ListItemDetailTextStyle}"
-                   FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
+                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,20" />
             <Button Text="Zloz zamowienie"
                     Command="{Binding BindingContext.PlaceOrderCommand, Source={x:Reference BrowseKoszykPage}}"
                     CommandParameter="{Binding .}"
