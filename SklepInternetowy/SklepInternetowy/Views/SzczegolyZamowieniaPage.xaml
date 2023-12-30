@@ -46,6 +46,9 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Label Text="{Binding Suma, StringFormat='Wartosc zamowienia:     {0} €'}" LineBreakMode="NoWrap"                   
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="15" HorizontalTextAlignment="Center" TextColor="#34495e" />
             <Label Text="Potwierdzenie zostalo wyslane na E-mail!"
                    Style="{DynamicResource ListItemTextStyle}"
                    FontSize="18" HorizontalTextAlignment="Center" 

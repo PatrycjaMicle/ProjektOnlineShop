@@ -20,7 +20,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
 
-                        <StackLayout Padding="10" x:DataType="model1:ElementKoszykaForView" BackgroundColor="White"
+                        <StackLayout Padding="10,30,0,0" x:DataType="model1:ElementKoszykaForView" BackgroundColor="White"
                                      HeightRequest="100">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -34,17 +34,15 @@
                                     <RowDefinition />
                                 </Grid.RowDefinitions>
 
-                                <!-- First Column: TowarNazwa -->
                                 <Label Grid.Column="0" Grid.Row="0" Text="Nazwa: "
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
+                                       FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e"/>
                                 <Label Grid.Column="1" Grid.Row="0" Text="{Binding TowarNazwa}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle}"
                                        FontSize="18" HorizontalTextAlignment="Start" TextColor="#34495e" />
 
-                                <!-- Second Column: Ilosc -->
                                 <Label Grid.Column="0" Grid.Row="1" Text="Ilosc: "
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
@@ -54,12 +52,15 @@
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
 
-                                <!-- Third Column: TowarCena -->
                                 <Label Grid.Column="0" Grid.Row="2" Text="Cena: "
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
                                 <Label Grid.Column="1" Grid.Row="2" Text="{Binding TowarCena, StringFormat='{0} €'}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
+                                <Label Grid.Column="1" Grid.Row="3" Text="-----------------------------------------------------------------"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
