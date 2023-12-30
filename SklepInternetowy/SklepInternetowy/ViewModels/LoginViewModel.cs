@@ -1,6 +1,5 @@
 ﻿using System.Threading.Tasks;
 using SklepInternetowy.Services;
-using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.Views.LoginAndRegister;
 using SklepInternetowyServiceReference;
 using Xamarin.Forms;

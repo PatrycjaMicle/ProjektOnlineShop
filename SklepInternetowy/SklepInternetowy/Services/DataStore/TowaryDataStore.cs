@@ -30,7 +30,7 @@ namespace SklepInternetowy.Services.DataStore
 
         public override async Task<bool> DeleteItemFromService(Towar item)
         {
-            return await sklepInternetowyService.UzytkownikDELETEAsync(item.IdTowaru).HandleRequest();
+            return await sklepInternetowyService.TowarZamowieniumDELETEAsync(item.IdTowaru).HandleRequest();
         }
 
         public override async Task<bool> UpdateItemInService(Towar item)

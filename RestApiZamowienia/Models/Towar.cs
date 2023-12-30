@@ -37,9 +37,6 @@ public class Towar
 
     public bool? Aktywny { get; set; }
 
-    [InverseProperty("IdTowaruNavigation")]
-    public virtual ICollection<ElementKoszyka> ElementKoszykas { get; set; } = new List<ElementKoszyka>();
-
     [ForeignKey("IdKategorii")]
     [InverseProperty("Towars")]
     [JsonIgnore]
@@ -62,5 +59,5 @@ public class Towar
 
     [InverseProperty("IdTowaruNavigation")]
     [JsonIgnore]
-    public virtual ICollection<TowarZamowienium> TowarZamowienia { get; set; } = new List<TowarZamowienium>();
+    public virtual ICollection<ElementKoszyka> ElementKoszykas { get; set; } = new List<ElementKoszyka>();
 }

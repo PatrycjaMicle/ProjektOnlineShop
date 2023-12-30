@@ -55,11 +55,11 @@
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
 
                                 <!-- Third Column: TowarCena -->
-                                <Label Grid.Column="0" Grid.Row="2" Text="Cena (€): "
+                                <Label Grid.Column="0" Grid.Row="2" Text="Cena: "
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
-                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding TowarCena}"
+                                <Label Grid.Column="1" Grid.Row="2" Text="{Binding TowarCena, StringFormat='{0} €'}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
@@ -75,6 +75,14 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
+            <Label Text="Suma: "
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,0" />
+            <Label Text="{Binding Suma, Mode=TwoWay, StringFormat='{0} €'}"
+                   LineBreakMode="NoWrap"
+                   Style="{DynamicResource ListItemDetailTextStyle}"
+                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,20" />
             <Button Text="Zloz zamowienie"
                     Command="{Binding BindingContext.PlaceOrderCommand, Source={x:Reference BrowseKoszykPage}}"
                     CommandParameter="{Binding .}"

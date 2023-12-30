@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestApiZamowienia.Models.Context;
 
@@ -11,9 +12,11 @@ using RestApiZamowienia.Models.Context;
 namespace RestApiZamowienia.Migrations
 {
     [DbContext(typeof(SklepInternetowyContext))]
-    partial class SklepInternetowyContextModelSnapshot : ModelSnapshot
+    [Migration("20231229212926_remove_Klient_alter_Zamowienie")]
+    partial class remove_Klient_alter_Zamowienie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -269,8 +272,8 @@ namespace RestApiZamowienia.Migrations
                     b.Property<bool?>("Aktywny")
                         .HasColumnType("bit");
 
-                    b.Property<decimal?>("Cena")
-                        .HasColumnType("decimal(18, 0)");
+                    b.Property<int?>("IdTowaru")
+                        .HasColumnType("int");
 
                     b.Property<int?>("IdZamowienia")
                         .HasColumnType("int");
@@ -278,10 +281,9 @@ namespace RestApiZamowienia.Migrations
                     b.Property<decimal?>("Ilosc")
                         .HasColumnType("decimal(18, 0)");
 
-                    b.Property<string>("NazwaTowaru")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("IdTowaruZamowienia");
+
+                    b.HasIndex("IdTowaru");
 
                     b.HasIndex("IdZamowienia");
 
@@ -455,10 +457,17 @@ namespace RestApiZamowienia.Migrations
 
             modelBuilder.Entity("RestApiZamowienia.Models.TowarZamowienium", b =>
                 {
+                    b.HasOne("RestApiZamowienia.Models.Towar", "IdTowaruNavigation")
+                        .WithMany("TowarZamowienia")
+                        .HasForeignKey("IdTowaru")
+                        .HasConstraintName("FK_TowarZamowienia_Towar");
+
                     b.HasOne("RestApiZamowienia.Models.Zamowienie", "IdZamowieniaNavigation")
                         .WithMany("TowarZamowienia")
                         .HasForeignKey("IdZamowienia")
                         .HasConstraintName("FK_TowarZamowienia_Zamowienie");
+
+                    b.Navigation("IdTowaruNavigation");
 
                     b.Navigation("IdZamowieniaNavigation");
                 });
@@ -504,6 +513,8 @@ namespace RestApiZamowienia.Migrations
             modelBuilder.Entity("RestApiZamowienia.Models.Towar", b =>
                 {
                     b.Navigation("ElementKoszykas");
+
+                    b.Navigation("TowarZamowienia");
                 });
 
             modelBuilder.Entity("RestApiZamowienia.Models.Uzytkownik", b =>

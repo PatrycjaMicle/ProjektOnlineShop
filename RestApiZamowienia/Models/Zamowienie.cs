@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace RestApiZamowienia.Models;
 
@@ -10,7 +11,7 @@ public class Zamowienie
 
     [Column(TypeName = "datetime")] public DateTime? DataZamowienia { get; set; }
 
-    public int? IdKlienta { get; set; }
+    public int? IdUzytkownika { get; set; }
 
     [Column(TypeName = "datetime")] public DateTime? TerminDostawy { get; set; }
 
@@ -18,14 +19,17 @@ public class Zamowienie
 
     public int? IdMetodyPlatnosci { get; set; }
 
-    [ForeignKey("IdKlienta")]
+    [ForeignKey("IdUzytkownika")]
     [InverseProperty("Zamowienies")]
-    public virtual Klient? IdKlientaNavigation { get; set; }
+    [JsonIgnore]
+    public virtual Uzytkownik? IdUzytkownikaNavigation { get; set; }
 
     [ForeignKey("IdMetodyPlatnosci")]
     [InverseProperty("Zamowienies")]
+    [JsonIgnore]
     public virtual MetodaPlatnosci? IdMetodyPlatnosciNavigation { get; set; }
 
     [InverseProperty("IdZamowieniaNavigation")]
+    [JsonIgnore]
     public virtual ICollection<TowarZamowienium> TowarZamowienia { get; set; } = new List<TowarZamowienium>();
 }

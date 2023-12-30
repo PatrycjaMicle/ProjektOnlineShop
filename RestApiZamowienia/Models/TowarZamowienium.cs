@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace RestApiZamowienia.Models;
 
@@ -7,7 +8,7 @@ public class TowarZamowienium
 {
     [Key] public int IdTowaruZamowienia { get; set; }
 
-    public int? IdTowaru { get; set; }
+    public string? NazwaTowaru { get; set; }
 
     public int? IdZamowienia { get; set; }
 
@@ -15,11 +16,10 @@ public class TowarZamowienium
 
     public bool? Aktywny { get; set; }
 
-    [ForeignKey("IdTowaru")]
-    [InverseProperty("TowarZamowienia")]
-    public virtual Towar? IdTowaruNavigation { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? Cena { get; set; }
 
     [ForeignKey("IdZamowienia")]
     [InverseProperty("TowarZamowienia")]
+    [JsonIgnore]
     public virtual Zamowienie? IdZamowieniaNavigation { get; set; }
 }

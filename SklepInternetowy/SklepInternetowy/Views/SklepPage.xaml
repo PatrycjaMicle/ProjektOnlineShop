@@ -32,10 +32,19 @@
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
                                FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" />
-                        <Label Text="Szczegoly..."
-                               FontSize="16" HorizontalTextAlignment="Center" TextColor="#34495e" />
-                        <Label Text="{Binding Cena}"
-                               LineBreakMode="NoWrap"
+                        <Image Source="{Binding ZdjecieUrl}"
+                               Aspect="AspectFit"
+                               HeightRequest="80" />
+                        <Frame BackgroundColor="#80000000"
+                               CornerRadius="20"
+                               Padding="5"
+                               HeightRequest="20">
+                            <Label Text="Szczegoly..."
+                               FontSize="13" 
+                               HorizontalTextAlignment="Center" 
+                               TextColor="White"/>
+                        </Frame>
+                        <Label Text="{Binding Cena, StringFormat='Cena:  {0} €'}"                               LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
                                FontSize="13" HorizontalTextAlignment="Center" TextColor="#34495e" />
                         <Button Text="Dodaj do koszyka"
