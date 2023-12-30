@@ -94,13 +94,10 @@ namespace SklepInternetowy.ViewModels
                     };
                     
                   var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
+                  await elementKoszykaForViewDataStore.DeleteItemFromService(item);
+                  InitializeSumaAsync();
+                  base.Items.Clear();
                 }
-
-
-                // Delete items from the cart for a given IdUzytkownika
-               // await elementKoszykaForViewDataStore.DeleteItemsForUserIdAsync(yourUserId);
-
-                // TODO: Any additional logic or UI updates after placing the order
             }
             catch (Exception ex)
             {
