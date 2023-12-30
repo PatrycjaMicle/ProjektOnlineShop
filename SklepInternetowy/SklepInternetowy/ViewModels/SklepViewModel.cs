@@ -32,7 +32,7 @@ namespace SklepInternetowy.ViewModels
                 return;
 
             await Shell.Current.GoToAsync(
-                $"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.IdTowaru}");
+                $"{nameof(TowarDetailPage)}?{nameof(TowarDetailViewModel.ItemId)}={item.IdTowaru}");
         }
 
         private async void OnAddToCart(Towar item)

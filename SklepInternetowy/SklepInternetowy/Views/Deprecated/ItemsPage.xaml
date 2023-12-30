@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SklepInternetowy.Views.ItemsPage"
              Title="{Binding Title}"
-             xmlns:local="clr-namespace:SklepInternetowy.ViewModels"
+             xmlns:local="clr-namespace:SklepInternetowy.ViewModels.Deprecated"
              xmlns:model="clr-namespace:SklepInternetowy.Models"
              x:Name="BrowseItemsPage">
 

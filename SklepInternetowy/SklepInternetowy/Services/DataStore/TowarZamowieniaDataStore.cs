@@ -10,7 +10,7 @@ namespace SklepInternetowy.Services.DataStore
     {
         public TowarZamowieniaDataStore()
         {
-            items = sklepInternetowyService.TowarZamowieniumAllAsync().GetAwaiter().GetResult().ToList();
+            GetItems();
         }
 
         public override TowarZamowienium Find(TowarZamowienium item)
@@ -25,7 +25,7 @@ namespace SklepInternetowy.Services.DataStore
 
         public override async Task Refresh()
         {
-            items = (await sklepInternetowyService.TowarZamowieniumAllAsync()).ToList();
+            GetItems();            
         }
 
         public override async Task<bool> DeleteItemFromService(TowarZamowienium item)
@@ -41,6 +41,15 @@ namespace SklepInternetowy.Services.DataStore
         public override async Task<TowarZamowienium> AddItemToService(TowarZamowienium item)
         {
             return await sklepInternetowyService.TowarZamowieniumPOSTAsync(item).HandleRequest();
+        }
+
+        private void GetItems()
+        {
+            items = sklepInternetowyService.TowarZamowieniumAllAsync()
+                .GetAwaiter()
+                .GetResult()
+                .Where(a => a.IdZamowienia == CartService.IdZamowienia)
+                .ToList();
         }
     }
 }

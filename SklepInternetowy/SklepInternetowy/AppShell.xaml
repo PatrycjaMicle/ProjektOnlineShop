@@ -35,8 +35,6 @@
         <ShellContent Title="Koszyk" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:KoszykPage}" />
         <ShellContent Title="Konto" Icon="icon_about.png" Route="KontoPage"
                       ContentTemplate="{DataTemplate local:KontoPage}" />
-        <ShellContent Title="O nas" Icon="icon_about.png" Route="AboutPage"
-                      ContentTemplate="{DataTemplate local:AboutPage}" />
 
 
     </TabBar>

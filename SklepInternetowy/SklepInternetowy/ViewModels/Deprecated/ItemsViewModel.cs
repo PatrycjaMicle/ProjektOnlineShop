@@ -7,7 +7,7 @@ using SklepInternetowy.Views;
 using Xamarin.Forms;
 using Item = SklepInternetowy.Models.Item;
 
-namespace SklepInternetowy.ViewModels
+namespace SklepInternetowy.ViewModels.Deprecated
 {
     public class ItemsViewModel : BaseViewModel
     {
@@ -101,8 +101,8 @@ namespace SklepInternetowy.ViewModels
             if (item == null)
                 return;
 
-            // This will push the ItemDetailPage onto the navigation stack
-            await Shell.Current.GoToAsync($"{nameof(ItemDetailPage)}?{nameof(ItemDetailViewModel.ItemId)}={item.Id}");
+            // This will push the TowarDetailPage onto the navigation stack
+            await Shell.Current.GoToAsync($"{nameof(TowarDetailPage)}?{nameof(TowarDetailViewModel.ItemId)}={item.Id}");
         }
     }
 }
