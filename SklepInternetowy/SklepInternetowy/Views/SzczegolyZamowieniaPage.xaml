@@ -48,7 +48,8 @@
             </CollectionView>
             <Label Text="Potwierdzenie zostalo wyslane na E-mail!"
                    Style="{DynamicResource ListItemTextStyle}"
-                   FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,20" />
+                   FontSize="18" HorizontalTextAlignment="Center" 
+                   TextColor="#34495e" Margin="0,70" />
         </StackLayout>
     </RefreshView>
 </ContentPage>
