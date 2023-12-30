@@ -95,7 +95,6 @@ namespace SklepInternetowy.ViewModels
                     CartService.IdZamowienia = towarZamowienia.IdZamowienia;
                     var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
                     await elementKoszykaForViewDataStore.DeleteItemFromService(item);
-                    InitializeSumaAsync();
                 }
                 base.Items.Clear();
                 GoToSzczegolyZamowienia();
