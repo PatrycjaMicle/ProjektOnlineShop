@@ -19,10 +19,8 @@ namespace SklepInternetowy.ViewModels
         private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
         private ADataStore<Zamowienie> zamowienieDataStore = new ZamowienieDataStore();
         private ADataStore<ElementKoszykaForView> elementKoszykaForViewDataStore = new ElementKoszykaForViewDataStore();
-        private readonly UserService _userService;
 
         private double? suma;
-
         public double? Suma
         {
             get { return suma; }
@@ -35,15 +33,6 @@ namespace SklepInternetowy.ViewModels
                 }
             }
         }
-
-        public double? CartServiceSuma => CartService.Suma;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
         #endregion
 
         #region base
@@ -53,8 +42,6 @@ namespace SklepInternetowy.ViewModels
         {
             InitializeSumaAsync();
             Suma = CartService.Suma;
-            _userService = DependencyService.Get<UserService>();
-
             CartService.OnSumaChanged += (sender, args) =>
             {
                 Suma = CartService.Suma;
@@ -63,13 +50,11 @@ namespace SklepInternetowy.ViewModels
 
         public override async void GoToAddPage()
         {
-            await Shell.Current.GoToAsync(nameof(NewItemPage));
         }
 
         public override void OnItemSelected(ElementKoszykaForView item)
         {
         }
-
         #endregion
 
         #region Place order
@@ -83,8 +68,7 @@ namespace SklepInternetowy.ViewModels
                 Zamowienie zamowienie = new Zamowienie();
 
                 zamowienie.DataZamowienia = DateTime.Now;
-                zamowienie.Suma = CartService.Suma;
-                zamowienie.IdUzytkownika = _userService.UserId;
+                zamowienie.Suma = Suma;
                 zamowienie.IdMetodyPlatnosci = 1;
                 zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
 
@@ -100,7 +84,7 @@ namespace SklepInternetowy.ViewModels
             // TODO delete ElementsKoszyka for a given IdUzytkownika
         }
 
-        public async void InitializeSumaAsync()
+        private async void InitializeSumaAsync()
         {
             try
             {
@@ -112,7 +96,6 @@ namespace SklepInternetowy.ViewModels
                 Console.WriteLine($"An error occurred during sum calculation: {ex.Message}");
             }
         }
-
         #endregion
     }
 }

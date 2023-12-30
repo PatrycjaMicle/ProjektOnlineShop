@@ -24,7 +24,7 @@
         <Label Text="{Binding Kod}" FontSize="14" TextColor="#34495e" FontAttributes="Bold" />
 
         <Label Text="Cena:" FontSize="16" TextColor="#34495e" />
-        <Label Text="{Binding Cena}" FontSize="18" TextColor="#34495e" FontAttributes="Bold" />
+        <Label Text="{Binding Cena, StringFormat='{0} €'}" FontSize="18" TextColor="#34495e" FontAttributes="Bold" />
 
     </StackLayout>
 

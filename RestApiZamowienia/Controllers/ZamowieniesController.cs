@@ -1,19 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using RestApiZamowienia.Services;
+using RestApiZamowienia.Services.Interfaces;
 
 namespace RestApiZamowienia.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ZamowieniesController : ControllerBase
 {
     private readonly SklepInternetowyContext _context;
+    private readonly IUserContextService _userContextService;
 
-    public ZamowieniesController(SklepInternetowyContext context)
+    public ZamowieniesController(SklepInternetowyContext context, IUserContextService userContextService)
     {
         _context = context;
+        _userContextService = userContextService;
     }
 
     // GET: api/Zamowienies
@@ -64,6 +70,13 @@ public class ZamowieniesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Zamowienie>> PostZamowienie(Zamowienie zamowienie)
     {
+        if (_context.ElementKoszykas == null) return NotFound();
+
+        var userId = _userContextService.GetUserId;
+        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
+        zamowienie.IdUzytkownika = userId;
+
         if (_context.Zamowienies == null) return Problem("Entity set 'SklepInternetowyContext.Zamowienies'  is null.");
         _context.Zamowienies.Add(zamowienie);
         await _context.SaveChangesAsync();
