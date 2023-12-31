@@ -3,6 +3,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using SklepInternetowy.Models;
 using SklepInternetowy.Services;
 using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.ViewModels.Abstract;
@@ -14,26 +15,27 @@ namespace SklepInternetowy.ViewModels
 {
     public class ZamowieniaViewModel : AListViewModel<Zamowienie>
     {
+        public Command<Zamowienie> GoToDetailsCommand => new Command<Zamowienie>(GoToDetails);
+
         public ZamowieniaViewModel() : base("Aktualne zamowienia")
         {
-            GoToDetailsCommand = new Command(GoToDetails);
         }
 
-        public Command GoToDetailsCommand { get; }
-
-        private async void GoToDetails()
+        public async void GoToDetails(Zamowienie item)
         {
-            await Shell.Current.GoToAsync(nameof(SzczegolyZamowieniaPage));
+            if (item == null)
+                return;
+            await Shell.Current.GoToAsync(
+               $"{nameof(ZamowienieDetailsPage)}?{nameof(ZamowienieDetailsViewModel.IdZamowienia)}={item.IdZamowienia}");
+        
         }
 
         public override void GoToAddPage()
         {
         }
 
-
         public override void OnItemSelected(Zamowienie item)
         {
         }
     }
-
 }

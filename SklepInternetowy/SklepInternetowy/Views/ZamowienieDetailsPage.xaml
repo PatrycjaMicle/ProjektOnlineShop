@@ -2,20 +2,20 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SklepInternetowy.Views.SzczegolyZamowieniaPage"
+             x:Class="SklepInternetowy.Views.ZamowienieDetailsPage"
              Title="{Binding Title}"
              xmlns:local="clr-namespace:SklepInternetowy.ViewModels"
              xmlns:model="clr-namespace:SklepInternetowyServiceReference"
-             x:Name="BrowseSzczegolyZamowieniaPage">
+             x:Name="BrowseZamowienieDetailsPage">
 
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
     -->
-    <RefreshView x:DataType="local:SzczegolyZamowieniaViewModel" Command="{Binding LoadItemsCommand}"
+    <RefreshView x:DataType="local:ZamowienieDetailsViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="white">
         <StackLayout>
-            <Label Text="Dziekujemy za zamowienie! Zamowiono nastepujace produkty: "
+            <Label Text="W zamowieniu znajduja sie nastepujace produkty: "
                    Style="{DynamicResource ListItemTextStyle}"
                    FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,20" />
             <CollectionView x:Name="ItemsListView"
@@ -39,20 +39,13 @@
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
                                 NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:SzczegolyZamowieniaViewModel}}, Path=ItemTapped}"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ZamowienieDetailsViewModel}}, Path=ItemTapped}"
                                 CommandParameter="{Binding .}" />
                             </StackLayout.GestureRecognizers>
                         </StackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Label Text="{Binding Suma, StringFormat='Wartosc zamowienia:     {0} €'}" LineBreakMode="NoWrap"                   
-                   Style="{DynamicResource ListItemDetailTextStyle}"
-                   FontSize="15" HorizontalTextAlignment="Center" TextColor="#34495e" />
-            <Label Text="Potwierdzenie zostalo wyslane na E-mail!"
-                   Style="{DynamicResource ListItemTextStyle}"
-                   FontSize="18" HorizontalTextAlignment="Center" 
-                   TextColor="#34495e" Margin="0,70" />
         </StackLayout>
     </RefreshView>
 </ContentPage>
