@@ -33,6 +33,7 @@
     <TabBar>
         <ShellContent Title="Sklep" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:SklepPage}" />
         <ShellContent Title="Koszyk" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:KoszykPage}" />
+        <ShellContent Title="Moje zamowienia" Icon="icon_feed.png" ContentTemplate="{DataTemplate local:ZamowieniaPage}" />
         <ShellContent Title="Konto" Icon="icon_about.png" Route="KontoPage"
                       ContentTemplate="{DataTemplate local:KontoPage}" />
 

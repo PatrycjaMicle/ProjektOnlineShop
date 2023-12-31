@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SklepInternetowy.Views.ZamowieniaPage"
+             Title="{Binding Title}"
+             xmlns:local="clr-namespace:SklepInternetowy.ViewModels"
+             xmlns:model="clr-namespace:SklepInternetowyServiceReference"
+             x:Name="BrowseZamowieniaPage">
+
+    <!--
+      x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
+      https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
+    -->
+    <RefreshView x:DataType="local:ZamowieniaViewModel" Command="{Binding LoadItemsCommand}"
+                 IsRefreshing="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="white">
+        <StackLayout>
+            <Label Text="Twoje zlozone zamowienia: "
+                   Style="{DynamicResource ListItemTextStyle}"
+                   FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,20" />
+            <CollectionView x:Name="ItemsListView"
+                        ItemsSource="{Binding Items}"
+                        SelectionMode="None">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Padding="20" x:DataType="model:Zamowienie" BackgroundColor="White"
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="50">
+                            <Label Text="{Binding DataZamowienia, StringFormat='Data zlozenia:     {0}'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
+                            <Label Text="{Binding Suma,  StringFormat='Wartosc zamowienia:      {0} €'}"
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
+                            <Label Text="{Binding TerminDostawy, StringFormat='Przewidywany termin dostawy:     {0}'}" LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemDetailTextStyle}"
+                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
+                            <Button Text="Pokaz produkty z zamowienia..."
+                                    Command="{Binding BindingContext.GoToDetailsCommand, Source={x:Reference BrowseZamowieniaPage}}"
+                                    CommandParameter="{Binding .}"
+                                    BackgroundColor="#34495e"
+                                    CornerRadius="7"
+                                    Margin="10,0,10,10"
+                                    Padding="20,10"
+                                    FontSize="12" />
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ZamowieniaViewModel}}, Path=ItemTapped}"
+                                CommandParameter="{Binding .}" />
+                            </StackLayout.GestureRecognizers>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </RefreshView>
+</ContentPage>
