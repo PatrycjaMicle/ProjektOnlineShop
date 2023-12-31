@@ -30,6 +30,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Compile Update="Views\ZamowienieDetailsPage.xaml.cs">
+          <DependentUpon>%(Filename)</DependentUpon>
+        </Compile>
         <Compile Update="Views\ZamowieniaPage.xaml.cs">
           <DependentUpon>%(Filename)</DependentUpon>
         </Compile>

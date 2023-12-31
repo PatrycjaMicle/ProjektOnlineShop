@@ -14,6 +14,7 @@ namespace SklepInternetowy
             Routing.RegisterRoute(nameof(DaneOsobowePage), typeof(DaneOsobowePage));
             Routing.RegisterRoute(nameof(AdresyPage), typeof(AdresyPage));
             Routing.RegisterRoute(nameof(SzczegolyZamowieniaPage), typeof(SzczegolyZamowieniaPage));
+            Routing.RegisterRoute(nameof(ZamowienieDetailsPage), typeof(ZamowienieDetailsPage));
         }
     }
 }

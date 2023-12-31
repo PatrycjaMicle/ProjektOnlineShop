@@ -24,18 +24,19 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Padding="20" x:DataType="model:Zamowienie" BackgroundColor="White"
-                                 HorizontalOptions="CenterAndExpand" HeightRequest="50">
+                                 HorizontalOptions="CenterAndExpand" HeightRequest="120">
                             <Label Text="{Binding DataZamowienia, StringFormat='Data zlozenia:     {0}'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
+                               FontSize="10" TextColor="#34495e" Margin="20,0" />
                             <Label Text="{Binding Suma,  StringFormat='Wartosc zamowienia:      {0} €'}"
                                LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemTextStyle}"
-                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
-                            <Label Text="{Binding TerminDostawy, StringFormat='Przewidywany termin dostawy:     {0}'}" LineBreakMode="NoWrap"
-                               Style="{DynamicResource ListItemDetailTextStyle}"
-                               FontSize="10" HorizontalTextAlignment="Center" TextColor="#34495e" />
+                               FontSize="10" TextColor="#34495e" Margin="20,0" />
+                            <Label Text="{Binding TerminDostawy, StringFormat='Przewidywany termin dostawy:     {0}'}" 
+                               LineBreakMode="NoWrap"
+                               Style="{DynamicResource ListItemTextStyle}"
+                               FontSize="10" TextColor="#34495e" Margin="20,0"/>
                             <Button Text="Pokaz produkty z zamowienia..."
                                     Command="{Binding BindingContext.GoToDetailsCommand, Source={x:Reference BrowseZamowieniaPage}}"
                                     CommandParameter="{Binding .}"
