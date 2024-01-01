@@ -8,9 +8,9 @@ namespace SklepInternetowy.ViewModels
     [QueryProperty(nameof(ItemId), nameof(ItemId))]
     public class TowarDetailViewModel : BaseViewModel
     {
-        private double? cena;
         public TowaryDataStore dataStore = new TowaryDataStore();
 
+        private double? cena;
         private int itemId;
         private string kod;
         private string nazwa;
@@ -23,7 +23,6 @@ namespace SklepInternetowy.ViewModels
             get => opis;
             set => SetProperty(ref opis, value);
         }
-
 
         public string Url
         {
@@ -43,7 +42,6 @@ namespace SklepInternetowy.ViewModels
                 }
             }
         }
-
 
         public string Kod
         {

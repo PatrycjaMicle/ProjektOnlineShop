@@ -10,7 +10,7 @@ namespace SklepInternetowy.ViewModels
     [QueryProperty(nameof(IdZamowienia), nameof(IdZamowienia))]
     public class ZamowienieDetailsViewModel : AListViewModel<TowarZamowienium>
     {
-        private int idZamowienia { get; set; }
+        private int _idZamowienia { get; set; }
 
         public ZamowienieDetailsViewModel() : base("wroc do listy zamowien")
         {
@@ -26,18 +26,19 @@ namespace SklepInternetowy.ViewModels
 
         public int IdZamowienia
         {
-            get => idZamowienia;
+            get => _idZamowienia;
             set
             {
-                idZamowienia = value;
+                _idZamowienia = value;
                 LoadItemId(value);
             }
         }
+
         public async void LoadItemId(int itemId)
         {
             try
             {
-                CartService.IdZamowienia = idZamowienia;
+                CartService.IdZamowienia = IdZamowienia;
             }
             catch (Exception)
             {

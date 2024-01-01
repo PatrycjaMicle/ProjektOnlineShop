@@ -6,15 +6,15 @@ namespace SklepInternetowy.ViewModels
 {
     public class SzczegolyZamowieniaViewModel : AListViewModel<TowarZamowienium>
     {
-        private double? suma;
+        private double? _suma;
         public double? Suma
         {
-            get { return suma; }
+            get { return _suma; }
             set
             {
-                if (suma != value)
+                if (_suma != value)
                 {
-                    suma = value;
+                    _suma = value;
                     OnPropertyChanged(nameof(Suma));
                 }
             }
