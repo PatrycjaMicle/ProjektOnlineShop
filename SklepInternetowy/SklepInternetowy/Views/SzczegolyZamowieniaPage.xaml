@@ -15,17 +15,20 @@
     <RefreshView x:DataType="local:SzczegolyZamowieniaViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="white">
         <StackLayout>
-            <Label Text="Dziekujemy za zamowienie! Potwierdzenie zostalo wyslane na E-mail! "
-                   Style="{DynamicResource ListItemTextStyle}"
-                   FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,20" />
+            <Label Style="{DynamicResource ListItemTextStyle}"
+                   FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,50" />
 
-            <Label Text="{Binding Suma, StringFormat='Wartosc zamowienia:     {0} €'}" LineBreakMode="NoWrap"                   
+            <Label Text="{Binding Suma, StringFormat='Zlozono zamowienie. Laczna wartosc zamowienia:     {0} €'}" LineBreakMode="NoWrap"                   
                    Style="{DynamicResource ListItemDetailTextStyle}"
                    FontSize="15" HorizontalTextAlignment="Center" TextColor="#34495e" />
-            <Label Text="By sprawdzic status zamowienia lub wejsc w szczegoly zamowionych produktow przejdz do zakladki Moje Zamowienia!"
+            <Label Text="Dziekujemy! Potwierdzenie zostalo wyslane na Twoj adres E-mail! "
+                   Style="{DynamicResource ListItemTextStyle}"
+                   FontSize="18" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="10,50" />
+
+            <Label Text="By sprawdzic status zamowienia lub wejsc w szczegoly zamowionych produktow przejdz do zakladki Moje Zamowienia! "
                    Style="{DynamicResource ListItemTextStyle}"
                    FontSize="18" HorizontalTextAlignment="Center" 
-                   TextColor="#34495e" Margin="0,70" />
+                   TextColor="#34495e" Margin="10,50" />
         </StackLayout>
     </RefreshView>
 </ContentPage>
