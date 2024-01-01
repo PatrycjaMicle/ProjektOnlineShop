@@ -60,12 +60,10 @@
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
-                                <Label Grid.Column="1" Grid.Row="3" Text="-----------------------------------------------------------------"
-                                       LineBreakMode="NoWrap"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13" HorizontalTextAlignment="Start" TextColor="#34495e" />
-
                             </Grid>
+                            
+                            <BoxView HeightRequest="1" Color="Gray" />
+                            
                             <StackLayout.GestureRecognizers>
                                 <TapGestureRecognizer
                                     NumberOfTapsRequired="1"
