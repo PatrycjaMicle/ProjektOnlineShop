@@ -50,6 +50,7 @@ namespace SklepInternetowy.Services
                 Zamowienie zamowienie = new Zamowienie();
                 zamowienie.Suma = Suma;
 
+                //create order
                 var addedOrder = await zamowienieDataStore.AddItemToService(zamowienie);
                 if (addedOrder == null)
                 {
@@ -57,20 +58,14 @@ namespace SklepInternetowy.Services
                     return;
                 }
 
+                //create OrderItems
                 var items = await elementKoszykaForViewDataStore.GetItemsAsync(true);
                 foreach (var item in items)
                 {
-                    TowarZamowienium towarZamowienia = new TowarZamowienium
-                    {
-                        NazwaTowaru = item.TowarNazwa,
-                        IdZamowienia = addedOrder.IdZamowienia,
-                        Ilosc = item.Ilosc,
-                        Aktywny = true,
-                        Cena = item.TowarCena
-                    };
+                    TowarZamowienium towarZamowienia = new TowarZamowienium();
+
                     IdZamowienia = towarZamowienia.IdZamowienia;
                     var addedOrderItem = await towarZamowieniaDataStore.AddItemAsync(towarZamowienia);
-                    await elementKoszykaForViewDataStore.DeleteItemFromService(item);
                 }
             }
             catch (Exception ex)

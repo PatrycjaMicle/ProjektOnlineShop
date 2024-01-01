@@ -66,8 +66,36 @@ public class TowarZamowieniumController : ControllerBase
     {
         if (_context.TowarZamowienia == null)
             return Problem("Entity set 'SklepInternetowyContext.TowarZamowienia'  is null.");
-        _context.TowarZamowienia.Add(towarZamowienium);
-        await _context.SaveChangesAsync();
+
+        var elementyKoszyka = _context.ElementKoszykas.ToListAsync().Result;
+
+        var lastZamowienie = await _context.Zamowienies.OrderByDescending(z => z.IdZamowienia).FirstOrDefaultAsync();
+
+        foreach (var item in elementyKoszyka)
+        {
+            var towar = await _context.Towars.FindAsync(item.IdTowaru);
+
+            TowarZamowienium towarZamowienia = new TowarZamowienium
+            {
+
+                IdZamowienia = lastZamowienie.IdZamowienia,
+                NazwaTowaru = towar.Nazwa,
+                Ilosc = item.Ilosc,
+                Aktywny = true,
+                Cena = towar.Cena,
+            };
+
+            _context.TowarZamowienia.Add(towarZamowienia);
+            await _context.SaveChangesAsync();
+
+            var elementToRemove = await _context.ElementKoszykas.FindAsync(item.IdElementuKoszyka);
+            if (elementToRemove != null)
+            {
+                _context.ElementKoszykas.Remove(elementToRemove);
+                await _context.SaveChangesAsync();
+            }
+        }
+
 
         return CreatedAtAction("GetTowarZamowienium", new { id = towarZamowienium.IdTowaruZamowienia },
             towarZamowienium);
