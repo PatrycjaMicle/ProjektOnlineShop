@@ -17,7 +17,7 @@
             </Grid.RowDefinitions>
 
             <StackLayout Margin="20">
-                <Label Text="Cześć Wojtek" FontSize="Header" />
+                <Label Text="{Binding Header}" FontSize="Header" />
                 <Label Text="Tutaj możesz zarządzać swoimi, zamówieniami i informacjami o koncie." FontSize="Body" />
             </StackLayout>
 

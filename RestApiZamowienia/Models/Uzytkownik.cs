@@ -19,8 +19,12 @@ public class Uzytkownik
 
     public string ZahaszowaneHaslo { get; set; }
 
-    public RolaUzytkownika RolaUzytkownika { get; set; }
-    public int RolaUzytkownikaId { get; set; }
+    public int? RolaUzytkownikaId { get; set; }
+
+    [ForeignKey("RolaUzytkownikaId")]
+    [InverseProperty("Uzytkowniks")]
+    [JsonIgnore]
+    public virtual RolaUzytkownika? RolaUzytkownikaIdNavigation { get; set; }
 
     [JsonIgnore]
     [InverseProperty("KtoDodalNavigation")]

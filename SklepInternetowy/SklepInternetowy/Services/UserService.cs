@@ -16,7 +16,7 @@ namespace SklepInternetowy.Services
             var jsonToken = handler.ReadToken(Token) as JwtSecurityToken;
 
             UserId = int.Parse(jsonToken.Claims.FirstOrDefault(a => a.Type == ClaimTypes.NameIdentifier).Value);
-            UserRole = jsonToken.Claims.FirstOrDefault(a => a.Type == ClaimTypes.Role).Value;
+           // UserRole = jsonToken.Claims.FirstOrDefault(a => a.Type == ClaimTypes.Role).Value;
         }
     }
 }

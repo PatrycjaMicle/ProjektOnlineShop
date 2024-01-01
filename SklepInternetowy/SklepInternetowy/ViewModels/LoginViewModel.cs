@@ -49,16 +49,22 @@ namespace SklepInternetowy.ViewModels
                 Email = _email,
                 Password = _password
             };
-
-            //TODO add jwt decoding to get user role value
-            var jwtStorage = await _loginAndRegisterService.Login(loginDto);
-            if (jwtStorage != null)
+            
+            try
             {
-                //For authorization
-                // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
-                _userToken.Token = jwtStorage.Jwt;
-                _userToken.DecodeJwt();
-                Application.Current.MainPage = new AppShell();
+                var jwtStorage = await _loginAndRegisterService.Login(loginDto);
+                if (jwtStorage != null)
+                {
+                    //For authorization
+                    // await SecureStorage.SetAsync("AuthToken", jwtStorage.Jwt);
+                    _userToken.Token = jwtStorage.Jwt;
+                    _userToken.DecodeJwt();
+                    Application.Current.MainPage = new AppShell();
+                }
+            }
+            catch (ApiException apiException)
+            {
+                await App.Current.MainPage.DisplayAlert(null, apiException.Response, "OK", FlowDirection.MatchParent);
             }
         }
 
