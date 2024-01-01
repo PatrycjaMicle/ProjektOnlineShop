@@ -79,6 +79,9 @@ public class ZamowieniesController : ControllerBase
             return BadRequest("Invalid user ID format.");
 
         zamowienie.IdUzytkownika = userId;
+        zamowienie.DataZamowienia = DateTime.Now;
+        zamowienie.IdMetodyPlatnosci = 1;
+        zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
 
         if (_context.Zamowienies == null)
             return Problem("Entity set 'SklepInternetowyContext.Zamowienies' is null.");

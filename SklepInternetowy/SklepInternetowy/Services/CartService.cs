@@ -47,13 +47,8 @@ namespace SklepInternetowy.Services
         {
             try
             {
-                Zamowienie zamowienie = new Zamowienie
-                {
-                    DataZamowienia = DateTime.Now,
-                    Suma = Suma,
-                    IdMetodyPlatnosci = 1,
-                    TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7))
-                };
+                Zamowienie zamowienie = new Zamowienie();
+                zamowienie.Suma = Suma;
 
                 var addedOrder = await zamowienieDataStore.AddItemToService(zamowienie);
                 if (addedOrder == null)
