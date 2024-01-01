@@ -81,6 +81,8 @@ public class ElementKoszykaController : ControllerBase
         if (existingElementKoszyka != null && existingElementKoszyka.IdTowaru != null)
         {
             existingElementKoszyka.Ilosc += 1;
+            elementKoszyka.DataUtworzenia = DateTime.Now;
+
             _context.Entry(existingElementKoszyka).State = EntityState.Modified;
             await _context.SaveChangesAsync();
 
@@ -90,6 +92,8 @@ public class ElementKoszykaController : ControllerBase
         {
             elementKoszyka.IdUzytkownika = userId;
             elementKoszyka.Ilosc = 1;
+            elementKoszyka.DataUtworzenia = DateTime.Now;
+
             _context.ElementKoszykas.Add(elementKoszyka);
             await _context.SaveChangesAsync();
 

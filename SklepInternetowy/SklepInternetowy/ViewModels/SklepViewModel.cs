@@ -41,8 +41,7 @@ namespace SklepInternetowy.ViewModels
             {
                 var elementKoszyka = new ElementKoszyka
                 {
-                    IdTowaru = item.IdTowaru,
-                    DataUtworzenia = DateTime.Now,
+                    IdTowaru = item.IdTowaru
                 };
 
                 var addedItem = await _elementKoszykaDataStore.AddItemToService(elementKoszyka);
