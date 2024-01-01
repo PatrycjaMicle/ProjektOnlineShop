@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System;
+using System.Windows.Input;
 using SklepInternetowy.Models;
 using SklepInternetowy.Services;
 using SklepInternetowy.Services.DataStore;
@@ -13,6 +14,8 @@ namespace SklepInternetowy.ViewModels
     {
         private double? suma;
         private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
+        //To delete after debugging
+        private ADataStore<Uzytkownik> uzytkownikDataStore = new UzytkownikDataStore();
         private CartService cartService = new CartService();
 
         public ICommand PlaceOrderCommand => new Command(PlaceOrder);
@@ -39,6 +42,12 @@ namespace SklepInternetowy.ViewModels
             {
                 Suma = CartService.Suma;
             };
+
+            //DEBUG ME HERE - to delete
+            var user = uzytkownikDataStore.Find(4);
+            Console.WriteLine(user.Imie.ToString());
+
+
         }
 
         public override async void GoToAddPage()

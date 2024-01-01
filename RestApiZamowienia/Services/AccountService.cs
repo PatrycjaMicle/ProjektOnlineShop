@@ -45,7 +45,7 @@ public class AccountService : IAccountService
     public async Task<string> GenerateJwt(LoginDto dto)
     {
         var uzytkownik = await _context.Uzytkowniks
-            .Include(r => r.RolaUzytkownika)
+          //  .Include(r => r.RolaUzytkownika)
             .FirstOrDefaultAsync(a => a.Email == dto.Email);
 
         if (uzytkownik is null)
@@ -58,7 +58,7 @@ public class AccountService : IAccountService
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, uzytkownik.IdUzytkownika.ToString()),
-            new(ClaimTypes.Role, uzytkownik.RolaUzytkownika.Name)
+         //   new(ClaimTypes.Role, uzytkownik.RolaUzytkownika.Name)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));

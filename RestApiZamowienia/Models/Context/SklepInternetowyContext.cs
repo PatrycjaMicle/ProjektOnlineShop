@@ -73,6 +73,11 @@ public partial class SklepInternetowyContext : DbContext
             entity.HasOne(d => d.IdZamowieniaNavigation).WithMany(p => p.TowarZamowienia).HasConstraintName("FK_TowarZamowienia_Zamowienie");
         });
 
+        modelBuilder.Entity<Uzytkownik>(entity =>
+        {
+            entity.HasOne(d => d.RolaUzytkownikaIdNavigation).WithMany(p => p.Uzytkowniks).HasConstraintName("FK_Uzytokwnik_RolaUzytkownika");
+        });
+
         modelBuilder.Entity<Zamowienie>(entity =>
         {
             entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_Uzytkownik");
