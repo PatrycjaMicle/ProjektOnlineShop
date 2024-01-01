@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
-using RestApiZamowienia.Services;
 using RestApiZamowienia.Services.Interfaces;
 
 namespace RestApiZamowienia.Controllers;

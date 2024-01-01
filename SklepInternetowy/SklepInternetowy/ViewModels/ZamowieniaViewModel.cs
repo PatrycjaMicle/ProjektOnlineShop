@@ -1,11 +1,3 @@
-using System;
-using System.Collections.ObjectModel;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using SklepInternetowy.Models;
-using SklepInternetowy.Services;
-using SklepInternetowy.Services.DataStore;
 using SklepInternetowy.ViewModels.Abstract;
 using SklepInternetowy.Views;
 using SklepInternetowyServiceReference;
@@ -27,7 +19,6 @@ namespace SklepInternetowy.ViewModels
                 return;
             await Shell.Current.GoToAsync(
                $"{nameof(ZamowienieDetailsPage)}?{nameof(ZamowienieDetailsViewModel.IdZamowienia)}={item.IdZamowienia}");
-        
         }
 
         public override void GoToAddPage()
