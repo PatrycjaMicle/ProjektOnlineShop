@@ -17,9 +17,9 @@
             </Grid.RowDefinitions>
 
             <StackLayout Margin="20">
-                <Label Text="Cześć Wojtek" FontSize="Header" TextColor="Gray"
+                <Label Text="{Binding Header}" FontSize="Header" TextColor="Gray"
                        Style="{DynamicResource ListItemTextStyle}"/>
-                <Label Text="Tutaj możesz zarządzać swoimi, zamówieniami i informacjami o koncie." 
+                <Label Text="Tutaj możesz zarządzać swoimi, zamówieniami i informacjami o koncie."
                        Style="{DynamicResource ListItemTextStyle}"
                        FontSize="Body" TextColor="Gray" Margin="0,40"/>
             </StackLayout>
@@ -40,7 +40,7 @@
            Margin="10,0,10,10"
            Padding="20,10"
            FontSize="18" />
-                
+
             </StackLayout>
         </Grid>
     </ContentPage.Content>

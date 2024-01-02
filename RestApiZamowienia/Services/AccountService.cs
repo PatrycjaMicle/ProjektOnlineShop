@@ -45,8 +45,10 @@ public class AccountService : IAccountService
     public async Task<string> GenerateJwt(LoginDto dto)
     {
         var uzytkownik = await _context.Uzytkowniks
-            .Include(r => r.RolaUzytkownika)
             .FirstOrDefaultAsync(a => a.Email == dto.Email);
+
+        var rolaUzytkownika =
+            await _context.RolaUzytkownika.FirstOrDefaultAsync(a => a.Id == uzytkownik.RolaUzytkownikaId);
 
         if (uzytkownik is null)
             throw new BadRequestException("Invalid username or password");
@@ -58,7 +60,7 @@ public class AccountService : IAccountService
         var claims = new List<Claim>
         {
             new(ClaimTypes.NameIdentifier, uzytkownik.IdUzytkownika.ToString()),
-            new(ClaimTypes.Role, uzytkownik.RolaUzytkownika.Name)
+            new(ClaimTypes.Role, rolaUzytkownika.Name)
         };
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_authenticationSettings.JwtKey));
