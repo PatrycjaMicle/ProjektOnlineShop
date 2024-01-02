@@ -1,0 +1,2140 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RestApiZamowienia",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/Adres": {
+      "get": {
+        "tags": [
+          "Adres"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Adre"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Adre"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Adre"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Adres"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Adres/{id}": {
+      "get": {
+        "tags": [
+          "Adres"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Adre"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Adres"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Adre"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Adres"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/ElementKoszyka": {
+      "get": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElementKoszyka"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElementKoszyka"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ElementKoszyka"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/ElementKoszyka/{id}": {
+      "get": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ElementKoszyka"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ElementKoszyka"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "ElementKoszyka"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Kategorium": {
+      "get": {
+        "tags": [
+          "Kategorium"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kategorium"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kategorium"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Kategorium"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Kategorium"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Kategorium/{id}": {
+      "get": {
+        "tags": [
+          "Kategorium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Kategorium"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Kategorium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Kategorium"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Kategorium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Konto/register": {
+      "post": {
+        "tags": [
+          "Konto"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Konto/login": {
+      "post": {
+        "tags": [
+          "Konto"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/LoginDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtStorage"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtStorage"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JwtStorage"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Konto": {
+      "delete": {
+        "tags": [
+          "Konto"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/MetodaPlatnoscis": {
+      "get": {
+        "tags": [
+          "MetodaPlatnoscis"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MetodaPlatnosci"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MetodaPlatnosci"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/MetodaPlatnosci"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "MetodaPlatnoscis"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/MetodaPlatnoscis/{id}": {
+      "get": {
+        "tags": [
+          "MetodaPlatnoscis"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MetodaPlatnosci"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "MetodaPlatnoscis"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MetodaPlatnosci"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MetodaPlatnoscis"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Towar": {
+      "get": {
+        "tags": [
+          "Towar"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Towar"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Towar"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Towar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Towar"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Towar/{id}": {
+      "get": {
+        "tags": [
+          "Towar"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Towar"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Towar"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Towar"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Towar"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/TowarZamowienium": {
+      "get": {
+        "tags": [
+          "TowarZamowienium"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TowarZamowienium"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TowarZamowienium"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/TowarZamowienium"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "TowarZamowienium"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/TowarZamowienium/{id}": {
+      "get": {
+        "tags": [
+          "TowarZamowienium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TowarZamowienium"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "TowarZamowienium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/TowarZamowienium"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "TowarZamowienium"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Uzytkownik": {
+      "get": {
+        "tags": [
+          "Uzytkownik"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Uzytkownik"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Uzytkownik"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Uzytkownik"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Uzytkownik"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Uzytkownik/{id}": {
+      "get": {
+        "tags": [
+          "Uzytkownik"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Uzytkownik"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Uzytkownik"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Uzytkownik"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Uzytkownik"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/Zamowienies": {
+      "get": {
+        "tags": [
+          "Zamowienies"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zamowienie"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zamowienie"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Zamowienie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Zamowienies"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Zamowienies/{id}": {
+      "get": {
+        "tags": [
+          "Zamowienies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Zamowienie"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Zamowienies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Zamowienie"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Zamowienies"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Adre": {
+        "type": "object",
+        "properties": {
+          "idAdresu": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "kraj": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "miejscowosc": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ulica": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "kodPocztowy": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "nrBudynku": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "nrLokalu": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ktoDodal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyDodano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoEdytowal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyEdytowano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoUsunal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyUsunieto": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "aktywny": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ktoDodalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          },
+          "ktoEdytowalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          },
+          "ktoUsunalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ElementKoszyka": {
+        "type": "object",
+        "properties": {
+          "idElementuKoszyka": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUzytkownika": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "idTowaru": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ilosc": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "dataUtworzenia": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "JwtStorage": {
+        "type": "object",
+        "properties": {
+          "jwt": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Kategorium": {
+        "type": "object",
+        "properties": {
+          "idKategorii": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nazwa": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "ktoDodal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyDodano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoEdytowal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyEdytowano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoUsunal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyUsunieto": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "aktywny": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "ktoDodalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          },
+          "ktoEdytowalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          },
+          "ktoUsunalNavigation": {
+            "$ref": "#/components/schemas/Uzytkownik"
+          },
+          "towars": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Towar"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "LoginDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "MetodaPlatnosci": {
+        "type": "object",
+        "properties": {
+          "idMetodyPlatnosci": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nazwa": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "zamowienies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Zamowienie"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RegisterUserDto": {
+        "type": "object",
+        "properties": {
+          "imie": {
+            "type": "string",
+            "nullable": true
+          },
+          "nazwisko": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "password": {
+            "type": "string",
+            "nullable": true
+          },
+          "confirmPassword": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "RolaUzytkownika": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "uzytkowniks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Uzytkownik"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Towar": {
+        "type": "object",
+        "properties": {
+          "idTowaru": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nazwa": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "kod": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "idKategorii": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "cena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "naStanie": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "zdjecieUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "opis": {
+            "type": "string",
+            "nullable": true
+          },
+          "kiedyDodano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoDodal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyZmodyfikowano": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoZmodyfikowal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "kiedyUsunieto": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "ktoUsunal": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "aktywny": {
+            "type": "boolean",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "TowarZamowienium": {
+        "type": "object",
+        "properties": {
+          "idTowaruZamowienia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nazwaTowaru": {
+            "type": "string",
+            "nullable": true
+          },
+          "idZamowienia": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "ilosc": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "aktywny": {
+            "type": "boolean",
+            "nullable": true
+          },
+          "cena": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Uzytkownik": {
+        "type": "object",
+        "properties": {
+          "idUzytkownika": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "imie": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "nazwisko": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dataDodania": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "email": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "zahaszowaneHaslo": {
+            "type": "string",
+            "nullable": true
+          },
+          "rolaUzytkownikaId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "rolaUzytkownikaIdNavigation": {
+            "$ref": "#/components/schemas/RolaUzytkownika"
+          },
+          "adreKtoDodalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Adre"
+            },
+            "nullable": true
+          },
+          "adreKtoEdytowalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Adre"
+            },
+            "nullable": true
+          },
+          "adreKtoUsunalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Adre"
+            },
+            "nullable": true
+          },
+          "kategoriumKtoDodalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Kategorium"
+            },
+            "nullable": true
+          },
+          "kategoriumKtoEdytowalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Kategorium"
+            },
+            "nullable": true
+          },
+          "kategoriumKtoUsunalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Kategorium"
+            },
+            "nullable": true
+          },
+          "towarKtoDodalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Towar"
+            },
+            "nullable": true
+          },
+          "towarKtoUsunalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Towar"
+            },
+            "nullable": true
+          },
+          "towarKtoZmodyfikowalNavigations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Towar"
+            },
+            "nullable": true
+          },
+          "elementKoszykas": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ElementKoszyka"
+            },
+            "nullable": true
+          },
+          "zamowienies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Zamowienie"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Zamowienie": {
+        "type": "object",
+        "properties": {
+          "idZamowienia": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "dataZamowienia": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "idUzytkownika": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "terminDostawy": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "suma": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idMetodyPlatnosci": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  }
+}
