@@ -14,8 +14,6 @@ namespace SklepInternetowy.ViewModels
     {
         private double? suma;
         private ADataStore<Towar> towaryDataStore = new TowaryDataStore();
-        //To delete after debugging
-        private ADataStore<Uzytkownik> uzytkownikDataStore = new UzytkownikDataStore();
         private CartService cartService = new CartService();
 
         public ICommand PlaceOrderCommand => new Command(PlaceOrder);

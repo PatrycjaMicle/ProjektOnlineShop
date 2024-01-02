@@ -1,16 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using SklepInternetowy.WWW.Models;
+using SklepInternetowy.WWW.Services.DataStore;
+using SklepInternetowyServiceReference;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace SklepInternetowy.WWW.Controllers
 {
     public class SklepController : Controller
     {
         private readonly ILogger<SklepController> _logger;
+        private TowaryDataStore _dataStore;
 
         public SklepController(ILogger<SklepController> logger)
         {
             _logger = logger;
+            _dataStore = new TowaryDataStore();
         }
 
         public IActionResult Login()
@@ -18,24 +24,20 @@ namespace SklepInternetowy.WWW.Controllers
             return View();
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var model = new List<Towar>()
+            List<Towar> towary = new List<Towar>();
+            try
             {
-                new Towar()
-                {
-                    nazwa= "opona",
-                    cena=350
-                },
-                 new Towar()
-                {
-                    nazwa= "kierownica",
-                    cena=800
-                }
-            };
+                towary = _dataStore.items.ToList();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Wystapil blad podczas pobierania produktow");                
+                return View(new List<Towar>());
+            }
 
-
-            return View(model);
+            return View(towary);
         }
 
         public IActionResult Koszyk()
