@@ -69,11 +69,20 @@ public class ZamowieniesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Zamowienie>> PostZamowienie(Zamowienie zamowienie)
     {
-
+       
         if (_context.ElementKoszykas == null)
             return NotFound();
 
         var userId = _userContextService.GetUserId;
+
+        var elementyKoszyka = await _context.ElementKoszykas.ToListAsync();
+        decimal? suma = 0;
+
+        foreach (var item in elementyKoszyka)
+        {
+            var towar = await _context.Towars.FindAsync(item.IdTowaru);
+            suma += ((decimal)(towar?.Cena ?? 0m)*item.Ilosc);
+        }
 
         if (!userId.HasValue)
             return BadRequest("Invalid user ID format.");
@@ -81,6 +90,7 @@ public class ZamowieniesController : ControllerBase
         zamowienie.IdUzytkownika = userId;
         zamowienie.DataZamowienia = DateTime.Now;
         zamowienie.IdMetodyPlatnosci = 1;
+        zamowienie.Suma = suma;
         zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
 
         if (_context.Zamowienies == null)

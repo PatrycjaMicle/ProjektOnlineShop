@@ -97,8 +97,7 @@ public class TowarZamowieniumController : ControllerBase
         }
 
 
-        return CreatedAtAction("GetTowarZamowienium", new { id = towarZamowienium.IdTowaruZamowienia },
-            towarZamowienium);
+        return Ok(towarZamowienium);
     }
 
     // DELETE: api/TowarZamowienium/5
