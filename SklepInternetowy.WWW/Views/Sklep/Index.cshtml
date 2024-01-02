@@ -1,0 +1,29 @@
+﻿@model List<Towar>
+
+@{
+    ViewData["Title"] = "Strona glowna";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Sklep</h1>
+    <p>Tu beda wyswietlane towary</p>
+</div>
+
+
+Towary, przyklad wyswtelania za pomoca forEach using Razor :
+<br>
+-Dopasowac Controller by zwracal dany model
+<br>
+-na widoku zadeklarowac u gory typ modelu poprzez dyrektywe model
+<br>
+-uzyc w danym miejscu model za pomoca dyrektywy Model
+<br>
+
+
+
+
+@foreach(var towar in Model)
+{
+    <p>@towar.nazwa | @towar.cena </p>
+}
+ 
