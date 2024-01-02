@@ -10,20 +10,37 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <Grid>
+        <Grid BackgroundColor="White">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
             <StackLayout Margin="20">
-                <Label Text="Cześć Wojtek" FontSize="Header" />
-                <Label Text="Tutaj możesz zarządzać swoimi, zamówieniami i informacjami o koncie." FontSize="Body" />
+                <Label Text="Cześć Wojtek" FontSize="Header" TextColor="Gray"
+                       Style="{DynamicResource ListItemTextStyle}"/>
+                <Label Text="Tutaj możesz zarządzać swoimi, zamówieniami i informacjami o koncie." 
+                       Style="{DynamicResource ListItemTextStyle}"
+                       FontSize="Body" TextColor="Gray" Margin="0,40"/>
             </StackLayout>
 
             <StackLayout Grid.Row="1" Margin="10">
-                <Button Text="Dane osobowe" Command="{Binding GoToDaneOsoboweCommand}" />
-                <Button Text="Adresy" Command="{Binding GoToAdresyCommand}" />
+
+                <Button Text="Dane osobowe"
+           Command="{Binding GoToDaneOsoboweCommand}"
+           BackgroundColor="#34495e"
+           CornerRadius="7"
+           Margin="10,0,10,10"
+           Padding="20,10"
+           FontSize="18" />
+                <Button Text="Adresy"
+           Command="{Binding GoToAdresyCommand}"
+           BackgroundColor="#34495e"
+           CornerRadius="7"
+           Margin="10,0,10,10"
+           Padding="20,10"
+           FontSize="18" />
+                
             </StackLayout>
         </Grid>
     </ContentPage.Content>
