@@ -24,8 +24,14 @@ public class ElementKoszykaController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ElementKoszyka>>> GetElementKoszykas()
     {
+        var userId = _userContextService.GetUserId;
+
+        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
         if (_context.ElementKoszykas == null) return NotFound();
-        return await _context.ElementKoszykas.ToListAsync();
+        return await _context.ElementKoszykas
+        .Where(e => e.IdUzytkownika == userId.Value)
+        .ToListAsync();
     }
 
     // GET: api/ElementKoszyka/5

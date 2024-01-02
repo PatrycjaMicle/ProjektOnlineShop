@@ -25,8 +25,14 @@ public class ZamowieniesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Zamowienie>>> GetZamowienies()
     {
+        var userId = _userContextService.GetUserId;
+
+        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
         if (_context.Zamowienies == null) return NotFound();
-        return await _context.Zamowienies.ToListAsync();
+        return await _context.Zamowienies
+             .Where(e => e.IdUzytkownika == userId.Value)
+        .ToListAsync();
     }
 
     // GET: api/Zamowienies/5
@@ -75,7 +81,9 @@ public class ZamowieniesController : ControllerBase
 
         var userId = _userContextService.GetUserId;
 
-        var elementyKoszyka = await _context.ElementKoszykas.ToListAsync();
+        var elementyKoszyka = await _context.ElementKoszykas
+            .Where(e => e.IdUzytkownika == userId.Value)
+            .ToListAsync();
         decimal? suma = 0;
 
         foreach (var item in elementyKoszyka)

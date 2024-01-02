@@ -1,11 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using SklepInternetowy.Helpers;
+﻿using SklepInternetowy.Helpers;
 using SklepInternetowy.Models;
+using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
-using Xamarin.Forms;
 
-namespace SklepInternetowy.Services.DataStore
+namespace SklepInternetowy.WWW.Services.DataStore
 {
     public class ElementKoszykaForViewDataStore : ADataStore<ElementKoszykaForView>
     {
@@ -13,8 +11,10 @@ namespace SklepInternetowy.Services.DataStore
 
         public ElementKoszykaForViewDataStore()
         {
+            
             var towaryDataStore = new TowaryDataStore();
             mapper = new ElementKoszykaMapper(towaryDataStore);
+
             GetItems();
         }
 

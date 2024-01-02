@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
+using RestApiZamowienia.Services.Interfaces;
 
 namespace RestApiZamowienia.Controllers;
 
@@ -10,10 +11,12 @@ namespace RestApiZamowienia.Controllers;
 public class TowarZamowieniumController : ControllerBase
 {
     private readonly SklepInternetowyContext _context;
+    private readonly IUserContextService _userContextService;
 
-    public TowarZamowieniumController(SklepInternetowyContext context)
+    public TowarZamowieniumController(SklepInternetowyContext context, IUserContextService userContextService)
     {
         _context = context;
+        _userContextService = userContextService;
     }
 
     // GET: api/TowarZamowienium
@@ -73,6 +76,10 @@ public class TowarZamowieniumController : ControllerBase
 
         foreach (var item in elementyKoszyka)
         {
+            var userId = _userContextService.GetUserId;
+
+            if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
             var towar = await _context.Towars.FindAsync(item.IdTowaru);
 
             TowarZamowienium towarZamowienia = new TowarZamowienium
@@ -88,14 +95,16 @@ public class TowarZamowieniumController : ControllerBase
             _context.TowarZamowienia.Add(towarZamowienia);
             await _context.SaveChangesAsync();
 
-            var elementToRemove = await _context.ElementKoszykas.FindAsync(item.IdElementuKoszyka);
+            var elementToRemove = await _context.ElementKoszykas
+                .Where(e => e.IdUzytkownika == userId.Value && e.IdElementuKoszyka == item.IdElementuKoszyka)
+                .FirstOrDefaultAsync();
+
             if (elementToRemove != null)
             {
                 _context.ElementKoszykas.Remove(elementToRemove);
                 await _context.SaveChangesAsync();
             }
         }
-
 
         return Ok(towarZamowienium);
     }
