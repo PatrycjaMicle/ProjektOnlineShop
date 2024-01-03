@@ -20,12 +20,7 @@ namespace SklepInternetowy.WWW.Controllers
             _cartService = cartService;
         }
 
-        public IActionResult Login()
-        {
-            return View();
-        }
-
-        public async Task<IActionResult> Index()
+        public IActionResult Sklep()
         {
             List<Towar> towary = new List<Towar>();
             try
@@ -48,11 +43,6 @@ namespace SklepInternetowy.WWW.Controllers
         }
 
         public IActionResult Zamowienia()
-        {
-            return View();
-        }
-
-        public IActionResult Konto()
         {
             return View();
         }
