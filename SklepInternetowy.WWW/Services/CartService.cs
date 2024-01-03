@@ -1,5 +1,6 @@
 ﻿using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Services.DataStore;
+using SklepInternetowyServiceReference;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 
@@ -18,6 +19,12 @@ namespace SklepInternetowy.WWW.Services
             _elementyKoszykaForViewdataStore = new ElementKoszykaForViewDataStore();
             ElementyKoszykaForView = new ObservableCollection<ElementKoszykaForView>();
             ExecuteLoadItemsAsync().Wait();
+        }
+
+        public async Task addToCart(int idTowaru)
+        {
+            ElementKoszyka elementKoszyka = new ElementKoszyka() { IdTowaru = idTowaru };
+            await _elementyKoszykaDataStore.AddItemToService(elementKoszyka);
         }
 
         private async Task ExecuteLoadItemsAsync()

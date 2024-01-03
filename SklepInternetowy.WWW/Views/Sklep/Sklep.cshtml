@@ -1,4 +1,6 @@
-﻿@model List<SklepInternetowyServiceReference.Towar>
+﻿@model List<Towar>
+
+@inject SklepInternetowy.WWW.Services.CartService CartService
 
 @using SklepInternetowyServiceReference
 @{
@@ -21,16 +23,22 @@
         height: 200px;
     }
 
-    .button {
+    .button-link {
+        display: inline-block;
         background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
         color: #fff;
         padding: 10px 20px;
-        border: none;
+        text-decoration: none;
         border-radius: 5px;
         cursor: pointer;
-        transition: background 0.3s ease;
-        margin-top: 20px;
+        transition: background 0.3s ease;          
+        margin-top:10px;
     }
+
+        .button-link:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
 
 </style>
 
@@ -48,9 +56,10 @@
                     <div class="card-body">
                         <h5 class="card-title">@towar.Nazwa</h5>
                         <p class="card-text">Cena: @towar.Cena</p>
-                        <a href="#" onclick="showDetails('@towar.IdTowaru')">Szczegoly...</a><br>
-                        <button class="button" onclick="addToCart('@towar.IdTowaru')">Dodaj do koszyka</button>
-                        
+                        <a href="#" onclick="showDetails('@towar.IdTowaru')">Szczegoly...</a>
+                        <br>
+                        <a asp-action="DodajDoKoszyka" asp-controller="Sklep" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
+
                     </div>
                 </div>
             </div>
@@ -58,14 +67,5 @@
     </div>
 </div>
 
-<script>
-    function addToCart(towarId) {
-        // to Implement
-        alert('Product added to cart: ' + towarId);
-    }
 
-    function showDetails(towarId) {
-        // to  Implement
-        alert('Product details: ' + towarId);
-    }
-</script>
+

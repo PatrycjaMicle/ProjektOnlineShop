@@ -2,7 +2,6 @@
 using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Services;
 using SklepInternetowy.WWW.Services.DataStore;
-using SklepInternetowyServiceReference;
 using System.Diagnostics;
 
 namespace SklepInternetowy.WWW.Controllers
@@ -11,7 +10,7 @@ namespace SklepInternetowy.WWW.Controllers
     {
         private readonly ILogger<SklepController> _logger;
         private readonly TowaryDataStore _dataStore;
-        private readonly CartService _cartService;
+        private CartService _cartService;
 
         public SklepController(ILogger<SklepController> logger, CartService cartService)
         {
@@ -22,18 +21,22 @@ namespace SklepInternetowy.WWW.Controllers
 
         public IActionResult Sklep()
         {
-            List<Towar> towary = new List<Towar>();
             try
             {
-                towary = _dataStore.items.ToList();
+                var towary = _dataStore.items.ToList();
+                return View(towary);
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Wystapil blad podczas pobierania produktow");                
-                return View(new List<Towar>());
+                Console.WriteLine("Wystapil blad podczas pobierania produktow");
+                return View();
             }
+        }
 
-            return View(towary);
+        public async Task<ActionResult> DodajDoKoszyka(int id)
+        {
+           await _cartService.addToCart(id);
+            return RedirectToAction("Koszyk");
         }
 
         public IActionResult Koszyk()
