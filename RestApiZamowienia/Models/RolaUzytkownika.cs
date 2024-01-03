@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace RestApiZamowienia.Models;
+﻿namespace RestApiZamowienia.Models;
 
 public class RolaUzytkownika
 {

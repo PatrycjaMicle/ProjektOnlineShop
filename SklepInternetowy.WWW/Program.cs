@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddScoped<CartService>();
+builder.Services.AddTransient<CartService>();
 
 var app = builder.Build();
 
@@ -25,6 +25,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Sklep}/{action=Login}/{id?}");
+    pattern: "{controller=Konto}/{action=Index}/{id?}");
 
 app.Run();
