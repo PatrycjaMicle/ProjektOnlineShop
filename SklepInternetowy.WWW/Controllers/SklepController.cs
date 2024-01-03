@@ -1,22 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using SklepInternetowy.WWW.Models;
+using SklepInternetowy.WWW.Services;
 using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
 
 namespace SklepInternetowy.WWW.Controllers
 {
     public class SklepController : Controller
     {
         private readonly ILogger<SklepController> _logger;
-        private TowaryDataStore _dataStore;
+        private readonly TowaryDataStore _dataStore;
+        private readonly CartService _cartService;
 
-        public SklepController(ILogger<SklepController> logger)
+        public SklepController(ILogger<SklepController> logger, CartService cartService)
         {
             _logger = logger;
             _dataStore = new TowaryDataStore();
+            _cartService = cartService;
         }
 
         public IActionResult Login()
@@ -42,7 +43,8 @@ namespace SklepInternetowy.WWW.Controllers
 
         public IActionResult Koszyk()
         {
-            return View();
+            List<ElementKoszykaForView> elementsInCart = _cartService.ElementyKoszykaForView.ToList();
+            return View(elementsInCart);
         }
 
         public IActionResult Zamowienia()

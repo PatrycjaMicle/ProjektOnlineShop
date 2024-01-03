@@ -1856,6 +1856,13 @@
           "name": {
             "type": "string",
             "nullable": true
+          },
+          "uzytkowniks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Uzytkownik"
+            },
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -2005,12 +2012,13 @@
             "type": "string",
             "nullable": true
           },
-          "rolaUzytkownika": {
-            "$ref": "#/components/schemas/RolaUzytkownika"
-          },
           "rolaUzytkownikaId": {
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "nullable": true
+          },
+          "rolaUzytkownikaIdNavigation": {
+            "$ref": "#/components/schemas/RolaUzytkownika"
           },
           "adreKtoDodalNavigations": {
             "type": "array",

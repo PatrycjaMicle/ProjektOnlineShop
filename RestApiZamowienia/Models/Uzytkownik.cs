@@ -21,11 +21,6 @@ public class Uzytkownik
 
     public int? RolaUzytkownikaId { get; set; }
 
-    [ForeignKey("RolaUzytkownikaId")]
-    [InverseProperty("Uzytkowniks")]
-    [JsonIgnore]
-    public virtual RolaUzytkownika? RolaUzytkownikaIdNavigation { get; set; }
-
     [JsonIgnore]
     [InverseProperty("KtoDodalNavigation")]
     public virtual ICollection<Adre> AdreKtoDodalNavigations { get; set; } = new List<Adre>();
