@@ -2,7 +2,7 @@
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 
-namespace SklepInternetowy.WWW.Services.DataStore
+namespace SklepInternetowy.WWW.Models.Services.DataStore
 {
     public class ElementKoszykaDataStore : ADataStore<ElementKoszyka>
     {

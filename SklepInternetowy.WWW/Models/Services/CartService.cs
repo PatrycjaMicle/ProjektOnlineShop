@@ -1,4 +1,5 @@
 ﻿using SklepInternetowy.WWW.Models;
+using SklepInternetowy.WWW.Models.Services.DataStore;
 using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Collections.ObjectModel;

@@ -1,27 +1,27 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SklepInternetowy.WWW.Models;
-using SklepInternetowy.WWW.Services.DataStore;
+using SklepInternetowy.WWW.Services;
 using System.Diagnostics;
 
 namespace SklepInternetowy.WWW.Controllers
 {
-    public class SklepController : Controller
+    public class ZamowieniaController : Controller
     {
-        private readonly ILogger<SklepController> _logger;
-        private readonly TowaryDataStore _dataStore;
+        private readonly ILogger<ZamowieniaController> _logger;
 
-        public SklepController(ILogger<SklepController> logger)
+        public ZamowieniaController(ILogger<ZamowieniaController> logger)
         {
             _logger = logger;
-            _dataStore = new TowaryDataStore();
         }
 
-        public IActionResult Sklep()
+        public IActionResult Zamowienia()
         {
             try
             {
-                var towary = _dataStore.items.ToList();
-                return View(towary);
+                // var zamowienia = _dataStore.items.ToList();
+                // return View(zamowienia);
+                return View();
+
             }
             catch (Exception)
             {
