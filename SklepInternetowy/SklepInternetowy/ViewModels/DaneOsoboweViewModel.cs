@@ -1,32 +1,37 @@
 ﻿using System;
 using System.Diagnostics;
+using SklepInternetowy.Services;
 using SklepInternetowy.Services.DataStore;
+using Xamarin.Forms;
 
 namespace SklepInternetowy.ViewModels
 {
     public class DaneOsoboweViewModel : BaseViewModel
     {
+        public int Id { get; set; }
+
         private readonly UzytkownikDataStore _uzytkownikDataStore = new UzytkownikDataStore();
-        private string description;
-        private string text;
+        private string imie;
+        private string nazwisko;
+        private readonly UserService _userService;
+
 
         public DaneOsoboweViewModel()
         {
-            LoadItemId(1);
+            _userService = DependencyService.Get<UserService>();
+            LoadItemId(_userService.UserId);
         }
 
-        public int Id { get; set; }
-
-        public string Text
+        public string Imie
         {
-            get => text;
-            set => SetProperty(ref text, value);
+            get => imie;
+            set => SetProperty(ref imie, value);
         }
 
-        public string Description
+        public string Nazwisko
         {
-            get => description;
-            set => SetProperty(ref description, value);
+            get => nazwisko;
+            set => SetProperty(ref nazwisko, value);
         }
 
         public async void LoadItemId(int id)
@@ -35,8 +40,8 @@ namespace SklepInternetowy.ViewModels
             {
                 var item = _uzytkownikDataStore.Find(id);
                 Id = item.IdUzytkownika;
-                Text = "Fullname";
-                Description = $"{item.Imie + " " + item.Nazwisko}";
+                Imie = item.Imie;
+                Nazwisko = item.Nazwisko;
             }
             catch (Exception)
             {
