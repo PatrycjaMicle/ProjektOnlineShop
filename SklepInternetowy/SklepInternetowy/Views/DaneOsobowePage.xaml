@@ -10,11 +10,21 @@
         <viewModels:DaneOsoboweViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout Spacing="20" Padding="15">
-        <Label Text="Text:" FontSize="Medium" />
-        <Label Text="{Binding Text}" FontSize="Small" />
-        <Label Text="Description:" FontSize="Medium" />
-        <Label Text="{Binding Description}" FontSize="Small" />
+    <StackLayout Spacing="10" Padding="15,50" Background="white">
+        <Label Text="Imie" FontSize="Medium" 
+               TextColor="Gray"
+               Style="{DynamicResource ListItemTextStyle}"/>
+        <Label Text="{Binding Imie}" 
+               TextColor="Black" FontSize="Small"
+               Style="{DynamicResource ListItemDetailTextStyle}"
+               Margin="0,0,0,20"/>
+
+        <Label Text="Nazwisko:" FontSize="Medium" 
+               TextColor="Gray"
+               Style="{DynamicResource ListItemTextStyle}"/>
+        <Label Text="{Binding Nazwisko}"
+               TextColor="Black" FontSize="Small"
+               Style="{DynamicResource ListItemDetailTextStyle}"/>
     </StackLayout>
 
 </ContentPage>

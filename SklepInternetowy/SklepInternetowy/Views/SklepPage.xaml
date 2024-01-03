@@ -35,14 +35,13 @@
                         <Image Source="{Binding ZdjecieUrl}"
                                Aspect="AspectFit"
                                HeightRequest="80" />
-                        <Frame BackgroundColor="#80000000"
-                               CornerRadius="20"
+                        <Frame CornerRadius="20"
                                Padding="5"
                                HeightRequest="20">
                             <Label Text="Szczegoly..."
                                FontSize="13" 
                                HorizontalTextAlignment="Center" 
-                               TextColor="White"/>
+                               TextColor="Darkblue"/>
                         </Frame>
                         <Label Text="{Binding Cena, StringFormat='Cena:  {0} €'}"                               LineBreakMode="NoWrap"
                                Style="{DynamicResource ListItemDetailTextStyle}"
@@ -51,7 +50,7 @@
                                 Command="{Binding BindingContext.AddToCartCommand, Source={x:Reference BrowseSklepPage}}"
                                 CommandParameter="{Binding .}"
                                 BackgroundColor="#34495e"
-                                CornerRadius="7"
+                                CornerRadius="5"
                                 Margin="10,0,10,10"
                                 Padding="20,10"
                                 FontSize="12" />
