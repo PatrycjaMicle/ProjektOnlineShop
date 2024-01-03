@@ -1,7 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using SklepInternetowy.Helpers;
+﻿using SklepInternetowy.Helpers;
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 

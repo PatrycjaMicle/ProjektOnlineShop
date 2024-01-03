@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-
-namespace SklepInternetowy.Helpers
+﻿namespace SklepInternetowy.Helpers
 {
     public static class Extensions
     {

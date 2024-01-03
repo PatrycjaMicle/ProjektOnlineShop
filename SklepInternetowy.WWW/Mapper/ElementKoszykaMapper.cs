@@ -1,4 +1,4 @@
-﻿using SklepInternetowy.Models;
+﻿using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 

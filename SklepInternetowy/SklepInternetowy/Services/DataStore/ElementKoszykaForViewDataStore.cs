@@ -3,7 +3,6 @@ using System.Threading.Tasks;
 using SklepInternetowy.Helpers;
 using SklepInternetowy.Models;
 using SklepInternetowyServiceReference;
-using Xamarin.Forms;
 
 namespace SklepInternetowy.Services.DataStore
 {

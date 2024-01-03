@@ -1,11 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Net.Http;
-using System.Net.Http.Headers;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration; 
-using Newtonsoft.Json;
-using SklepInternetowy.WWW.Services.DataStore;
+﻿using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
+using System.Net.Http.Headers;
 
 namespace SklepInternetowy.WWWW.Services.DataStore
 {
@@ -22,6 +17,10 @@ namespace SklepInternetowy.WWWW.Services.DataStore
             var httpClient = new HttpClient();
             //httpClient.DefaultRequestHeaders.Authorization =
             //new AuthenticationHeaderValue("Bearer", _userToken.Token);
+            
+            //POKI NIE MA USER SERVICE I LOGOWANIA WBILAM SWOJ TOKEN RECZNIE - DELETE ME!!!
+            httpClient.DefaultRequestHeaders.Authorization =
+            new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzA5NDI0OTk4LCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUyMTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUyMTkifQ.wnS0xIlyeKdwjaTSTNCq80NBEQ42teH7m9P6X-327FQ");
 
             sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", httpClient);
         }

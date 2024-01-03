@@ -1,5 +1,5 @@
 ﻿using SklepInternetowy.Helpers;
-using SklepInternetowy.Models;
+using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 
