@@ -1,8 +1,62 @@
-﻿@{
-    ViewData["Title"] = "Moje zamowienia";
+﻿@model List<Zamowienie>
+@using SklepInternetowyServiceReference
+
+@{
+    ViewData["Title"] = "Moje Zamowienia";
 }
-<div class="text-center">
-    <h1 class="display-4">Zamowienia</h1>
+
+<style>
+    .button {
+        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .background-gardient {
+        background: linear-gradient(to right, #f0f0f0, #fff);
+    }
+
+</style>
+
+<a class="nav-link text-dark fw-bold ml-6" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+
+<div class="text-center mb-4">
+    <h2 class="display-4">Moje Zamowienia</h2>
 </div>
 
-<p>Tu beda wyswietlane zamowienia
+<div id="cartContent" class="container">
+    @if (Model.Count > 0)
+    {
+        <ul class="list-group container">
+            @foreach (var zamowienie in Model)
+            {
+                <li class="list-group-item background-gardient mb-4">
+                    <div class="mb-4 background-gardient">
+                        <div class="background-gardient">
+                            <h5 class="card-title">Data zlozenia: @zamowienie.DataZamowienia</h5>
+                            <p class="card-text">Numer zamowienia: @zamowienie.IdZamowienia</p>
+                            <p class="card-text">Wartosc lacznie: @zamowienie.Suma</p>
+                            <p class="card-text">Przewidywany termin dostawy: @zamowienie.TerminDostawy</p>
+                        </div>
+                        <div class="text-left">
+                            <button class="button">Wyswietl produkty z zamowienia...</button>
+                        </div>
+                    </div>
+                  
+                </li>
+                
+            }
+        </ul>
+    }
+    else
+    {
+        <div class="text-center">
+            <p>Nie masz zadnych zamowien!</p>
+        </div>
+    }
+</div>
