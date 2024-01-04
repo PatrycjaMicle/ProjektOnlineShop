@@ -21,6 +21,25 @@ public static class DataGenerator
             new() { Nazwa = "Blik" }
         };
 
+        var kody = new List<Kod>
+        {
+            new() { Nazwa = "XMAS" }
+        };
+
+        var promocje = new List<Promocja>
+        {
+            new() { ZnizkaWProcentach = 10 }
+        };
+
+        var kodyPromocji = new List<KodPromocji>
+        {
+            new()
+            {
+                IdKodu = 1,
+                IdPromocji=1
+            }
+        };
+
         var uzytkownicy = new List<Uzytkownik>
         {
             new()
@@ -186,6 +205,15 @@ public static class DataGenerator
         context.AddRange(adresy);
         context.SaveChanges();
         context.AddRange(kategorie);
+        context.SaveChanges();
+        context.SaveChanges();
+        context.AddRange(kody);
+        context.SaveChanges();
+        context.SaveChanges();
+        context.AddRange(promocje);
+        context.SaveChanges();
+        context.SaveChanges();
+        context.AddRange(kodyPromocji);
         context.SaveChanges();
         context.SaveChanges();
     }
