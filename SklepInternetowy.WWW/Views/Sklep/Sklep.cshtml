@@ -55,10 +55,10 @@
                     <img src="@towar.ZdjecieUrl" class="card-img-top" alt="Product Image">
                     <div class="card-body">
                         <h5 class="card-title">@towar.Nazwa</h5>
-                        <p class="card-text">Cena: @towar.Cena</p>
-                        <a href="#" onclick="showDetails('@towar.IdTowaru')">Szczegoly...</a>
+                        <p class="card-text">Cena: @towar.Cena €</p>
+                        <a asp-action="OtworzSzczegoly" asp-controller="Sklep" asp-route-id="@towar.IdTowaru">Szczegoly...</a>
                         <br>
-                        <a asp-action="DodajDoKoszyka" asp-controller="Sklep" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
+                        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
 
                     </div>
                 </div>

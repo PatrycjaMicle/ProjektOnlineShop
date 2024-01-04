@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SklepInternetowy.WWW.Models;
-using SklepInternetowy.WWW.Services;
 using SklepInternetowy.WWW.Services.DataStore;
 using System.Diagnostics;
 
@@ -10,13 +9,11 @@ namespace SklepInternetowy.WWW.Controllers
     {
         private readonly ILogger<SklepController> _logger;
         private readonly TowaryDataStore _dataStore;
-        private CartService _cartService;
 
-        public SklepController(ILogger<SklepController> logger, CartService cartService)
+        public SklepController(ILogger<SklepController> logger)
         {
             _logger = logger;
             _dataStore = new TowaryDataStore();
-            _cartService = cartService;
         }
 
         public IActionResult Sklep()
@@ -26,28 +23,30 @@ namespace SklepInternetowy.WWW.Controllers
                 var towary = _dataStore.items.ToList();
                 return View(towary);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Wystapil blad podczas pobierania produktow");
                 return View();
             }
         }
 
-        public async Task<ActionResult> DodajDoKoszyka(int id)
+        public async Task<ActionResult> OtworzSzczegoly(int id)
         {
-           await _cartService.addToCart(id);
-            return RedirectToAction("Koszyk");
+            return RedirectToAction("ProduktDetail", new { id = id });
         }
 
-        public IActionResult Koszyk()
+        public async Task<ActionResult> ProduktDetail(int id)
         {
-            List<ElementKoszykaForView> elementsInCart = _cartService.ElementyKoszykaForView.ToList();
-            return View(elementsInCart);
-        }
-
-        public IActionResult Zamowienia()
-        {
-            return View();
+            try
+            {
+                var towar = _dataStore.Find(id);
+                return View(towar);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Wystapil blad podczas pobierania produktow");
+                return View();
+            }
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

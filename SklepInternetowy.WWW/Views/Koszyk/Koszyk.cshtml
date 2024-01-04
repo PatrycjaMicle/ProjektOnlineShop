@@ -5,16 +5,23 @@
 }
 
 <style>
-    .button {
+    .button-link {
+        display: inline-block;
         background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
         color: #fff;
         padding: 10px 20px;
-        border: none;
+        text-decoration: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s ease;
-        margin-top: 20px;
+        margin-top: 10px;
+        min-width: 490px;
     }
+
+        .button-link:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
 
     .background-gardient {
         background: linear-gradient(to right, #f0f0f0, #fff);
@@ -22,8 +29,10 @@
 
 </style>
 
+<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+
 <div class="text-center">
-    <h1 class="display-4">Koszyk</h1>
+    <h2 class="display-4 mb-4">Koszyk</h2>
 </div>
 
 <div id="cartContent" class="container">
@@ -44,7 +53,7 @@
             }
         </ul>
         <div class="text-center">
-            <button class="button" onclick="placeOrder()">Zloz zamowienie</button>
+         <a asp-action="ZlozZamowienie" asp-controller="Zamowienia" class="button-link">Zloz zamowienie</a>
         </div>
     }
     else
@@ -54,14 +63,3 @@
         </div>
     }
 </div>
-
-@section scripts {
-    <script>
-        // to implement
-        function placeOrder() {
-
-            // Refresh the page after placing the order or move to another page ?
-            location.reload();
-        }
-    </script>
-}

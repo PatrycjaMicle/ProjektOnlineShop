@@ -1,0 +1,54 @@
+﻿@model List<TowarZamowienium>
+
+@using SklepInternetowyServiceReference
+@{
+    ViewData["Title"] = "Szczegoly zamowienia";
+}
+
+<style>
+    .card-img {
+        object-fit: contain;
+        max-height: 400px;
+        max-width: 100%;
+    }
+
+    .button-link {
+        display: inline-block;
+        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
+    }
+
+        .button-link:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
+</style>
+
+<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Wroc do listy zamowien</a>
+
+<div class="text-center">
+    <h3 class="display-4 mb-4">Produkty znajdujace sie w zamowieniu: </h3>
+</div>
+
+<div id="cartContent" class="container">
+        <ul class="list-group container">
+            @foreach (var produkt in Model)
+            {
+                <li class="list-group-item background-gardient">
+                    <div class="mb-4 background-gardient">
+                        <div class="background-gardient">
+                            <h5 class="card-title">@produkt.NazwaTowaru</h5>
+                            <p class="card-text">Ilość: @produkt.Ilosc</p>
+                            <p class="card-text">Cena za sztuke: @produkt.Cena €</p>
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+</div>
