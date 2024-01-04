@@ -6,16 +6,22 @@
 }
 
 <style>
-    .button {
+    .button-link {
+        display: inline-block;
         background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
         color: #fff;
         padding: 10px 20px;
-        border: none;
+        text-decoration: none;
         border-radius: 5px;
         cursor: pointer;
         transition: background 0.3s ease;
-        margin-top: 20px;
+        margin-top: 10px;
     }
+
+        .button-link:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
 
     .background-gardient {
         background: linear-gradient(to right, #f0f0f0, #fff);
@@ -43,9 +49,7 @@
                             <p class="card-text">Wartosc lacznie: @zamowienie.Suma</p>
                             <p class="card-text">Przewidywany termin dostawy: @zamowienie.TerminDostawy</p>
                         </div>
-                        <div class="text-left">
-                            <button class="button">Wyswietl produkty z zamowienia...</button>
-                        </div>
+                        <a asp-action="OtworzSzczegoly" asp-controller="Zamowienia" asp-route-id="@zamowienie.IdZamowienia" class="button-link">Szczegoly...</a>
                     </div>
                   
                 </li>

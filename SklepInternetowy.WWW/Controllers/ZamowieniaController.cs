@@ -9,11 +9,13 @@ namespace SklepInternetowy.WWW.Controllers
     {
         private readonly ILogger<ZamowieniaController> _logger;
         private readonly ZamowienieDataStore _dataStore;
+        private readonly TowarZamowieniaDataStore _dataStoreTowarZamowienia;
 
         public ZamowieniaController(ILogger<ZamowieniaController> logger)
         {
             _logger = logger;
             _dataStore = new ZamowienieDataStore();
+            _dataStoreTowarZamowienia = new TowarZamowieniaDataStore();
         }
 
         public IActionResult Zamowienia()
@@ -22,6 +24,28 @@ namespace SklepInternetowy.WWW.Controllers
             {
                 var zamowienia = _dataStore.items.ToList();
                 return View(zamowienia);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Wystapil blad podczas pobierania produktow");
+                return View();
+            }
+        }
+
+        public async Task<ActionResult> OtworzSzczegoly(int id)
+        {
+            return RedirectToAction("ZamowienieDetail", new { id = id });
+        }
+
+        public async Task<ActionResult> ZamowienieDetail(int id)
+        {
+            try
+            {
+                var orderItems = _dataStoreTowarZamowienia.items
+                    .Where(a => a.IdZamowienia == id)
+                    .ToList();
+
+                return View(orderItems);
             }
             catch (Exception)
             {
