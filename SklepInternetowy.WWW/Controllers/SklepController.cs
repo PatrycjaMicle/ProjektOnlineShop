@@ -30,6 +30,25 @@ namespace SklepInternetowy.WWW.Controllers
             }
         }
 
+        public async Task<ActionResult> OtworzSzczegoly(int id)
+        {
+            return RedirectToAction("ProduktDetail", new { id = id });
+        }
+
+        public async Task<ActionResult> ProduktDetail(int id)
+        {
+            try
+            {
+                var towar = _dataStore.Find(id);
+                return View(towar);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Wystapil blad podczas pobierania produktow");
+                return View();
+            }
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

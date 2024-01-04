@@ -1,0 +1,59 @@
+﻿@model Towar
+
+@using SklepInternetowyServiceReference
+@{
+    ViewData["Title"] = "Szczegoly towaru";
+}
+
+<style>
+    .card-img {
+        object-fit: contain;
+        max-height: 400px;
+        max-width: 100%;
+    }
+
+    .button-link {
+        display: inline-block;
+        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+        margin-top: 10px;
+    }
+
+        .button-link:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
+</style>
+
+<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+
+<div class="card">
+    <img class="card-img" src="@Model.ZdjecieUrl" alt="Product Image"/>
+
+    <div class="card-body">
+        <h2>@Model.Nazwa</h2>
+
+        <div>
+            <p>Opis towaru:</p>
+            <p>@Model.Opis</p>
+        </div>
+
+        <div>
+            <p>Kod towaru:</p>
+            <p>@Model.Kod</p>
+        </div>
+
+        <div>
+            <p>Cena:</p>
+            <p>@Model.Cena €</p>
+        </div>
+
+        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@Model.IdTowaru" class="button-link">Dodaj do koszyka</a>
+
+    </div>
+</div>
