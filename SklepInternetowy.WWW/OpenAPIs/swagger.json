@@ -1846,27 +1846,6 @@
         },
         "additionalProperties": false
       },
-      "RolaUzytkownika": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "uzytkowniks": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Uzytkownik"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
       "Towar": {
         "type": "object",
         "properties": {
@@ -2016,9 +1995,6 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
-          },
-          "rolaUzytkownikaIdNavigation": {
-            "$ref": "#/components/schemas/RolaUzytkownika"
           },
           "adreKtoDodalNavigations": {
             "type": "array",

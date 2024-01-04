@@ -29,7 +29,13 @@ public partial class SklepInternetowyContext : DbContext
     public virtual DbSet<RolaUzytkownika> RolaUzytkownika { get; set; }
 
     public virtual DbSet<Zamowienie> Zamowienies { get; set; }
-    
+
+    public virtual DbSet<KodPromocji> KodPromocjis { get; set; }
+
+    public virtual DbSet<Promocja> Promocjas { get; set; }
+
+    public virtual DbSet<Kod> Kods { get; set; }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Adre>(entity =>
@@ -76,9 +82,25 @@ public partial class SklepInternetowyContext : DbContext
         modelBuilder.Entity<Zamowienie>(entity =>
         {
             entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_Uzytkownik");
-
             entity.HasOne(d => d.IdMetodyPlatnosciNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_MetodaPlatnosci");
         });
+
+        //RELACJA WIELE DO WIEL DLA TABEL Kod - Promocja , LACZY SIE W TABELI KodPromocji   (JOINTABLE)
+        modelBuilder.Entity<KodPromocji>(entity =>
+        {
+            entity.HasKey(kp => kp.IdKoduPromocji);
+
+            entity.HasOne(kp => kp.Promocja)
+                .WithMany(p => p.KodyPromocji)
+                .HasForeignKey(kp => kp.IdPromocji)
+                .HasConstraintName("FK_KodPromocji_Promocja");
+
+            entity.HasOne(kp => kp.Kod)
+                .WithMany(k => k.KodyPromocji)
+                .HasForeignKey(kp => kp.IdKodu)
+                .HasConstraintName("FK_KodPromocji_Kod");
+        });
+
 
         OnModelCreatingPartial(modelBuilder);
     }
