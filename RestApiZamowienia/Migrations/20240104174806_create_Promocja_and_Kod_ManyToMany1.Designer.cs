@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestApiZamowienia.Models.Context;
 
@@ -11,9 +12,11 @@ using RestApiZamowienia.Models.Context;
 namespace RestApiZamowienia.Migrations
 {
     [DbContext(typeof(SklepInternetowyContext))]
-    partial class SklepInternetowyContextModelSnapshot : ModelSnapshot
+    [Migration("20240104174806_create_Promocja_and_Kod_ManyToMany1")]
+    partial class create_Promocja_and_Kod_ManyToMany1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
