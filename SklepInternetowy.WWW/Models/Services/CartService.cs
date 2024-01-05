@@ -1,5 +1,6 @@
 ﻿using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Models.Services.DataStore;
+using SklepInternetowy.WWW.Models.ViewModels;
 using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Collections.ObjectModel;
@@ -10,6 +11,9 @@ namespace SklepInternetowy.WWW.Services
     public class CartService
     {
         public ObservableCollection<ElementKoszykaForView> ElementyKoszykaForView { get; }
+        public static double? Znizka;
+        public static double? Suma;
+        public static int IdKoduPromocji;
 
         private ElementKoszykaDataStore _elementyKoszykaDataStore;
         private ElementKoszykaForViewDataStore _elementyKoszykaForViewdataStore;

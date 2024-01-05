@@ -560,6 +560,44 @@
         }
       }
     },
+    "/api/KodPromocjis/GetZnizka": {
+      "get": {
+        "tags": [
+          "KodPromocjis"
+        ],
+        "parameters": [
+          {
+            "name": "kodInput",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/KodPromocjiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KodPromocjiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/KodPromocjiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/KodPromocjis": {
       "get": {
         "tags": [
@@ -1984,6 +2022,21 @@
             "type": "integer",
             "format": "int32",
             "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "KodPromocjiResponse": {
+        "type": "object",
+        "properties": {
+          "znizka": {
+            "type": "number",
+            "format": "double",
+            "nullable": true
+          },
+          "idKoduPromocji": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
