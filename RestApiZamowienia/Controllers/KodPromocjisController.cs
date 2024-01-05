@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using RestApiZamowienia.Dto;
 using RestApiZamowienia.Models;
 using RestApiZamowienia.Models.Context;
 
@@ -19,6 +20,52 @@ namespace RestApiZamowienia.Controllers
         public KodPromocjisController(SklepInternetowyContext context)
         {
             _context = context;
+        }
+
+        [HttpGet("GetZnizka")]
+        public async Task<ActionResult<KodPromocjiResponse>> GetZnizka(string? kodInput)
+        {
+            if (string.IsNullOrEmpty(kodInput))
+            {
+                return Ok(new KodPromocjiResponse { Znizka = 0, IdKoduPromocji = 0 });
+            }
+
+            var kod = await _context.Kods
+                .Where(a => a.Nazwa == kodInput)
+                .FirstOrDefaultAsync();
+
+            if (kod == null)
+            {
+                return Ok(new KodPromocjiResponse { Znizka = 0, IdKoduPromocji = 0 });
+            }
+
+            var kodPromocji = await _context.KodPromocjis
+                .Where(a => a.IdKodu == kod.IdKodu)
+                .FirstOrDefaultAsync();
+
+            if (kodPromocji == null)
+            {
+                return Ok(new KodPromocjiResponse { Znizka = 0, IdKoduPromocji = 0 });
+            }
+
+            var promocja = await _context.Promocjas
+                .Where(a => a.IdPromocji == kodPromocji.IdPromocji)
+                .FirstOrDefaultAsync();
+
+            if (promocja == null)
+            {
+                return Ok(new KodPromocjiResponse { Znizka = 0, IdKoduPromocji = 0 });
+            }
+
+            var znizka = promocja.ZnizkaWProcentach;
+
+            if (znizka == 0)
+            {
+                return Ok(new KodPromocjiResponse { Znizka = 0, IdKoduPromocji = 0 });
+            }
+
+            var response = new KodPromocjiResponse { Znizka = znizka, IdKoduPromocji = kodPromocji.IdKoduPromocji };
+            return Ok(response);
         }
 
         // GET: api/KodPromocjis

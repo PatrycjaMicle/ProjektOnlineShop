@@ -9,9 +9,13 @@ namespace SklepInternetowy.Services
     public class CartService
     {
         public static event EventHandler OnIdZamowieniaChanged;
+        public static event EventHandler OnIdKoduPromocji;
         public static event EventHandler OnSumaChanged;
+        public static event EventHandler OnZnizkaChanged;
 
         private static double? _suma;
+        private static int? _idKoduPromocji;
+        private static double? _znizka;
         private static int? _idZamowienia;
         private ADataStore<Zamowienie> zamowienieDataStore = new ZamowienieDataStore();
         private ADataStore<TowarZamowienium> towarZamowieniaDataStore = new TowarZamowieniaDataStore();
@@ -30,6 +34,19 @@ namespace SklepInternetowy.Services
             }
         }
 
+        public static double? Znizka
+        {
+            get { return _znizka; }
+            set
+            {
+                if (_znizka != value)
+                {
+                    _znizka = value;
+                    OnZnizkaChanged?.Invoke(null, EventArgs.Empty);
+                }
+            }
+        }
+
         public static int? IdZamowienia
         {
             get { return _idZamowienia; }
@@ -43,13 +60,27 @@ namespace SklepInternetowy.Services
             }
         }
 
+        public static int? IdKoduPromocji
+        {
+            get { return _idKoduPromocji; }
+            set
+            {
+                if (_idKoduPromocji != value)
+                {
+                    _idKoduPromocji = value;
+                    OnIdKoduPromocji?.Invoke(null, EventArgs.Empty);
+                }
+            }
+        }
+
         public async void OnPlaceOrder()
         {
+            
             try
             {
                 Zamowienie zamowienie = new Zamowienie();
-                zamowienie.Suma = Suma;
-
+                zamowienie.IdKoduPromocji = IdKoduPromocji; 
+                
                 //create order
                 var addedOrder = await zamowienieDataStore.AddItemToService(zamowienie);
                 if (addedOrder == null)
@@ -78,13 +109,38 @@ namespace SklepInternetowy.Services
         {
             try
             {
+                
                 var koszykItems = await elementKoszykaForViewDataStore.GetItemsAsync(true);
-                Suma = koszykItems.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault());
+
+                double baseSuma = koszykItems.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault());
+
+                if(_znizka != null && _znizka != 0)
+                {
+                    double? discountedSuma = ApplyZnizka(baseSuma);
+                    Suma = discountedSuma;
+
+                }else
+                {
+                    Suma = baseSuma;
+
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred during sum calculation: {ex.Message}");
             }
         }
+
+        private double? ApplyZnizka(double baseSuma)
+        {
+            double? znizkaPercentage = Znizka;
+
+            double? discountedAmount = baseSuma * (znizkaPercentage / 100);
+
+            double? discountedSuma = baseSuma - discountedAmount;
+
+            return discountedSuma;
+        }
+
     }
 }
