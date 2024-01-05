@@ -19,6 +19,8 @@ public class Zamowienie
 
     public int? IdMetodyPlatnosci { get; set; }
 
+    public int? IdKoduPromocji { get; set; }
+
     [ForeignKey("IdUzytkownika")]
     [InverseProperty("Zamowienies")]
     [JsonIgnore]
@@ -28,6 +30,11 @@ public class Zamowienie
     [InverseProperty("Zamowienies")]
     [JsonIgnore]
     public virtual MetodaPlatnosci? IdMetodyPlatnosciNavigation { get; set; }
+
+    [ForeignKey("IdKoduPromocji")]
+    [InverseProperty("Zamowienies")]
+    [JsonIgnore]
+    public virtual KodPromocji? IdKoduPromocjiNavigation { get; set; }
 
     [InverseProperty("IdZamowieniaNavigation")]
     [JsonIgnore]

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestApiZamowienia.Models.Context;
 
@@ -11,9 +12,11 @@ using RestApiZamowienia.Models.Context;
 namespace RestApiZamowienia.Migrations
 {
     [DbContext(typeof(SklepInternetowyContext))]
-    partial class SklepInternetowyContextModelSnapshot : ModelSnapshot
+    [Migration("20240104211452_add_IdKoduPromocji_to_Zamowienie")]
+    partial class add_IdKoduPromocji_to_Zamowienie
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -224,8 +227,9 @@ namespace RestApiZamowienia.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPromocji"));
 
-                    b.Property<decimal?>("ZnizkaWProcentach")
-                        .HasColumnType("decimal(18, 0)");
+                    b.Property<string>("Wartosc")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
 
                     b.HasKey("IdPromocji");
 

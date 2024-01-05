@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RestApiZamowienia.Models.Context;
 
@@ -11,9 +12,11 @@ using RestApiZamowienia.Models.Context;
 namespace RestApiZamowienia.Migrations
 {
     [DbContext(typeof(SklepInternetowyContext))]
-    partial class SklepInternetowyContextModelSnapshot : ModelSnapshot
+    [Migration("20240104212119_rename_wartosc_toZnizka_as_decimal")]
+    partial class rename_wartosc_toZnizka_as_decimal
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

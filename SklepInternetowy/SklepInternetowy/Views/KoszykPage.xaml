@@ -14,6 +14,10 @@
     <RefreshView x:DataType="local:KoszykViewModel" Command="{Binding LoadItemsCommand}"
                  IsRefreshing="{Binding IsBusy, Mode=TwoWay}" BackgroundColor="white">
         <StackLayout>
+            <Label Text="Koszyk"
+               LineBreakMode="NoWrap"
+               Style="{DynamicResource ListItemDetailTextStyle}"
+               FontSize="25" HorizontalTextAlignment="Center" TextColor="#34495e" Margin="0,10,0,0"/>
             <CollectionView x:Name="ItemsListView"
                             ItemsSource="{Binding Items}"
                             SelectionMode="None">
@@ -74,22 +78,49 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-            <Label Text="Suma: "
-                   LineBreakMode="NoWrap"
-                   Style="{DynamicResource ListItemDetailTextStyle}"
-                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,0" />
-            <Label Text="{Binding Suma, Mode=TwoWay, StringFormat='{0} €'}"
-                   LineBreakMode="NoWrap"
-                   Style="{DynamicResource ListItemDetailTextStyle}"
-                   FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e" Margin="10,0,0,20" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout Grid.Column="0" Margin="10,0,10,30">
+                    <Entry Placeholder="Kod promocyjny"
+               Text="{Binding PromotionCode, Mode=TwoWay}"
+               BackgroundColor="#F0F0F0"
+               TextColor="#333333"/>
+
+                    <Button Text="Dodaj kod promocyjny"
+                Command="{Binding AddPromotionCodeCommand}"
+                CommandParameter="{Binding PromotionCode}"
+                BackgroundColor="#34495e"
+                CornerRadius="5"
+                Margin="0,0,0,10"
+                Padding="15,10"
+                FontSize="16" />
+
+                </StackLayout>
+                <StackLayout Grid.Column="1" Margin="80,0,0,0">
+
+                    <Label Text="{Binding Suma, Mode=TwoWay, StringFormat='Suma: {0} €'}"
+               LineBreakMode="NoWrap"
+               Style="{DynamicResource ListItemDetailTextStyle}"
+               FontSize="20" HorizontalTextAlignment="Start" TextColor="#34495e"/>
+
+                    <Label Text="{Binding Znizka, Mode=TwoWay, StringFormat='Twoja znizka: {0} %'}"
+               LineBreakMode="NoWrap"
+               Style="{DynamicResource ListItemDetailTextStyle}"
+               FontSize="18" HorizontalTextAlignment="Start" TextColor="#34495e"/>                </StackLayout>
+            </Grid>
+
             <Button Text="Zloz zamowienie"
                     Command="{Binding BindingContext.PlaceOrderCommand, Source={x:Reference BrowseKoszykPage}}"
                     CommandParameter="{Binding .}"
                     BackgroundColor="#34495e"
-                    CornerRadius="7"
-                    Margin="10,0,10,10"
-                    Padding="20,10"
-                    FontSize="12" />
+                    CornerRadius="5"
+                    Padding="15,10"
+                    FontSize="16"
+                    Margin="10,0,10,10"/>
         </StackLayout>
     </RefreshView>
 </ContentPage>

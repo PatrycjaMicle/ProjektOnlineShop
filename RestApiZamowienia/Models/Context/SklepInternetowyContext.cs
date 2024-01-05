@@ -83,6 +83,7 @@ public partial class SklepInternetowyContext : DbContext
         {
             entity.HasOne(d => d.IdUzytkownikaNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_Uzytkownik");
             entity.HasOne(d => d.IdMetodyPlatnosciNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_MetodaPlatnosci");
+            entity.HasOne(d => d.IdKoduPromocjiNavigation).WithMany(p => p.Zamowienies).HasConstraintName("FK_Zamowienie_KodPromocji");
         });
 
         //RELACJA WIELE DO WIEL DLA TABEL Kod - Promocja , LACZY SIE W TABELI KodPromocji   (JOINTABLE)

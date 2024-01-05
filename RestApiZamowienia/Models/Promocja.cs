@@ -10,8 +10,7 @@ public class Promocja
     [Key]
     public int IdPromocji { get; set; }
 
-    [StringLength(50)]
-    public string? Wartosc { get; set; }
+    [Column(TypeName = "decimal(18, 0)")] public decimal? ZnizkaWProcentach { get; set; }
 
     [JsonIgnore]
     public ICollection<KodPromocji> KodyPromocji { get; set; } = new List<KodPromocji>();

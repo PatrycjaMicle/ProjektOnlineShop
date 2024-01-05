@@ -75,7 +75,6 @@ public class ZamowieniesController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<Zamowienie>> PostZamowienie(Zamowienie zamowienie)
     {
-       
         if (_context.ElementKoszykas == null)
             return NotFound();
 
@@ -89,7 +88,7 @@ public class ZamowieniesController : ControllerBase
         foreach (var item in elementyKoszyka)
         {
             var towar = await _context.Towars.FindAsync(item.IdTowaru);
-            suma += ((decimal)(towar?.Cena ?? 0m)*item.Ilosc);
+            suma += ((decimal)(towar?.Cena ?? 0m) * item.Ilosc);
         }
 
         if (!userId.HasValue)
@@ -98,8 +97,28 @@ public class ZamowieniesController : ControllerBase
         zamowienie.IdUzytkownika = userId;
         zamowienie.DataZamowienia = DateTime.Now;
         zamowienie.IdMetodyPlatnosci = 1;
-        zamowienie.Suma = suma;
         zamowienie.TerminDostawy = DateTime.Now.Add(TimeSpan.FromDays(7));
+
+        if (zamowienie.IdKoduPromocji.HasValue)
+        {
+            var kodPromocji = await _context.KodPromocjis
+                .Where(k => k.IdKoduPromocji == zamowienie.IdKoduPromocji)
+                .FirstOrDefaultAsync();
+
+            if (kodPromocji != null)
+            {
+                var promocja = await _context.Promocjas
+                    .Where(p => p.IdPromocji == kodPromocji.IdPromocji)
+                    .FirstOrDefaultAsync();
+
+                if (promocja != null)
+                {
+                    suma -= suma * (promocja.ZnizkaWProcentach / 100);
+                }
+            }
+        }
+
+        zamowienie.Suma = suma;
 
         if (_context.Zamowienies == null)
             return Problem("Entity set 'SklepInternetowyContext.Zamowienies' is null.");

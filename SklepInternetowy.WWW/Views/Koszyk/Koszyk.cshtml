@@ -1,4 +1,4 @@
-﻿@model List<ElementKoszykaForView>
+﻿@model SklepInternetowy.WWW.Models.ViewModels.KoszykViewModel
 
 @{
     ViewData["Title"] = "Koszyk";
@@ -23,37 +23,94 @@
             color: #fff;
         }
 
+    .button-kod-promo {
+        display: inline-block;
+        background: linear-gradient(to right, #f0f0f0, #fff);
+        color: black;
+        padding: 10px 10px;
+        text-decoration: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+    }
+
+    .button-kod-promo:hover {
+            background: linear-gradient(to right, #333, #444, #666, #888);
+            color: #fff;
+        }
+
     .background-gardient {
         background: linear-gradient(to right, #f0f0f0, #fff);
     }
-
 </style>
 
-<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+<div class="container">
+    <div class="row mt-3 mb-3">
+        <div class="col-1"></div>
+        <div class="col">
+            <a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+        </div>
+    </div>
+</div>
 
 <div class="text-center">
     <h2 class="display-4 mb-4">Koszyk</h2>
 </div>
 
 <div id="cartContent" class="container">
-    @if (Model.Count > 0)
+    @if (Model.ElementyKoszyka.Count > 0)
     {
         <ul class="list-group container">
-            @foreach (var elementKoszyka in Model)
+            @foreach (var elementKoszyka in Model.ElementyKoszyka)
             {
                 <li class="list-group-item background-gardient">
                     <div class="mb-4 background-gardient">
                         <div class="background-gardient">
                             <h5 class="card-title">@elementKoszyka.TowarNazwa</h5>
                             <p class="card-text">Ilość: @elementKoszyka.Ilosc</p>
-                            <p class="card-text">Cena: @elementKoszyka.TowarCena</p>
+                            <p class="card-text">Cena: @elementKoszyka.TowarCena €</p>
                         </div>
                     </div>
                 </li>
             }
         </ul>
+
+        <div class="container">
+            <div class="row mt-3 mb-3">
+                <div class="col-1"></div>
+                <div class="col-md-2 ml-3">
+                    <label for="znizkaInput"></label>
+                    <input type="text" id="znizkaInput" name="znizkaInput" placeholder="Kod promocyjny"/>
+                    <a id="dodajKodRabatowyButton" class="button-kod-promo mt-1">Dodaj kod rabatowy</a>
+                </div>
+                <div class="col"></div>
+                <div class="col-md-2">
+                    <label class="fw-bold">Suma: </label>
+                    @if (Model.znizka == null)
+                    {
+                        <span>@Model.suma €</span>
+                    }
+                    else
+                    {
+                        <span>@Model.sumaPoZnizce €</span>
+                    }
+                </div>
+                <div class="col-md-2">
+                    <label class="fw-bold">Twoj rabat: </label>
+                    @if (Model.znizka == null)
+                    {
+                        <span>@Model.znizkaInit %</span>
+                    }
+                    else
+                    {
+                        <span>@Model.znizka %</span>
+                    }
+                </div>
+            </div>
+        </div>
+
         <div class="text-center">
-         <a asp-action="ZlozZamowienie" asp-controller="Zamowienia" class="button-link">Zloz zamowienie</a>
+            <a asp-action="ZlozZamowienie" asp-controller="Zamowienia" class="button-link">Zloz zamowienie</a>
         </div>
     }
     else
@@ -63,3 +120,15 @@
         </div>
     }
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var dodajKodRabatowyButton = document.getElementById('dodajKodRabatowyButton');
+
+        dodajKodRabatowyButton.addEventListener('click', function () {
+            var znizkaInputValue = document.getElementById('znizkaInput').value;
+            var url = '@Url.Action("DodajKodRabatowy", "Zamowienia")' + '?id=' + znizkaInputValue;
+            window.location.href = url;
+        });
+    });
+</script>

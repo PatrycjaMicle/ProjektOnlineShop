@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Models.Services.DataStore;
+using SklepInternetowy.WWW.Services;
+using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Diagnostics;
@@ -13,6 +15,7 @@ namespace SklepInternetowy.WWW.Controllers
         private readonly ZamowienieDataStore _dataStore;
         private readonly TowarZamowieniaDataStore _dataStoreTowarZamowienia;
         private readonly ElementKoszykaDataStore _dataStoreElementKoszyka;
+        private readonly KodPromocjiDataStore _kodPromocjiDataStore;
 
         public ZamowieniaController(ILogger<ZamowieniaController> logger)
         {
@@ -20,6 +23,7 @@ namespace SklepInternetowy.WWW.Controllers
             _dataStore = new ZamowienieDataStore();
             _dataStoreTowarZamowienia = new TowarZamowieniaDataStore();
             _dataStoreElementKoszyka = new ElementKoszykaDataStore();
+            _kodPromocjiDataStore = new KodPromocjiDataStore();
         }
 
         public IActionResult Zamowienia()
@@ -69,7 +73,7 @@ namespace SklepInternetowy.WWW.Controllers
             try
             {
                 Zamowienie zamowienie = new Zamowienie();
-
+                zamowienie.IdKoduPromocji = CartService.IdKoduPromocji;
                 //create order
                 var addedOrder = await _dataStore.AddItemToService(zamowienie);
                 if (addedOrder == null)
@@ -90,8 +94,17 @@ namespace SklepInternetowy.WWW.Controllers
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
-
+            CartService.Znizka = null;
             return RedirectToAction("ZamowienieMessage");
+        }
+
+        public async Task<ActionResult> DodajKodRabatowy(string id)
+        {
+            var kodPromocyjnyResponse = await _kodPromocjiDataStore.GetZnizka(id);
+
+            CartService.Znizka = kodPromocyjnyResponse.Znizka; ;
+            CartService.IdKoduPromocji = kodPromocyjnyResponse.IdKoduPromocji;
+            return RedirectToAction("Koszyk", "Koszyk");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
