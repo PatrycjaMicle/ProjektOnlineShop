@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model SklepInternetowy.WWW.Services.UserService
+<ul class="navbar-nav">
+    @if (Model != null && Model.UserRole != null)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Moje zamowienia</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Konto">Moje konto</a>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Index">Register</a>
+        </li>
+    }
+</ul>

@@ -1,3 +1,4 @@
+using SklepInternetowy.WWW.Models.Services.DataStore;
 using SklepInternetowy.WWW.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -5,6 +6,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<CartService>();
+builder.Services.AddScoped<UzytkownikDataStore>();
+builder.Services.AddSingleton<UserService>();
 
 var app = builder.Build();
 
