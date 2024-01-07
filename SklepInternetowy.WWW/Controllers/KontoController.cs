@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SklepInternetowy.WWW.Models;
 using System.Diagnostics;
-using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
+using SklepInternetowy.WWW.Extensions;
 using SklepInternetowy.WWW.Models.Services.DataStore;
 using SklepInternetowy.WWW.Services;
 using SklepInternetowyServiceReference;
@@ -47,12 +43,10 @@ namespace SklepInternetowy.WWW.Controllers
         }
 
         [HttpPost]
-        public IActionResult Logout()
+        public async Task<IActionResult> Logout()
         {
-            _userService.UserRole = null;
-            _userService.UserId = 0;
-            _userService.Token = null;
-            return RedirectToAction("Index", "Konto");
+            await _userService.Logout();
+            return RedirectToAction(nameof(Index), nameof(Konto));
         }
         public IActionResult Login()
         {
@@ -72,12 +66,15 @@ namespace SklepInternetowy.WWW.Controllers
                     _userService.DecodeJwt();
                 }
             }
+            
+            this.SetNotification("Successfully logged in!");
+            
             return RedirectToAction("Sklep", "Sklep");
         }
         
         public IActionResult Register()
         {
-            return View("Register");
+            return View(nameof(Register));
         }
         
         [HttpPost]
@@ -87,7 +84,7 @@ namespace SklepInternetowy.WWW.Controllers
             {
                 await _sklepInternetowyService.RegisterAsync(registerUserDto);
             }
-            return RedirectToAction("Login");
+            return RedirectToAction(nameof(Login));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -3,6 +3,7 @@ using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Models.ViewModels;
 using SklepInternetowy.WWW.Services;
 using System.Diagnostics;
+using SklepInternetowy.WWW.Extensions;
 
 namespace SklepInternetowy.WWW.Controllers
 {
@@ -32,6 +33,8 @@ namespace SklepInternetowy.WWW.Controllers
             koszykViewModel.sumaPoZnizce = (koszykViewModel.ElementyKoszyka.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault())) * (1 - CartService.Znizka / 100);
             koszykViewModel.znizkaInit = 0;
             koszykViewModel.znizka = CartService.Znizka;
+            
+            this.SetNotification("Item added to cart!");
             return View(koszykViewModel);
         }
 

@@ -1,6 +1,8 @@
 ﻿@model List<Towar>
 @inject SklepInternetowy.WWW.Services.CartService CartService
+@inject UserService UserService
 @using SklepInternetowyServiceReference
+@using SklepInternetowy.WWW.Services
 @{
     ViewData["Title"] = "Strona glowna";
 }
@@ -45,6 +47,10 @@
 </div>
 
 <div class="container">
+    @if (UserService.IsAdmin)
+    {
+        <a asp-action="" asp-controller="" class="button-link">Dodaj nowy</a>
+    }
     <div class="row">
         @foreach (var towar in Model)
         {
@@ -63,6 +69,3 @@
         }
     </div>
 </div>
-
-
-
