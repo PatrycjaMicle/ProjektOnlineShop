@@ -1,11 +1,12 @@
 ﻿using SklepInternetowy.Helpers;
+using SklepInternetowy.WWW.Services;
 using SklepInternetowyServiceReference;
 
 namespace SklepInternetowy.WWWW.Services.DataStore
 {
     public class ZamowienieDataStore : ADataStore<Zamowienie>
     {
-        public ZamowienieDataStore()
+        public ZamowienieDataStore(UserService userService) : base(userService)
         {
            items = sklepInternetowyService.ZamowieniesAllAsync().GetAwaiter().GetResult().ToList();
         }

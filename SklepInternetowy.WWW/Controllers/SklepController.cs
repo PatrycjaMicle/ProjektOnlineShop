@@ -10,10 +10,10 @@ namespace SklepInternetowy.WWW.Controllers
         private readonly ILogger<SklepController> _logger;
         private readonly TowaryDataStore _dataStore;
 
-        public SklepController(ILogger<SklepController> logger)
+        public SklepController(ILogger<SklepController> logger,TowaryDataStore dataStore)
         {
             _logger = logger;
-            _dataStore = new TowaryDataStore();
+            _dataStore = dataStore;
         }
 
         public IActionResult Sklep()

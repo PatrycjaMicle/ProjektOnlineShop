@@ -1,4 +1,5 @@
 ﻿@using SklepInternetowy.WWW.Services
+@inject UserService userService
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,12 +35,15 @@
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav center">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Sklep" asp-action="Sklep">Sklep</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Koszyk" asp-action="Koszyk">Koszyk</a>
-                    </li>
+                    @if (userService.IsUserSignedIn)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Sklep" asp-action="Sklep">Sklep</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Koszyk" asp-action="Koszyk">Koszyk</a>
+                        </li>
+                    }
                     <partial name="_LoginPartial"/>
                 </ul>
             </div>

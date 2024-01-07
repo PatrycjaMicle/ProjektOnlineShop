@@ -22,6 +22,7 @@ public class ElementKoszykaController : ControllerBase
 
     // GET: api/ElementKoszyka
     [HttpGet]
+    [Authorize]
     public async Task<ActionResult<IEnumerable<ElementKoszyka>>> GetElementKoszykas()
     {
         var userId = _userContextService.GetUserId;

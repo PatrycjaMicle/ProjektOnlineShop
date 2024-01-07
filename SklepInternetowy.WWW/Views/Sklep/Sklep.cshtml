@@ -1,7 +1,5 @@
 ﻿@model List<Towar>
-
 @inject SklepInternetowy.WWW.Services.CartService CartService
-
 @using SklepInternetowyServiceReference
 @{
     ViewData["Title"] = "Strona glowna";
@@ -59,7 +57,6 @@
                         <a asp-action="OtworzSzczegoly" asp-controller="Sklep" asp-route-id="@towar.IdTowaru">Szczegoly...</a>
                         <br>
                         <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
-
                     </div>
                 </div>
             </div>

@@ -1,11 +1,19 @@
 using SklepInternetowy.WWW.Models.Services.DataStore;
 using SklepInternetowy.WWW.Services;
+using SklepInternetowy.WWW.Services.DataStore;
+using SklepInternetowy.WWWW.Services.DataStore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddTransient<CartService>();
+builder.Services.AddTransient<ElementKoszykaForViewDataStore>();
+builder.Services.AddTransient<KodPromocjiDataStore>();
+builder.Services.AddTransient<ElementKoszykaDataStore>();
+builder.Services.AddTransient<TowaryDataStore>();
+builder.Services.AddTransient<TowarZamowieniaDataStore>();
+builder.Services.AddTransient<ZamowienieDataStore>();
 builder.Services.AddScoped<UzytkownikDataStore>();
 builder.Services.AddSingleton<UserService>();
 

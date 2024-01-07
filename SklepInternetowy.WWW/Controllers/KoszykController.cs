@@ -21,7 +21,7 @@ namespace SklepInternetowy.WWW.Controllers
         public async Task<ActionResult> DodajDoKoszyka(int id)
         {
            await _cartService.addToCart(id);
-            return RedirectToAction("Koszyk");
+           return RedirectToAction("Koszyk");
         }
 
         public IActionResult Koszyk()

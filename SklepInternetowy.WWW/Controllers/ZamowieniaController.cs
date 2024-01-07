@@ -16,14 +16,14 @@ namespace SklepInternetowy.WWW.Controllers
         private readonly TowarZamowieniaDataStore _dataStoreTowarZamowienia;
         private readonly ElementKoszykaDataStore _dataStoreElementKoszyka;
         private readonly KodPromocjiDataStore _kodPromocjiDataStore;
-
-        public ZamowieniaController(ILogger<ZamowieniaController> logger)
+        
+        public ZamowieniaController(TowarZamowieniaDataStore dataStoreTowarZamowienia, ElementKoszykaDataStore dataStoreElementKoszyka, KodPromocjiDataStore kodPromocjiDataStore, ZamowienieDataStore dataStore, ILogger<ZamowieniaController> logger)
         {
+            _dataStoreTowarZamowienia = dataStoreTowarZamowienia;
+            _dataStoreElementKoszyka = dataStoreElementKoszyka;
+            _kodPromocjiDataStore = kodPromocjiDataStore;
+            _dataStore = dataStore;
             _logger = logger;
-            _dataStore = new ZamowienieDataStore();
-            _dataStoreTowarZamowienia = new TowarZamowieniaDataStore();
-            _dataStoreElementKoszyka = new ElementKoszykaDataStore();
-            _kodPromocjiDataStore = new KodPromocjiDataStore();
         }
 
         public IActionResult Zamowienia()

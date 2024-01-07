@@ -6,7 +6,7 @@ namespace SklepInternetowy.WWW.Services.DataStore
 {
     public class TowaryDataStore : ADataStore<Towar>
     {
-        public TowaryDataStore()
+        public TowaryDataStore(UserService userService) : base(userService)
         {
             items = sklepInternetowyService.TowarAllAsync().GetAwaiter().GetResult().ToList();
         }

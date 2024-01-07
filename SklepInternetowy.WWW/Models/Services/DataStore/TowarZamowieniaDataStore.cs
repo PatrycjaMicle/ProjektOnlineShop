@@ -1,11 +1,12 @@
 ﻿using SklepInternetowy.Helpers;
+using SklepInternetowy.WWW.Services;
 using SklepInternetowyServiceReference;
 
 namespace SklepInternetowy.WWWW.Services.DataStore
 {
     public class TowarZamowieniaDataStore : ADataStore<TowarZamowienium>
     {
-        public TowarZamowieniaDataStore()
+        public TowarZamowieniaDataStore(UserService userService) : base(userService)
         {
             GetItems();
         }

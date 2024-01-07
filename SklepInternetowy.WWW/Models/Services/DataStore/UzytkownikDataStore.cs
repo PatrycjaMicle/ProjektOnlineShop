@@ -1,4 +1,5 @@
 ﻿using SklepInternetowy.Helpers;
+using SklepInternetowy.WWW.Services;
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 
@@ -6,7 +7,7 @@ namespace SklepInternetowy.WWW.Models.Services.DataStore;
 
 public class UzytkownikDataStore : ADataStore<Uzytkownik>
 {
-    public UzytkownikDataStore()
+    public UzytkownikDataStore(UserService userService) : base(userService)
     {
         items = sklepInternetowyService.UzytkownikAllAsync().GetAwaiter().GetResult().ToList();
     }
