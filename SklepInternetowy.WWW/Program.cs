@@ -7,13 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddTransient<CartService>();
-builder.Services.AddTransient<ElementKoszykaForViewDataStore>();
-builder.Services.AddTransient<KodPromocjiDataStore>();
-builder.Services.AddTransient<ElementKoszykaDataStore>();
-builder.Services.AddTransient<TowaryDataStore>();
-builder.Services.AddTransient<TowarZamowieniaDataStore>();
-builder.Services.AddTransient<ZamowienieDataStore>();
+builder.Services.AddScoped<CartService>();
+builder.Services.AddScoped<ElementKoszykaForViewDataStore>();
+builder.Services.AddScoped<KodPromocjiDataStore>();
+builder.Services.AddScoped<ElementKoszykaDataStore>();
+builder.Services.AddScoped<TowaryDataStore>();
+builder.Services.AddScoped<TowarZamowieniaDataStore>();
+builder.Services.AddScoped<ZamowienieDataStore>();
 builder.Services.AddScoped<UzytkownikDataStore>();
 builder.Services.AddSingleton<UserService>();
 
@@ -34,6 +34,8 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//TODO we don't have any authorization on controllers in MVC layer so if someone knows URL ex. https://localhost:7152/Sklep/Sklep, can send
+//TODO a request, exception will be thrown with piece of code so that's bad. WE should've use Identity package instead of our external API
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Konto}/{action=Index}/{id?}");

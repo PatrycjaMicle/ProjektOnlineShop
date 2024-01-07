@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SklepInternetowy.WWW.Models;
 using System.Diagnostics;
+using System.IdentityModel.Tokens.Jwt;
 using System.Net.Http.Headers;
+using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using SklepInternetowy.WWW.Models.Services.DataStore;
 using SklepInternetowy.WWW.Services;
 using SklepInternetowyServiceReference;
@@ -16,7 +19,6 @@ namespace SklepInternetowy.WWW.Controllers
         private readonly UserService _userService;
         private readonly UzytkownikDataStore _uzytkownikDataStore;
         private readonly SklepInternetowyService _sklepInternetowyService;
-
         public KontoController(ILogger<KontoController> logger, UserService userService, UzytkownikDataStore uzytkownikDataStore)
         {
             _logger = logger;
