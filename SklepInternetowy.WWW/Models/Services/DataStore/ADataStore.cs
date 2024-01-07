@@ -1,32 +1,31 @@
 ﻿using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Net.Http.Headers;
+using SklepInternetowy.WWW.Services;
 
 namespace SklepInternetowy.WWWW.Services.DataStore
 {
     public abstract class ADataStore<T> : IDataStore<T> where T : class
     {
-        //private readonly UserService _userToken; 
+        private readonly UserService _userToken; 
         protected readonly SklepInternetowyService sklepInternetowyService;
         public List<T> items;
 
-        public ADataStore()
+        public ADataStore(UserService userToken)
         {
-           // _userToken = /
+            _userToken = userToken;
 
             var httpClient = new HttpClient();
-            //httpClient.DefaultRequestHeaders.Authorization =
-            //new AuthenticationHeaderValue("Bearer", _userToken.Token);
-            
-            //POKI NIE MA USER SERVICE I LOGOWANIA WBILAM SWOJ TOKEN RECZNIE - DELETE ME!!!
-            //DLA PRZETESTOWANIA APLIKACJI TERAZ WBIC AKTUALNY TOKEN
-            httpClient.DefaultRequestHeaders.Authorization =
-           new AuthenticationHeaderValue("Bearer", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjQiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJVc2VyIiwiZXhwIjoxNzA5NTg4MTMyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjUyMTkiLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUyMTkifQ.XyHw2f_Vq9z55H1jnyow5fr6_wX_jsz7wppOnp5Ncnw");
 
+            if (_userToken.Token != null)
+            {
+                httpClient.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", _userToken.Token);
+            }
+            
             sklepInternetowyService = new SklepInternetowyService("http://localhost:5219/", httpClient);
         }
-
-
+        
         public async Task<bool> AddItemAsync(T item)
         {
             await AddItemToService(item);

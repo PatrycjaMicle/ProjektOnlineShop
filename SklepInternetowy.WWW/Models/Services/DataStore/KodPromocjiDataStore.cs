@@ -6,7 +6,7 @@ namespace SklepInternetowy.WWW.Services.DataStore
 {
     public class KodPromocjiDataStore : ADataStore<KodPromocji>
     {
-        public KodPromocjiDataStore()
+        public KodPromocjiDataStore(UserService userService) : base(userService)
         {
             items = sklepInternetowyService.KodPromocjisAllAsync().GetAwaiter().GetResult().ToList();
         }

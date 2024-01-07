@@ -8,11 +8,11 @@ namespace SklepInternetowy.WWW.Services.DataStore
     public class ElementKoszykaForViewDataStore : ADataStore<ElementKoszykaForView>
     {
         private readonly ElementKoszykaMapper mapper;
+        private readonly TowaryDataStore _towaryDataStore;
 
-        public ElementKoszykaForViewDataStore()
+        public ElementKoszykaForViewDataStore(UserService userService, TowaryDataStore towaryDataStore) : base(userService)
         {
-            
-            var towaryDataStore = new TowaryDataStore();
+            _towaryDataStore = towaryDataStore;
             mapper = new ElementKoszykaMapper(towaryDataStore);
 
             GetItems();
@@ -30,7 +30,7 @@ namespace SklepInternetowy.WWW.Services.DataStore
 
         public override async Task Refresh()
         {
-            var towaryDataStore = new TowaryDataStore();
+            var towaryDataStore = _towaryDataStore;
 
             GetItems();
         }

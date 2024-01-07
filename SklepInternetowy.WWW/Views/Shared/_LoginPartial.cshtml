@@ -1,0 +1,27 @@
+﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using SklepInternetowy.WWW.Models.Services.DataStore
+@using SklepInternetowyServiceReference
+@inject SklepInternetowy.WWW.Services.UserService userService
+@inject UzytkownikDataStore UzytkownikDataStore
+<ul class="navbar-nav">
+    @if (userService.IsUserSignedIn)
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Konto" title="Manage">Hello @UzytkownikDataStore.Find(userService.UserId).Imie </a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-controller="Konto" asp-action="Logout"  method="post">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+    else
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Login">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Register">Register</a>
+        </li>
+    }
+</ul>

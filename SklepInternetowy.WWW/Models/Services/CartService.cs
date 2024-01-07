@@ -15,13 +15,13 @@ namespace SklepInternetowy.WWW.Services
         public static double? Suma;
         public static int IdKoduPromocji;
 
-        private ElementKoszykaDataStore _elementyKoszykaDataStore;
-        private ElementKoszykaForViewDataStore _elementyKoszykaForViewdataStore;
-
-        public CartService()
+        private readonly ElementKoszykaDataStore _elementyKoszykaDataStore;
+        private readonly ElementKoszykaForViewDataStore _elementyKoszykaForViewdataStore;
+        
+        public CartService(ElementKoszykaDataStore elementyKoszykaDataStore, ElementKoszykaForViewDataStore elementyKoszykaForViewdataStore)
         {
-            _elementyKoszykaDataStore = new ElementKoszykaDataStore();
-            _elementyKoszykaForViewdataStore = new ElementKoszykaForViewDataStore();
+            _elementyKoszykaDataStore = elementyKoszykaDataStore;
+            _elementyKoszykaForViewdataStore = elementyKoszykaForViewdataStore;
             ElementyKoszykaForView = new ObservableCollection<ElementKoszykaForView>();
             ExecuteLoadItemsAsync().Wait();
         }
