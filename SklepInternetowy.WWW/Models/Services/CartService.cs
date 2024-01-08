@@ -1,6 +1,5 @@
 ﻿using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Models.Services.DataStore;
-using SklepInternetowy.WWW.Models.ViewModels;
 using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Collections.ObjectModel;
@@ -26,12 +25,27 @@ namespace SklepInternetowy.WWW.Services
             ExecuteLoadItemsAsync().Wait();
         }
 
-        public async Task addToCart(int idTowaru)
+        public async Task AddToCart(int idTowaru)
         {
-            ElementKoszyka elementKoszyka = new ElementKoszyka() { IdTowaru = idTowaru };
+            var elementKoszyka = new ElementKoszyka { IdTowaru = idTowaru };
             await _elementyKoszykaDataStore.AddItemToService(elementKoszyka);
         }
-
+        
+        public async Task DeleteFromCart(int idTowaru)
+        {
+            var elementKoszyka = new ElementKoszyka { IdTowaru = idTowaru };
+            var item = _elementyKoszykaDataStore.Find(elementKoszyka);
+            if (item.Ilosc > 1)
+            {
+                item.Ilosc--;
+                await _elementyKoszykaDataStore.UpdateItemInService(item);
+            }
+            else
+            {
+                //TODO tutaj cos z respnsem jest nie tak, zwraca 204 i apka sie nie zawiesza mimo ze leci exception
+                await _elementyKoszykaDataStore.DeleteItemFromService(item);
+            }
+        }
         private async Task ExecuteLoadItemsAsync()
         {
             try

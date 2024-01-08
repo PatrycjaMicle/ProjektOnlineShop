@@ -6,6 +6,7 @@ using SklepInternetowy.WWW.Services.DataStore;
 using SklepInternetowy.WWWW.Services.DataStore;
 using SklepInternetowyServiceReference;
 using System.Diagnostics;
+using SklepInternetowy.WWW.Extensions;
 
 namespace SklepInternetowy.WWW.Controllers
 {
@@ -102,8 +103,9 @@ namespace SklepInternetowy.WWW.Controllers
         {
             var kodPromocyjnyResponse = await _kodPromocjiDataStore.GetZnizka(id);
 
-            CartService.Znizka = kodPromocyjnyResponse.Znizka; ;
+            CartService.Znizka = kodPromocyjnyResponse.Znizka;
             CartService.IdKoduPromocji = kodPromocyjnyResponse.IdKoduPromocji;
+            // this.SetNotification("Discount applied!");
             return RedirectToAction("Koszyk", "Koszyk");
         }
 

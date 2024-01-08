@@ -21,20 +21,30 @@ namespace SklepInternetowy.WWW.Controllers
 
         public async Task<ActionResult> DodajDoKoszyka(int id)
         {
-           await _cartService.addToCart(id);
+           await _cartService.AddToCart(id);
+           this.SetNotification("Item added to cart!");
            return RedirectToAction("Koszyk");
+        }
+        
+        public async Task<ActionResult> DeleteFromCart(int id)
+        {
+            await _cartService.DeleteFromCart(id);
+            return RedirectToAction("Koszyk");
         }
 
         public IActionResult Koszyk()
         {
-            KoszykViewModel koszykViewModel = new KoszykViewModel();
-            koszykViewModel.ElementyKoszyka= _cartService.ElementyKoszykaForView.ToList();
+            var koszykViewModel = new KoszykViewModel();
+            koszykViewModel.ElementyKoszyka = _cartService.ElementyKoszykaForView.ToList();
             koszykViewModel.suma = (koszykViewModel.ElementyKoszyka.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault()));
             koszykViewModel.sumaPoZnizce = (koszykViewModel.ElementyKoszyka.Sum(x => (x.TowarCena ?? 0) * x.Ilosc.GetValueOrDefault())) * (1 - CartService.Znizka / 100);
             koszykViewModel.znizkaInit = 0;
             koszykViewModel.znizka = CartService.Znizka;
-            
-            this.SetNotification("Item added to cart!");
+
+            if (koszykViewModel.znizka != null)
+            {
+                this.SetNotification("Discount applied!");
+            }
             return View(koszykViewModel);
         }
 

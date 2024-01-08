@@ -6,7 +6,7 @@ namespace SklepInternetowy.WWW.Extensions;
 
 public static class ControllerExtensions
 {
-    public static void SetNotification(this Controller controller, string message,string type = null)
+    public static void SetNotification(this Controller controller, string message,string type = "success")
     { 
         var notification = new Notification(type, message); 
         controller.TempData["Notification"] = JsonConvert.SerializeObject(notification);
