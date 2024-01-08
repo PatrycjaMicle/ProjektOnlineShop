@@ -99,13 +99,13 @@
             @foreach (var elementKoszyka in Model.ElementyKoszyka)
             {
                 <li class="list-group-item background-gardient">
-                    <div class="mb-4 background-gardient" style="display: inline-block">
-                        <div class="background-gardient">
+                    <div class="mb-4 background-gardient" style="display: flex; flex-direction: row">
+                        <div class="background-gardient" style="width: 90%">
                             <h5 class="card-title">@elementKoszyka.TowarNazwa</h5>
                             <p class="card-text">Ilość: @elementKoszyka.Ilosc</p>
                             <p class="card-text">Cena: @elementKoszyka.TowarCena €</p>
                         </div>
-                        <div class="text-center">
+                        <div class="col-3 text-center" style="width: 10%">
                             <a asp-action="DeleteFromCart" asp-route-id="@elementKoszyka.IdTowaru" asp-controller="Koszyk" class="btn btn-delete">Delete</a>
                         </div>
                     </div>

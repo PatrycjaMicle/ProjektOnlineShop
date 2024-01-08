@@ -42,10 +42,6 @@ namespace SklepInternetowy.WWW.Controllers
             koszykViewModel.znizkaInit = 0;
             koszykViewModel.znizka = CartService.Znizka;
 
-            if (koszykViewModel.znizka != null)
-            {
-                this.SetNotification("Discount applied!");
-            }
             return View(koszykViewModel);
         }
 
