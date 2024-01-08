@@ -40,8 +40,6 @@ namespace SklepInternetowy.WWW.Models.Services.DataStore
 
                 if (existingItem != null)
                 {
-                    existingItem.Ilosc++;
-
                     return await sklepInternetowyService
                         .ElementKoszykaPUTAsync(existingItem.IdElementuKoszyka, existingItem)
                         .HandleRequest();

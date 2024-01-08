@@ -75,7 +75,7 @@
 @if (notification != null)
 {
     <script> 
-       toastr.success("@notification.Message")
+       toastr["@notification.Type"]("@notification.Message")
     </script>
 }
 @await RenderSectionAsync("Scripts", required: false)
