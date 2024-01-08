@@ -1,7 +1,11 @@
 # Created by https://www.toptal.com/developers/gitignore/api/visualstudio,xamarinstudio
 # Edit at https://www.toptal.com/developers/gitignore?templates=visualstudio,xamarinstudio
 
-.idea
+.idea\
+
+RestApiZamowienia/appsettings.json
+RestApiZamowienia/appsettings.Development.json
+RestApiZamowienia/docker-compose.yml
 
 ### XamarinStudio ###
 bin/
