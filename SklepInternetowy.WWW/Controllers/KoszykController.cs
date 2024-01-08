@@ -29,6 +29,7 @@ namespace SklepInternetowy.WWW.Controllers
         public async Task<ActionResult> DeleteFromCart(int id)
         {
             await _cartService.DeleteFromCart(id);
+            this.SetNotification("Removed from cart!", "warning");
             return RedirectToAction("Koszyk");
         }
 
