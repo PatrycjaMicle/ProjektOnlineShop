@@ -105,7 +105,7 @@ namespace SklepInternetowy.WWW.Controllers
 
             CartService.Znizka = kodPromocyjnyResponse.Znizka;
             CartService.IdKoduPromocji = kodPromocyjnyResponse.IdKoduPromocji;
-            // this.SetNotification("Discount applied!");
+            this.SetNotification("Discount applied!");
             return RedirectToAction("Koszyk", "Koszyk");
         }
 

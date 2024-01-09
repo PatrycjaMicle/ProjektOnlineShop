@@ -2,6 +2,8 @@
 using SklepInternetowy.WWW.Models;
 using SklepInternetowy.WWW.Services.DataStore;
 using System.Diagnostics;
+using SklepInternetowy.WWW.Models.ViewModels;
+using SklepInternetowyServiceReference;
 
 namespace SklepInternetowy.WWW.Controllers
 {
@@ -30,7 +32,7 @@ namespace SklepInternetowy.WWW.Controllers
             }
         }
 
-        public async Task<ActionResult> OtworzSzczegoly(int id)
+        public async Task<IActionResult> OtworzSzczegoly(int id)
         {
             return RedirectToAction("ProduktDetail", new { id = id });
         }
@@ -48,6 +50,37 @@ namespace SklepInternetowy.WWW.Controllers
                 return View();
             }
         }
+
+        public IActionResult DodajProdukt()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DodajProdukt(DodajProduktViewModel produktViewModel)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(produktViewModel);
+            }
+            var towar = new Towar()
+            {
+                Nazwa = produktViewModel.Nazwa,
+                Kod = produktViewModel.Kod,
+                IdKategorii = produktViewModel.IdKategorii,
+                Cena = produktViewModel.Cena,
+                NaStanie = produktViewModel.NaStanie,
+                ZdjecieUrl = produktViewModel.ZdjecieUrl,
+                Opis = produktViewModel.Opis
+            };
+            
+            if (towar != null)
+            {
+                await _dataStore.AddItemToService(towar);
+            }
+            return RedirectToAction(nameof(Sklep));
+        }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
