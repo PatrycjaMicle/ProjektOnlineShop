@@ -1,6 +1,8 @@
 ﻿@{
     var notification = TempData["Notification"] != null ?
         (Notification)JsonConvert.DeserializeObject<Notification>(TempData["Notification"]!.ToString()!)! : null;
+    var action = ViewContext.RouteData.Values["Action"]?.ToString();
+    var controller = ViewContext.RouteData.Values["Controller"]?.ToString();
 }
 @using SklepInternetowy.WWW.Services
 @using Newtonsoft.Json
@@ -33,24 +35,24 @@
 </head>
 <body>
 <header>
-    <nav class="background-gardient navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3" align="center">
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav center">
+                <ul class="navbar-nav flex-grow-1">
                     @if (userService.IsUserSignedIn)
                     {
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Sklep" asp-action="Sklep">Sklep</a>
+                            <a class="nav-link text-dark @(controller == "Sklep" && action == "Sklep" ? "active" : "") " asp-area="" asp-controller="Sklep" asp-action="Sklep">Sklep</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Koszyk" asp-action="Koszyk">Koszyk</a>
+                            <a class="nav-link text-dark @(controller == "Koszyk" && action == "Koszyk" ? "active" : "") " asp-area="" asp-controller="Koszyk" asp-action="Koszyk">Koszyk</a>
                         </li>
                     }
-                    <partial name="_LoginPartial"/>
+                    <div class="ms-auto"><partial name="_LoginPartial"/></div>
                 </ul>
             </div>
         </div>

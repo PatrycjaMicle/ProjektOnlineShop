@@ -49,7 +49,7 @@
 <div class="container">
     @if (UserService.IsAdmin)
     {
-        <a asp-action="" asp-controller="" class="button-link">Dodaj nowy</a>
+        <a asp-action="DodajProdukt" asp-controller="Sklep" class="button-link">Dodaj nowy</a>
     }
     <div class="row">
         @foreach (var towar in Model)
