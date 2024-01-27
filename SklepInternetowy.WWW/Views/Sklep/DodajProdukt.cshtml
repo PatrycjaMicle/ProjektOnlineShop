@@ -1,57 +1,71 @@
 ﻿@using SklepInternetowy.WWW.Models.ViewModels
 @model DodajProduktViewModel
 
-<h1>Create product!</h1>
+<style>
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
 
-<hr />
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+</style>
 
-<div class="row">
-    <div class="col-md-4">
-        <form action="DodajProdukt" method="post">
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="Nazwa">Nazwa</label>
-                <input class="form-control" type="text" asp-for="Nazwa">
-                <span asp-validation-for="Nazwa" class="text-danger"></span>
-            </div>
+<div class="card p-5 background-transient">
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="Kod">Kod</label>
-                <input class="form-control" type="text" asp-for="Kod">
-                <span asp-validation-for="Kod" class="text-danger"></span>
-            </div>
+    <div class="card p-5">
+        <h1>Dodaj produkt!</h1>
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="IdKategorii">IdKategorii</label>
-                <input class="form-control" type="text" asp-for="IdKategorii">
-            </div>
+        <hr />
+            <div class="col-md-4">
+                <form action="DodajProdukt" method="post">
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="Nazwa">Nazwa</label>
+                        <input class="form-control" type="text" asp-for="Nazwa">
+                        <span asp-validation-for="Nazwa" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="Cena">Cena Number</label>
-                <input class="form-control" type="text" asp-for="Cena">
-                <span asp-validation-for="Cena" class="text-danger"></span>
-            </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="Kod">Kod</label>
+                        <input class="form-control" type="text" asp-for="Kod">
+                        <span asp-validation-for="Kod" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="NaStanie">NaStanie</label>
-                <input class="form-control" type="text" asp-for="NaStanie">
-            </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="IdKategorii">IdKategorii</label>
+                        <input class="form-control" type="text" asp-for="IdKategorii">
+                    </div>
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="ZdjecieUrl">ZdjecieUrl</label>
-                <input class="form-control" type="text" asp-for="ZdjecieUrl">
-            </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="Cena">Cena Number</label>
+                        <input class="form-control" type="text" asp-for="Cena">
+                        <span asp-validation-for="Cena" class="text-danger"></span>
+                    </div>
 
-            <div class="form-group mb-3">
-                <label class="control-label" asp-for="Opis">Opis</label>
-                <input class="form-control" type="text" asp-for="Opis">
-            </div>
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="NaStanie">NaStanie</label>
+                        <input class="form-control" type="text" asp-for="NaStanie">
+                    </div>
 
-            <div class="form-group mb-3">
-                <input type="submit" value="Create" class="btn btn-primary">
-            </div>
-        </form>
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="ZdjecieUrl">ZdjecieUrl</label>
+                        <input class="form-control" type="text" asp-for="ZdjecieUrl">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label class="control-label" asp-for="Opis">Opis</label>
+                        <input class="form-control" type="text" asp-for="Opis">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <input type="submit" value="Dodaj" class="btn btn-info">
+                    </div>
+                </form>
+            </div>  
     </div>
 </div>
+
 
 @section Scripts {
     @{

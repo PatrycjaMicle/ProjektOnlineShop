@@ -12,7 +12,7 @@ namespace SklepInternetowy.WWW.Services
         public ObservableCollection<ElementKoszykaForView> ElementyKoszykaForView { get; }
         public static double? Znizka;
         public static double? Suma;
-        public static int IdKoduPromocji;
+        public static int? IdKoduPromocji = null;
 
         private readonly ElementKoszykaDataStore _elementyKoszykaDataStore;
         private readonly ElementKoszykaForViewDataStore _elementyKoszykaForViewdataStore;

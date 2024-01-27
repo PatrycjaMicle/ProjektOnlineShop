@@ -22,10 +22,14 @@
             background: linear-gradient(to right, #f0f0f0, #fff);
         }
 
+        .navbar {
+            background: #f0f0f0;
+        }
+
         li{        
             margin-left:100px;
             font-weight: 600;
-            color: gray;
+            color: #fff;
         }
 
         .center{
@@ -35,14 +39,14 @@
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid background-transient ">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between background-transient ">
+                    <ul class="navbar-nav flex-grow-1 background-transient ">
                     @if (userService.IsUserSignedIn)
                     {
                         <li class="nav-item">
@@ -50,6 +54,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark @(controller == "Koszyk" && action == "Koszyk" ? "active" : "") " asp-area="" asp-controller="Koszyk" asp-action="Koszyk">Koszyk</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark @(controller == "Zamowienia" && action == "Zamowienia" ? "active" : "") " asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Moje zamowienia</a>
                         </li>
                     }
                     <div class="ms-auto"><partial name="_LoginPartial"/></div>

@@ -6,9 +6,23 @@
 }
 
 <style>
+
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
+
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .list-group {
+        box-shadow: none;
+    }
+
     .button-link {
         display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
+        background: #3498db;
         color: #fff;
         padding: 10px 20px;
         text-decoration: none;
@@ -16,11 +30,13 @@
         cursor: pointer;
         transition: background 0.3s ease;
         margin-top: 10px;
+        font-weight: 600;
     }
 
         .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
+            background: #2980b99c;
             color: #fff;
+            font-weight: 600;
         }
 
     .background-gardient {
@@ -28,46 +44,47 @@
     }
 
 </style>
-
-<div class="container">
-    <div class="row mt-3 mb-3">
-        <div class="col-1"></div>
-        <div class="col">
-            <a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+<div class="card p-5 background-transient">
+    <div class="container">
+        <div class="row mt-3">
+            <a class="col-2 text-dark fw-bold mb-4 btn btn-warning" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
         </div>
     </div>
-</div>
 
-<div class="text-center mb-4">
-    <h2 class="display-4">Moje Zamowienia</h2>
-</div>
-
-<div id="cartContent" class="container">
-    @if (Model.Count > 0)
-    {
-        <ul class="list-group container">
-            @foreach (var zamowienie in Model)
-            {
-                <li class="list-group-item background-gardient mb-4">
-                    <div class="mb-4 background-gardient">
-                        <div class="background-gardient">
-                            <h5 class="card-title">Data zlozenia: @zamowienie.DataZamowienia</h5>
-                            <p class="card-text">Numer zamowienia: @zamowienie.IdZamowienia</p>
-                            <p class="card-text">Wartosc lacznie: @zamowienie.Suma €</p>
-                            <p class="card-text">Przewidywany termin dostawy: @zamowienie.TerminDostawy</p>
-                        </div>
-                        <a asp-action="OtworzSzczegoly" asp-controller="Zamowienia" asp-route-id="@zamowienie.IdZamowienia" class="button-link">Szczegoly...</a>
-                    </div>
-                  
-                </li>
-                
-            }
-        </ul>
-    }
-    else
-    {
-        <div class="text-center">
-            <p>Nie masz zadnych zamowien!</p>
+ 
+    <div class="card p-4">
+        <div class="text-center mb-3">
+            <h3 class="display-4">Moje Zamowienia</h3>
         </div>
-    }
+        <div id="cartContent" class="container pe-lg-5">
+        @if (Model.Count > 0)
+        {
+            <ul class="list-group container">
+                @foreach (var zamowienie in Model)
+                {
+                    <li class="list-group-item background-gardient mb-4">
+                        <div class="background-gardient">
+                            <div class="background-gardient">
+                                <h5 class="card-title">Data zlozenia: @zamowienie.DataZamowienia</h5>
+                                <p class="card-text">Numer zamowienia: @zamowienie.IdZamowienia</p>
+                                <p class="card-text">Wartosc lacznie: @zamowienie.Suma €</p>
+                                <p class="card-text">Przewidywany termin dostawy: @zamowienie.TerminDostawy</p>
+                            </div>
+                            <a asp-action="OtworzSzczegoly" asp-controller="Zamowienia" asp-route-id="@zamowienie.IdZamowienia" class="button-link">Szczegoly...</a>
+                        </div>
+
+                    </li>
+
+                }
+            </ul>
+        }
+        else
+        {
+            <div class="text-center">
+                <p>Nie masz zadnych zamowien!</p>
+            </div>
+        }
+    </div>
+    </div>
+
 </div>

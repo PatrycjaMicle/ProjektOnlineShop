@@ -6,54 +6,53 @@
 }
 
 <style>
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
+
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
     .card-img {
         object-fit: contain;
-        max-height: 400px;
+        max-height: 200px;
         max-width: 100%;
     }
-
-    .button-link {
-        display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        margin-top: 10px;
-    }
-
-        .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
 </style>
 
-<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
-
-<div class="card">
-    <img class="card-img" src="@Model.ZdjecieUrl" alt="Product Image"/>
-
-    <div class="card-body">
-        <h2>@Model.Nazwa</h2>
-
-        <div>
-            <p>Opis towaru:</p>
-            <p>@Model.Opis</p>
+<div class="card p-5 background-transient">
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <a class="col-2 text-dark fw-bold mb-4 btn btn-warning" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
         </div>
-
-        <div>
-            <p>Kod towaru:</p>
-            <p>@Model.Kod</p>
-        </div>
-
-        <div>
-            <p>Cena:</p>
-            <p>@Model.Cena €</p>
-        </div>
-
-        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@Model.IdTowaru" class="button-link">Dodaj do koszyka</a>
-
     </div>
+
+    <div class="card">
+        <img class="card-img mt-4" src="@Model.ZdjecieUrl" alt="Product Image" />
+
+        <div class="card-body">
+            <h2>@Model.Nazwa</h2>
+
+            <div>
+                <p>Opis towaru:</p>
+                <p>@Model.Opis</p>
+            </div>
+
+            <div>
+                <p>Kod towaru:</p>
+                <p>@Model.Kod</p>
+            </div>
+
+            <div>
+                <p>Cena:</p>
+                <p>@Model.Cena €</p>
+            </div>
+
+            <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@Model.IdTowaru" class="btn btn-success mt-3">Dodaj do koszyka</a>
+
+        </div>
+    </div>
+
 </div>

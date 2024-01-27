@@ -5,43 +5,18 @@
 }
 
 <style>
-
-    .button-link {
-        display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        margin-top: 10px;
-        min-width: 490px;
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
     }
 
-        .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
-
-    .button-kod-promo {
-        display: inline-block;
-        background: linear-gradient(to right, #f0f0f0, #fff);
-        color: black;
-        padding: 10px 10px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.8);
     }
 
-    .button-kod-promo:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
-
-    .background-gardient {
-        background: linear-gradient(to right, #f0f0f0, #fff);
+    .list-group{
+        box-shadow: none;
+        text-align:left;
     }
      
      .delete-button {
@@ -57,90 +32,92 @@
             background-color: #c0392b;
         }
         
-
-
 </style>
 
-<div class="container">
-    <div class="row mt-3 mb-3">
-        <div class="col-1"></div>
-        <div class="col">
-            <a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+<div class="card p-5 background-transient">
+
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <a class="col-2 text-dark fw-bold mb-4 btn btn-warning" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
         </div>
+    </div>
+    <div class="card p-4">
+
+        <div class="text-center">
+            <h2 class="display-4 mb-4">Koszyk</h2>
+     </div>
+
+        <div id="cartContent" class="container">
+            @if (Model.ElementyKoszyka.Count > 0)
+             {
+                <ul class="list-group container">
+                    @foreach (var elementKoszyka in Model.ElementyKoszyka)
+                     {
+                    <li class="list-group-item background-gardient mb-2">
+                        <div class="row mb-3">
+                            <div class="col-8" w-100">
+                                <h5 class="card-title">@elementKoszyka.TowarNazwa</h5>
+                                <p class="card-text">Ilość: @elementKoszyka.Ilosc</p>
+                            </div>
+                            <p class="col card-text w-50">Cena: @elementKoszyka.TowarCena €</p>
+                            <div class="col" style="width: 10%; display: flex; justify-content: center; align-items: center;">
+                                <a class="delete-button" role="button" asp-action="DeleteFromCart" asp-route-id="@elementKoszyka.IdTowaru" asp-controller="Koszyk">Usun</a>
+                            </div>
+                        </div>
+                    </li>
+                    }
+                </ul>
+
+            <div class="container">
+                <div class="row mt-3 mb-3">
+                    <div class="col"></div>
+                    <div class="col-md-2">
+                        <label>Suma: </label>
+                        @if (Model.znizka == null)
+                        {
+                            <span class="fw-bold">@Model.suma €</span>
+                        }
+                        else
+                        {
+                            <span class="fw-bold">@Model.sumaPoZnizce €</span>
+                        }
+                    </div>
+                    <div class="col-md-2">
+                        <label class="fw-bold">Twoj rabat: </label>
+                        @if (Model.znizka == null)
+                        {
+                            <span>@Model.znizkaInit %</span>
+                        }
+                        else
+                        {
+                            <span>@Model.znizka %</span>
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col"></div>
+                    <div class="col-md-2 ml-3">
+                        <label for="znizkaInput"></label>
+                        <input type="text" id="znizkaInput" name="znizkaInput" placeholder="Kod promocyjny" class="w-100 mr-4" />
+                        <a id="dodajKodRabatowyButton" class="btn btn-info mt-2 w-100 mb-4">Dodaj kod rabatowy</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a asp-action="ZlozZamowienie" asp-controller="Zamowienia" class="btn btn-success mt-4 p-3 w-50">Zloz zamowienie</a>
+            </div>
+        }
+        else
+        {
+            <div class="card text-center">
+                <p class="mt-4 mb-4">Twoj koszyk jest pusty!</p>
+            </div>
+        }
+     </div>
     </div>
 </div>
 
-<div class="text-center">
-    <h2 class="display-4 mb-4">Koszyk</h2>
-</div>
-
-<div id="cartContent" class="container">
-    @if (Model.ElementyKoszyka.Count > 0)
-    {
-        //TODO Fix UI! 
-        <ul class="list-group container">
-            @foreach (var elementKoszyka in Model.ElementyKoszyka)
-            {
-                <li class="list-group-item background-gardient">
-                    <div class="mb-4 background-gardient" style="display: flex; flex-direction: row">
-                        <div class="background-gardient" style="width: 90%">
-                            <h5 class="card-title">@elementKoszyka.TowarNazwa</h5>
-                            <p class="card-text">Ilość: @elementKoszyka.Ilosc</p>
-                            <p class="card-text">Cena: @elementKoszyka.TowarCena €</p>
-                        </div>
-                        <div style="width: 10%; display: flex; justify-content: center; align-items: center;">
-                            <a class="delete-button" role="button" asp-action="DeleteFromCart" asp-route-id="@elementKoszyka.IdTowaru" asp-controller="Koszyk">Delete</a>
-                        </div>
-                    </div>
-                </li>
-            }
-        </ul>
-
-        <div class="container">
-            <div class="row mt-3 mb-3">
-                <div class="col-1"></div>
-                <div class="col-md-2 ml-3">
-                    <label for="znizkaInput"></label>
-                    <input type="text" id="znizkaInput" name="znizkaInput" placeholder="Kod promocyjny"/>
-                    <a id="dodajKodRabatowyButton" class="button-kod-promo mt-1">Dodaj kod rabatowy</a>
-                </div>
-                <div class="col"></div>
-                <div class="col-md-2">
-                    <label class="fw-bold">Suma: </label>
-                    @if (Model.znizka == null)
-                    {
-                        <span>@Model.suma €</span>
-                    }
-                    else
-                    {
-                        <span>@Model.sumaPoZnizce €</span>
-                    }
-                </div>
-                <div class="col-md-2">
-                    <label class="fw-bold">Twoj rabat: </label>
-                    @if (Model.znizka == null)
-                    {
-                        <span>@Model.znizkaInit %</span>
-                    }
-                    else
-                    {
-                        <span>@Model.znizka %</span>
-                    }
-                </div>
-            </div>
-        </div>
-
-        <div class="text-center">
-            <a asp-action="ZlozZamowienie" asp-controller="Zamowienia" class="button-link">Zloz zamowienie</a>
-        </div>
-    }
-    else
-    {
-        <div class="text-center">
-            <p>Twoj koszyk jest pusty!</p>
-        </div>
-    }
-</div>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -148,7 +125,7 @@
 
         dodajKodRabatowyButton.addEventListener('click', function () {
             var znizkaInputValue = document.getElementById('znizkaInput').value;
-            var url = '@Url.Action("DodajKodRabatowy", "Zamowienia")' + '?id=' + znizkaInputValue;
+            var url = '@Url.Action("DodajKodRabatowy", "Zamowienia")' + '?kod=' + znizkaInputValue;
             window.location.href = url;
         });
     });

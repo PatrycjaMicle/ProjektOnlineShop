@@ -8,64 +8,51 @@
 }
 
 <style>
-    .card {
-        height: 400px;
-        padding-top: 10px;
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
     }
 
     .card-img-top {
         object-fit: contain;
-        max-height: 200px;
+        max-height: 150px;
         max-width: 100%;
     }
 
-    .card-body {
-        height: 200px;
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.4);
     }
-
-    .button-link {
-        display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;          
-        margin-top:10px;
-    }
-
-        .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
 
 </style>
 
-<div class="text-center">
-    <h1 class="display-4">Sklep</h1>
-</div>
-
-<div class="container">
+<div class="container card background-transient p-5 " style="position: relative; margin-top: 250px;">
     @if (UserService.IsAdmin)
     {
-        <a asp-action="DodajProdukt" asp-controller="Sklep" class="button-link">Dodaj nowy</a>
+        <div>
+            <a asp-action="DodajProdukt" asp-controller="Sklep" class="btn btn-info btn-lg col-12 mb-4">Dodaj nowy</a>
+        </div>
     }
-    <div class="row">
+
+    <div class="row mt-4">
         @foreach (var towar in Model)
         {
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card mb-4">
-                    <img src="@towar.ZdjecieUrl" class="card-img-top" alt="Product Image">
-                    <div class="card-body">
+                    <img src="@towar.ZdjecieUrl" class="card-img-top mt-4" alt="Product Image">
+                    <div class="card-body text-center background-transient">
                         <h5 class="card-title">@towar.Nazwa</h5>
                         <p class="card-text">Cena: @towar.Cena €</p>
                         <a asp-action="OtworzSzczegoly" asp-controller="Sklep" asp-route-id="@towar.IdTowaru">Szczegoly...</a>
                         <br>
-                        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
+                        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="btn btn-success mt-3">Dodaj do koszyka</a>
                     </div>
                 </div>
             </div>
         }
     </div>
+</div>
+
+<div class="mb-4 mt-4 card text-center background-transient fw-bold" style="position: absolute; width: 100%; left: 0; top: 65px; color: white;">
+    <h1 class="display-4">Twoje części samochodowe w jednym miejscu!</h1>
+    <p>Tylko dzisiaj skorzystaj z 10% rabatu z kodem:<span class="card mt-2 mb-2 p-2 fw-bold" style="background: yellow"> XMAS</span></p>
 </div>

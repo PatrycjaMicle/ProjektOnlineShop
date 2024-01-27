@@ -6,15 +6,29 @@
 }
 
 <style>
-   
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
+
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
 </style>
 
-<a class="nav-link text-dark fw-bold mb-5" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+<div class="card background-transient p-5">
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <a class="col-2 text-dark fw-bold mb-4 btn btn-warning" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+        </div>
+    </div>
 
-<div class="text-center mt-5">
-    <h4 class="display-4 mb-4">Dziekujemy za zlozenie zamowienia!</h4>
+    <div class="text-center mt-5">
+        <h4 class="display-4 mb-5">Dziekujemy za zlozenie zamowienia!</h4>
+    </div>
+    <div class="card text-center">
+        <p class="mb-4 mt-4"> Potwierdzenie zostalo wyslany na Twoj adres E-mail!</p>
+        <p class="mb-4"> Przejdz do zakladki "Moje zamowienia" by w kazdej chwili sprawdzic status Twoich zamowien!</p>
+    </div>
 </div>
-<div class="text-center">
-    <p class="mb-4"> Potwierdzenie zostalo wyslany na Twoj adres E-mail!</p>
-    <p class="mb-4"> Przejdz do zakladki Moje Zamowienia by w kazdej chwili sprawdzic status Twoich zamowien!</p>
-</div>
+

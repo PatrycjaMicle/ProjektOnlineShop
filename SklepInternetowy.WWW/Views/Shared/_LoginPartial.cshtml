@@ -7,8 +7,11 @@
     @if (userService.IsUserSignedIn)
     {
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Konto" title="Manage">Hello @UzytkownikDataStore.Find(userService.UserId).Imie </a>
+            <a class="nav-link text-dark" asp-area="" asp-controller="Konto" asp-action="Konto" title="Manage">Moje konto</a>
         </li>
+        // @UzytkownikDataStore.Find(userService.UserId).Imie 
+        //to raczej nie w nawigacji , moze w srodku w zakladce ?
+
         <li class="nav-item">
             <form class="form-inline" asp-controller="Konto" asp-action="Logout"  method="post">
                 <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>

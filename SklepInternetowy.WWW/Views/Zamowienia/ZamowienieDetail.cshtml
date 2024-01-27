@@ -6,49 +6,53 @@
 }
 
 <style>
+
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
+
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .list-group {
+        box-shadow: none;
+    }
     .card-img {
         object-fit: contain;
         max-height: 400px;
         max-width: 100%;
     }
-
-    .button-link {
-        display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;
-        margin-top: 10px;
-    }
-
-        .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
 </style>
 
-<a class="nav-link text-dark fw-bold" asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Wroc do listy zamowien</a>
+<div class="card p-5 background-transient text-center">
+    <div class="container">
+        <div class="row mt-3 mb-3">
+            <a class="col-2 text-dark fw-bold mb-4 btn btn-warning" asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Wroc do listy zamowien</a>
+        </div>
+    </div>
+    <div class="card p-4">    
+        <div class="text-center">
+            <h4 class="display-4 mb-4 mt-4 pe-lg-0">Produkty znajdujace sie w zamowieniu: </h4>
+        </div>
 
-<div class="text-center">
-    <h3 class="display-4 mb-4">Produkty znajdujace sie w zamowieniu: </h3>
-</div>
-
-<div id="cartContent" class="container">
+        <div id="cartContent" class="container pe-lg-5">
         <ul class="list-group container">
             @foreach (var produkt in Model)
             {
-                <li class="list-group-item background-gardient">
-                    <div class="mb-4 background-gardient">
+                <li class="list-group-item background-gardient mb-2">
+                    <div class=" background-gardient">
                         <div class="background-gardient">
-                            <h5 class="card-title">@produkt.NazwaTowaru</h5>
+                            <p class="card-title">@produkt.NazwaTowaru</p>
                             <p class="card-text">Ilość: @produkt.Ilosc</p>
                             <p class="card-text">Cena za sztuke: @produkt.Cena €</p>
                         </div>
                     </div>
                 </li>
             }
-        </ul>
+         </ul>
+        </div>
+    </div>
+
 </div>

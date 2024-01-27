@@ -1,10 +1,35 @@
 ﻿@{
     ViewData["Title"] = "Moje konto";
 }
-<div class="text-center">
-    <h1 class="display-4">Moje konto</h1>
+<style>
+
+    body {
+        background: url('https://tse2.mm.bing.net/th?id=OIP.xo7kJ5SSq8_ecPGLwiyUuAHaET&pid=Api&P=0&h=220');
+        background-size: cover;
+    }
+
+    .background-transient {
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+</style>
+
+<div class="card p-5 background-transient">
+    <div class="card p-3 pt-4">
+
+     <div class="text-center">
+        <h1 class="display-4 mb-4 mt-4">Moje konto</h1>
+     </div>
+
+        <div class="container">
+            <div class="row">
+                <a class="btn btn-light col-12 mt-4 fw-bold" asp-area="" asp-controller="Konto" asp-action="Konto" title="Manage">Moje zamowienia</a>
+                <a class="btn btn-light col-12 mt-4 fw-bold" asp-area="" asp-controller="Konto" asp-action="Konto" title="Manage">Moje dane</a>
+            </div>
+        </div>
+    </div>
 </div>
-<p>Tu bedzie zakladka Konto
+
 
 @* <li class="nav-item"> *@
 @*     <a class="nav-link text-dark" asp-area="" asp-controller="Zamowienia" asp-action="Zamowienia">Moje zamowienia</a> *@

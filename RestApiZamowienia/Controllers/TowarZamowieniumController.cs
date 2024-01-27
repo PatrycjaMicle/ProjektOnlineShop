@@ -23,6 +23,7 @@ public class TowarZamowieniumController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<TowarZamowienium>>> GetTowarZamowienia()
     {
+
         if (_context.TowarZamowienia == null) return NotFound();
         return await _context.TowarZamowienia.ToListAsync();
     }
@@ -70,16 +71,20 @@ public class TowarZamowieniumController : ControllerBase
         if (_context.TowarZamowienia == null)
             return Problem("Entity set 'SklepInternetowyContext.TowarZamowienia'  is null.");
 
-        var elementyKoszyka = _context.ElementKoszykas.ToListAsync().Result;
+        var userId = _userContextService.GetUserId;
+
+        if (!userId.HasValue) return BadRequest("Invalid user ID format.");
+
+        var elementyKoszyka = _context.ElementKoszykas
+        .Where(e => e.IdUzytkownika == userId.Value)
+        .ToListAsync()
+        .Result;
 
         var lastZamowienie = await _context.Zamowienies.OrderByDescending(z => z.IdZamowienia).FirstOrDefaultAsync();
 
         foreach (var item in elementyKoszyka)
         {
-            var userId = _userContextService.GetUserId;
-
-            if (!userId.HasValue) return BadRequest("Invalid user ID format.");
-
+            
             var towar = await _context.Towars.FindAsync(item.IdTowaru);
 
             TowarZamowienium towarZamowienia = new TowarZamowienium
