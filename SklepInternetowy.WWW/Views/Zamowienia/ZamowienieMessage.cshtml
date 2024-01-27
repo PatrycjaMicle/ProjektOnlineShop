@@ -6,15 +6,23 @@
 }
 
 <style>
-   
+    body {
+        background: linear-gradient(to right, #f0f0f0, #fff);
+        color: #333;
+    }
 </style>
 
-<a class="nav-link text-dark fw-bold mb-5" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+
+<div class="container">
+    <div class="row mt-3 mb-3">
+        <a class="col-2 text-dark fw-bold mb-4 btn btn-light" asp-area="" asp-controller="Sklep" asp-action="Sklep">Wroc do sklepu</a>
+    </div>
+</div>
 
 <div class="text-center mt-5">
-    <h4 class="display-4 mb-4">Dziekujemy za zlozenie zamowienia!</h4>
+    <h4 class="display-4 mb-5">Dziekujemy za zlozenie zamowienia!</h4>
 </div>
-<div class="text-center">
-    <p class="mb-4"> Potwierdzenie zostalo wyslany na Twoj adres E-mail!</p>
-    <p class="mb-4"> Przejdz do zakladki Moje Zamowienia by w kazdej chwili sprawdzic status Twoich zamowien!</p>
+<div class="card text-center">
+    <p class="mb-4 mt-4"> Potwierdzenie zostalo wyslany na Twoj adres E-mail!</p>
+    <p class="mb-4"> Przejdz do zakladki "Moje zamowienia" by w kazdej chwili sprawdzic status Twoich zamowien!</p>
 </div>

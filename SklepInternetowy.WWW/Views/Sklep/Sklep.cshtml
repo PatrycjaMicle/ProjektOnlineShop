@@ -8,37 +8,16 @@
 }
 
 <style>
-    .card {
-        height: 400px;
-        padding-top: 10px;
+    body {
+        background: linear-gradient(to right, #f0f0f0, #fff);
+        color: #333;
     }
 
     .card-img-top {
         object-fit: contain;
-        max-height: 200px;
+        max-height: 150px;
         max-width: 100%;
     }
-
-    .card-body {
-        height: 200px;
-    }
-
-    .button-link {
-        display: inline-block;
-        background: linear-gradient(to right, #1a1a1a, #2c2c2c, #4d4d4d, #666666);
-        color: #fff;
-        padding: 10px 20px;
-        text-decoration: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background 0.3s ease;          
-        margin-top:10px;
-    }
-
-        .button-link:hover {
-            background: linear-gradient(to right, #333, #444, #666, #888);
-            color: #fff;
-        }
 
 </style>
 
@@ -47,22 +26,26 @@
 </div>
 
 <div class="container">
-    @if (UserService.IsAdmin)
-    {
-        <a asp-action="DodajProdukt" asp-controller="Sklep" class="button-link">Dodaj nowy</a>
-    }
-    <div class="row">
+
+        @if (UserService.IsAdmin)
+        {
+        <div>
+            <a asp-action="DodajProdukt" asp-controller="Sklep" class="btn btn-info btn-lg col-3 mb-4">Dodaj nowy</a>
+        </div>
+        }
+ 
+    <div class="row mt-4">
         @foreach (var towar in Model)
         {
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="@towar.ZdjecieUrl" class="card-img-top" alt="Product Image">
-                    <div class="card-body">
+                    <img src="@towar.ZdjecieUrl" class="card-img-top mt-4" alt="Product Image">
+                    <div class="card-body text-center">
                         <h5 class="card-title">@towar.Nazwa</h5>
                         <p class="card-text">Cena: @towar.Cena €</p>
                         <a asp-action="OtworzSzczegoly" asp-controller="Sklep" asp-route-id="@towar.IdTowaru">Szczegoly...</a>
                         <br>
-                        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="button-link">Dodaj do koszyka</a>
+                        <a asp-action="DodajDoKoszyka" asp-controller="Koszyk" asp-route-id="@towar.IdTowaru" class="btn btn-light mt-3">Dodaj do koszyka</a>
                     </div>
                 </div>
             </div>

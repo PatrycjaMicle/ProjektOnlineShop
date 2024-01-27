@@ -73,10 +73,18 @@ namespace SklepInternetowy.WWW.Controllers
 
             try
             {
-                Zamowienie zamowienie = new Zamowienie();
-                zamowienie.IdKoduPromocji = CartService.IdKoduPromocji;
                 //create order
+                Zamowienie zamowienie = new Zamowienie();
+
+                //check if there is available promotions code
+                if (CartService.IdKoduPromocji != null)
+                {
+                    zamowienie.IdKoduPromocji = CartService.IdKoduPromocji;
+                }
+              
+
                 var addedOrder = await _dataStore.AddItemToService(zamowienie);
+
                 if (addedOrder == null)
                 {
                     Console.WriteLine("Failed to add a new order.");
@@ -89,6 +97,8 @@ namespace SklepInternetowy.WWW.Controllers
                 {
                     TowarZamowienium towarZamowienia = new TowarZamowienium();
                     var addedOrderItem = await _dataStoreTowarZamowienia.AddItemAsync(towarZamowienia);
+                    Console.WriteLine("Ordrer added");
+
                 }
             }
             catch (Exception ex)
@@ -99,9 +109,9 @@ namespace SklepInternetowy.WWW.Controllers
             return RedirectToAction("ZamowienieMessage");
         }
 
-        public async Task<ActionResult> DodajKodRabatowy(string id)
+        public async Task<ActionResult> DodajKodRabatowy(string kod)
         {
-            var kodPromocyjnyResponse = await _kodPromocjiDataStore.GetZnizka(id);
+            var kodPromocyjnyResponse = await _kodPromocjiDataStore.GetZnizka(kod);
 
             CartService.Znizka = kodPromocyjnyResponse.Znizka;
             CartService.IdKoduPromocji = kodPromocyjnyResponse.IdKoduPromocji;
